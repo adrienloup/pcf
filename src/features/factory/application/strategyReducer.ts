@@ -18,6 +18,7 @@ export const strategyReducer = (state: Factory, action: FactoryDispatch): Factor
 
         if (product.quantity <= 1) {
           updatedProducts.splice(productIndex, 1);
+          console.info('Product deleted', product.id);
         } else {
           updatedProducts[productIndex] = {
             ...product,

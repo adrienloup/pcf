@@ -19,9 +19,7 @@ export const useFeature = () => {
 
       if (typeof requirement === 'object') {
         const { unit, value } = requirement;
-        // const available = factory[unit as keyof Factory];
         const available = factory[unit];
-        // enabled = (available as number) >= value;
         enabled = available >= value;
       }
 
