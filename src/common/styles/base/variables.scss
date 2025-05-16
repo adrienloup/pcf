@@ -1,0 +1,49 @@
+@mixin font {
+  --font-text-1: 'Simplest';
+  --font-text-2: 'Mirror';
+  --font-text-3: 'Ultra';
+}
+
+@mixin color {
+  --color-1: #252529;
+  --color-2: #030009;
+  --color-3: #5b00ff;
+  --color-4: #ffa500;
+  --color-5: #fb023c;
+  --color-6: #00ff15;
+  --color-7: #00e1ff;
+  --color-8: #ff00ae;
+  --color-9: #fbf702;
+  --color-10: #ff0000;
+}
+
+@mixin size {
+  --font-size-xl: 6rem;
+  --font-size-l: 2.5rem;
+  --font-size-m: 1.75rem;
+  --font-size-s: 1.25rem;
+  --font-size-xs: 1rem;
+}
+
+@mixin spacing {
+  --spacing-xl: 6rem;
+  --spacing-l: 3.5rem;
+  --spacing-m: 2rem;
+  --spacing-s: 1rem;
+  --spacing-xs: 0.5rem;
+  --tutu: 1000px;
+}
+
+@mixin easing {
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --ease-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-expo: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+:root {
+  @include font();
+  @include color();
+  @include size();
+  @include spacing();
+  @include easing();
+}

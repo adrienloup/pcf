@@ -1,0 +1,24 @@
+.progressbar {
+  border: 0.5rem solid var(--theme-color-2);
+
+  &.small {
+    width: 2rem;
+    height: 1rem;
+  }
+
+  &.medium {
+    width: 6rem;
+    height: 2rem;
+  }
+
+  &.large {
+    width: 10rem;
+    height: 4rem;
+  }
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: var(--theme-color-2);
+}

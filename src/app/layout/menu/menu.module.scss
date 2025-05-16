@@ -1,0 +1,53 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  position: relative;
+  height: 0;
+  transition-property: height;
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease-expo);
+  background-color: var(--theme-color-2);
+  //will-change: height;
+
+  &.open {
+    height: 8rem;
+    transition-duration: 400ms;
+  }
+}
+
+.inside {
+  overflow: hidden;
+  height: 8rem;
+  transform: translateY(-1rem);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease-quad);
+  //will-change: opacity;
+
+  .open & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.button {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs);
+  background-color: var(--theme-color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  color: var(--theme-color-1);
+  outline-offset: -0.25rem;
+
+  &.active,
+  &:active {
+    outline: 0.25rem solid var(--color-7);
+  }
+}

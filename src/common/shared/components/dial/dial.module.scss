@@ -1,0 +1,19 @@
+.dial {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number {
+  font-size: var(--font-size-l);
+}
+
+.label {
+  flex: 0 0 100%;
+  font-size: var(--font-size-m);
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
+}

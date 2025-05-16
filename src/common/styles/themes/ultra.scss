@@ -1,0 +1,19 @@
+// Theme 1. simplest, Theme 2. ultra, Theme 3. ultra
+
+@mixin if-ultra {
+  ._ultra_3mma_0 {
+    @content;
+  }
+}
+
+@mixin ultra {
+  --theme-font-text: var(--font-text-3);
+  --theme-color-1: var(--mode-color-1);
+  --theme-color-2: var(--mode-color-2);
+}
+
+:root {
+  @include if-ultra {
+    @include ultra();
+  }
+}

@@ -1,0 +1,25 @@
+$desktop: 1440px;
+$tablet-landscape: 1280px;
+$tablet-portrait: 1024px;
+$mobile-landscape: 768px;
+$mobile-portrait: 375px;
+
+.cards {
+  gap: var(--spacing-s);
+  padding: 0 var(--spacing-s);
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $mobile-landscape) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: var(--spacing-m);
+    padding: 0 var(--spacing-m);
+  }
+
+  @media (min-width: $tablet-landscape) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}

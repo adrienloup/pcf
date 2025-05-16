@@ -1,0 +1,38 @@
+import { useCallback, useEffect, useReducer } from 'react';
+import { useLocalStorage } from '@/src/common/shared/hooks/useLocalStorage.ts';
+import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
+import { factoryReducer } from '@/src/features/factory/application/factoryReducer.ts';
+import {
+  FactoryContext,
+  FactoryDispatchContext,
+} from '@/src/features/factory/infrastructure/factoryContext.tsx';
+import { FACTORY_KEY } from '@/src/features/factory/infrastructure/factoryKey.ts';
+import { FACTORY_STATE } from '@/src/features/factory/states/factoryState.ts';
+import type { Factory } from '@/src/features/factory/domain/factory.ts';
+import type { Children } from '@/src/common/shared/types/children.ts';
+
+export function FactoryProvider({ children }: { children: Children }) {
+  const [storedState, setStoredState] = useLocalStorage<Factory>(FACTORY_KEY, FACTORY_STATE);
+  const [state, setState] = useReducer(factoryReducer, storedState);
+
+  useEffect(() => {
+    setStoredState(state);
+  }, [state, setStoredState]);
+
+  const sellUnsoldInventory = useCallback(() => {
+    setState({ type: 'SELL_UNSOLD_INVENTORY' });
+  }, []);
+
+  const updatePerSecond = useCallback(() => {
+    setState({ type: 'PRODUCTION_PER_SECOND' });
+  }, []);
+
+  useInterval(sellUnsoldInventory, 5e2);
+  useInterval(updatePerSecond, 1e3);
+
+  return (
+    <FactoryContext.Provider value={state}>
+      <FactoryDispatchContext.Provider value={setState}>{children}</FactoryDispatchContext.Provider>
+    </FactoryContext.Provider>
+  );
+}

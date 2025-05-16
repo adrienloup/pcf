@@ -1,0 +1,31 @@
+$mobile-landscape: 768px;
+
+.turban {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 0 var(--spacing-s);
+
+  @media (min-width: $mobile-landscape) {
+    flex-direction: row;
+    padding: 0 var(--spacing-m);
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  text-transform: uppercase;
+  font-size: var(--font-size-l);
+}
+
+.button {
+  padding: var(--spacing-xs);
+  background-color: var(--theme-color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--theme-color-1);
+}

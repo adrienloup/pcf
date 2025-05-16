@@ -1,0 +1,126 @@
+.alert {
+  overflow: hidden;
+  width: 25rem;
+  color: var(--theme-color-1);
+  pointer-events: initial;
+
+  &.in {
+    animation: Appear 340ms var(--ease-expo);
+    //will-change: opacity, transform;
+  }
+
+  &.out {
+    transition-property: width, transform, opacity;
+    transition-duration: 400ms, 400ms, 200ms;
+    transition-delay: 0ms, 0ms, 200ms;
+    transition-timing-function: var(--ease-expo);
+    width: 10rem;
+    transform: translateX(-5rem);
+    opacity: 0;
+    //will-change: opacity;
+  }
+
+  &.info {
+    background-color: var(--color-7);
+  }
+
+  &.success {
+    background-color: var(--color-6);
+  }
+
+  &.warning {
+    background-color: var(--color-9);
+  }
+
+  &.error {
+    background-color: var(--color-5);
+  }
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  width: 25rem;
+  white-space: collapse;
+  transform-origin: center;
+
+  .out & {
+    transition: transform 400ms var(--ease-expo);
+    transform: translateX(-5rem);
+  }
+}
+
+.text {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.button {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  font-size: var(--font-size-s);
+  pointer-events: initial;
+
+  &:active {
+    box-shadow:
+      inset 0 0.4rem var(--color-21),
+      inset 0 -0.4rem var(--color-21),
+      inset 0.4rem 0 var(--color-21),
+      inset -0.4rem 0 var(--color-21);
+  }
+
+  .info & {
+    color: var(--color-7);
+  }
+
+  .success & {
+    color: var(--color-6);
+  }
+
+  .warning & {
+    color: var(--color-9);
+  }
+
+  .error & {
+    color: var(--color-5);
+  }
+}
+
+.progress {
+  grid-column: 1;
+  grid-row: 2;
+  height: 0.5rem;
+  animation: Progress var(--timeout) linear;
+  background-color: var(--color-1);
+  opacity: 0.5;
+}
+
+@keyframes Appear {
+  0% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes Progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

@@ -1,0 +1,52 @@
+import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+
+export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
+  switch (action.type) {
+    case 'PRODUCTION_PER_SECOND': {
+      // console.log('PRODUCTION_PER_SECOND');
+      const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
+      const clipperPS = state.clipper * Math.max(1, state.clipperBonus);
+      const productionPS =
+        state.wire >= state.factory
+          ? state.factory
+          : state.wire >= state.megaClipper + state.clipper
+            ? megaClipperPS + clipperPS
+            : state.wire >= state.megaClipper
+              ? megaClipperPS
+              : state.wire >= state.clipper
+                ? clipperPS
+                : 0;
+      const clipPS = productionPS * Math.max(1, state.unsoldInventoryBonus);
+      const fundsPS = clipPS * state.clipPrice;
+      const operationPS = state.feature.resources.enabled
+        ? Math.min(state.operationMax, state.operation + 10 * state.processor)
+        : state.operation;
+      const creativityPS = Math.min(
+        14e4,
+        operationPS === state.operationMax ? state.memory : state.creativity
+      );
+      return {
+        ...state,
+        operation: operationPS,
+        creativity: creativityPS,
+        clipPerSecond: clipPS,
+        fundsPerSecond: fundsPS,
+        unsoldInventory: state.unsoldInventory + clipPS,
+        clip: state.clip + clipPS,
+        wire: state.wire - productionPS,
+      };
+    }
+    case 'UNIT_PRODUCTION':
+      if (state.wire <= 0) return state;
+      return {
+        ...state,
+        clip: state.clip + Math.max(1, state.unsoldInventoryBonus),
+        unsoldInventory: state.unsoldInventory + Math.max(1, state.unsoldInventoryBonus),
+        wire: state.wire - 1,
+        clipPerSecond: state.clipPerSecond + Math.max(1, state.unsoldInventoryBonus),
+        fundsPerSecond: state.fundsPerSecond + Math.max(1, state.unsoldInventoryBonus) * state.clipPrice,
+      };
+    default:
+      return state;
+  }
+};

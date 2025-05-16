@@ -1,0 +1,9 @@
+@use '@/src/common/styles/index' as *;
+
+#_pcf_3mma_0 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--theme-color-1);
+}

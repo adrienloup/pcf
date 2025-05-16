@@ -1,0 +1,24 @@
+$desktop: 1440px;
+$tablet-landscape: 1280px;
+$tablet-portrait: 1024px;
+$mobile-landscape: 768px;
+$mobile-portrait: 375px;
+
+.stepper {
+  display: flex;
+  align-items: center;
+  order: -1;
+  margin-left: auto;
+  padding: 0 var(--spacing-xs);
+  border: 0.3rem solid var(--theme-color-2);
+  font-size: var(--font-size-xs);
+
+  @media (min-width: $mobile-landscape) {
+    order: initial;
+  }
+
+  //div {
+  //  width: 5rem;
+  //  background-color: var(--theme-color-2);
+  //}
+}

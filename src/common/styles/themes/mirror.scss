@@ -1,0 +1,19 @@
+// Theme 1. simplest, Theme 2. mirror, Theme 3. ultra
+
+@mixin if-mirror {
+  ._mirror_3mma_0 {
+    @content;
+  }
+}
+
+@mixin mirror {
+  --theme-font-text: var(--font-text-2);
+  --theme-color-1: var(--mode-color-1);
+  --theme-color-2: var(--mode-color-2);
+}
+
+:root {
+  @include if-mirror {
+    @include mirror();
+  }
+}
