@@ -119,9 +119,9 @@ export const DebugComponent = () => {
       state: {
         ...factory,
         memory: Math.min(Number(memory), 100),
+        operationMax: Number(memory) * 700,
       },
     });
-    setFactory({ type: 'INCREASE_MEMORY' });
     setMemory('0');
   };
 

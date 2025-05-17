@@ -5,7 +5,7 @@ export interface Product {
   category: string;
   cost: UnitValue;
   enabled: boolean;
-  effect: (() => FactoryDispatch) | UnitValue[] | string;
+  effect: FactoryDispatch | UnitValue[] | string;
   id: string;
   quantity: number;
   requirement: UnitValue | string | undefined;

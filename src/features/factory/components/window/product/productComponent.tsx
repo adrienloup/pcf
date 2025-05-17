@@ -14,11 +14,8 @@ export const ProductComponent = ({ product }: { product: Product }) => {
 
   const productClick = (product: Product) => {
     setFactory({ type: 'BUY_PRODUCT', id: product.id });
-    if (typeof product.effect === 'function') {
-      const action = product.effect();
-      if (action) {
-        setFactory(action);
-      }
+    if (typeof product.effect === 'object' && !Array.isArray(product.effect)) {
+      setFactory(product.effect);
     }
   };
 
@@ -45,7 +42,8 @@ export const ProductComponent = ({ product }: { product: Product }) => {
           components={{
             effect: (
               <>
-                {typeof product.effect === 'object' ? (
+                {/*{typeof product.effect === 'object' ? (*/}
+                {Array.isArray(product.effect) ? (
                   <NumberComponent
                     value={product.effect[0]?.value}
                     notation="compact"
@@ -55,7 +53,8 @@ export const ProductComponent = ({ product }: { product: Product }) => {
             ),
             kissCoolEffect: (
               <>
-                {typeof product.effect === 'object' ? (
+                {/*{typeof product.effect === 'object' ? (*/}
+                {Array.isArray(product.effect) ? (
                   <NumberComponent
                     value={product.effect[1]?.value}
                     notation="compact"

@@ -4,8 +4,8 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
       // console.log('PRODUCTION_PER_SECOND');
-      const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
       const clipperPS = state.clipper * Math.max(1, state.clipperBonus);
+      const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
       const productionPS =
         state.wire >= state.factory
           ? state.factory
