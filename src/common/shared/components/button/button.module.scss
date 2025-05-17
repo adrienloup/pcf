@@ -15,13 +15,13 @@
 
   &.active,
   &:active {
-    outline: 0.5rem solid var(--color-7);
+    outline: 0.35rem solid var(--color-7);
     transition: outline 50ms var(--ease-quad);
   }
 
   &:disabled {
     pointer-events: none;
     cursor: default;
-    opacity: 0.4;
+    opacity: 0.5;
   }
 }

@@ -1,10 +1,11 @@
 import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
+import styles from '@/src/app/layout/settings/settings.module.scss';
 
 export const SettingsComponent = () => {
   const { settings, setLanguage, setMode, setStage, setTheme } = useSettings();
 
   return (
-    <div>
+    <div className={styles.settings}>
       <div>
         <span>Language : {settings.language}</span>
         <button onClick={() => setLanguage('en')}>en</button>

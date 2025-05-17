@@ -19,7 +19,7 @@ export const GoodsComponent = () => {
         className={styles.button}
         to={'/pcf'}
       >
-        dashboard
+        factory
       </ButtonComponent>
     </TurbanComponent>
   );

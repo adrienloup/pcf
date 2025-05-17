@@ -10,8 +10,7 @@ export const CategoryComponent = ({ category, feature }: { category: string; fea
         className={styles.title}
         tag="h2"
       >
-        {/*{category} {`${productEnabled}/${product.length}`}*/}
-        {category}
+        {category} {`(${Object.keys(feature).length})`}
       </TitleComponent>
       <FeaturesComponent feature={feature} />
     </div>

@@ -15,7 +15,7 @@ export const FactoryComponent = () => {
     setFactory({ type: 'BUY_FACTORY', cost });
   };
 
-  if (!factory.feature.production.enabled) return null;
+  if (!factory.feature.factory.enabled) return null;
 
   return (
     <DialsComponent>

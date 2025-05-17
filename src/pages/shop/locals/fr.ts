@@ -146,13 +146,13 @@ export const fr: Translation = {
     offerAnotherChance: {
       title: 'offer another chance',
       effect: 'reallocate accumulated trust for processor/memory specification',
-      cost: 'cost: <cost /> creativity',
+      cost: 'cost: <firstCost /> creativity',
       quantity: 'quantity: <quantity />',
     },
     revTracker: {
       title: 'rev tracker',
       effect: 'automatically calculates average funds per second',
-      cost: 'cost: <cost /> operations',
+      cost: 'cost: <firstCost /> operations',
       quantity: 'quantity: <quantity />',
     },
   },

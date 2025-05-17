@@ -1,5 +1,5 @@
-// import { useCallback } from 'react';
-// import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
+import { useCallback } from 'react';
+import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
 import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
@@ -16,14 +16,12 @@ export const WireComponent = () => {
     setFactory({ type: 'BUY_WIRE', cost });
   };
 
-  // const updateWireCost = useCallback(() => {
-  //   const cost = factory.wireCost > 8 ? factory.wireCost - 0.26 : Math.random() * 8 + 12; // 0 et 1, 0 et 8, 12 et 20
-  //   setFactory({ type: 'UPDATE_WIRE_COST', cost });
-  // }, [factory.wireCost]);
-  //
-  // useInterval(updateWireCost, 1e4);
-  //
-  // if (!factory.feature.wire) return null;
+  const updateWireCost = useCallback(() => {
+    const cost = factory.wireCost > 8 ? factory.wireCost - 0.26 : Math.random() * 8 + 12; // 0 et 1, 0 et 8, 12 et 20
+    setFactory({ type: 'UPDATE_WIRE_COST', cost });
+  }, [factory.wireCost]);
+
+  useInterval(updateWireCost, 1e4);
 
   return (
     <DialsComponent>

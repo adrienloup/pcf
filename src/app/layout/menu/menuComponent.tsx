@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import { useMenu } from '@/src/app/layout/menu/useMenu.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';

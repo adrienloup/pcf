@@ -16,7 +16,7 @@ export const ClipperComponent = () => {
     setFactory({ type: 'BUY_CLIPPER', cost });
   };
 
-  if (!factory.feature.clipper.enabled || factory.feature.production.enabled) return null;
+  if (!factory.feature.clipper.enabled) return null;
 
   return (
     <DialsComponent>

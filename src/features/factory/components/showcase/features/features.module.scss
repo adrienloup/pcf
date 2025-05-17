@@ -1,12 +1,6 @@
-$mobile-landscape: 768px;
-
 .features {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
   gap: var(--spacing-s);
-
-  @media (min-width: $mobile-landscape) {
-    gap: var(--spacing-m);
-  }
 }

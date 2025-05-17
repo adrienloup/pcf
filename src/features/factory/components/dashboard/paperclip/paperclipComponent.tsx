@@ -25,7 +25,7 @@ export const PaperclipComponent = () => {
         className={styles.button}
         to={'/pcf/shop'}
       >
-        shopping
+        shop
       </ButtonComponent>
       {/*<StepperComponent />*/}
     </TurbanComponent>

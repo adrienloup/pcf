@@ -31,5 +31,5 @@ export const useFeature = () => {
         console.info(`Feature: ${feature} unlocked`);
       }
     }
-  }, [factory.feature, factory.clip, factory.funds, factory.clipper]);
+  }, [factory.feature, factory.clip, factory.funds, factory.clipper, factory.creativity]);
 };

@@ -1,8 +1,8 @@
 import { useFeature } from '@/src/features/factory/infrastructure/useFeature.ts';
 import { CardsComponent } from '@/src/common/shared/components/cards/cardsComponent.tsx';
 import { PaperclipComponent } from '@/src/features/factory/components/dashboard/paperclip/paperclipComponent.tsx';
-// import { ManufacturingComponent } from '@/src/features/factory/components/dashboard/manufacturing/manufacturingComponent.tsx';
-// import { BusinessComponent } from '@/src/features/factory/components/dashboard/business/businessComponent.tsx';
+import { ManufacturingComponent } from '@/src/features/factory/components/dashboard/manufacturing/manufacturingComponent.tsx';
+import { BusinessComponent } from '@/src/features/factory/components/dashboard/business/businessComponent.tsx';
 // import { ResourcesComponent } from '@/src/features/factory/components/dashboard/resources/resourcesComponent.tsx';
 // import { ProductionComponent } from '@/src/features/factory/components/dashboard/production/productionComponent.tsx';
 // import { InvestmentsComponent } from '@/src/features/factory/components/dashboard/investments/investmentsComponent.tsx';
@@ -20,9 +20,8 @@ export const DashboardComponent = () => {
     >
       <PaperclipComponent />
       <CardsComponent>
-        dashboard
-        {/*<ManufacturingComponent />*/}
-        {/*<BusinessComponent />*/}
+        <ManufacturingComponent />
+        <BusinessComponent />
         {/*<ResourcesComponent />*/}
         {/*<ProductionComponent />*/}
         {/*<InvestmentsComponent />*/}
