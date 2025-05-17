@@ -68,6 +68,7 @@ export const DebugComponent = () => {
         funds: parseInt(funds),
       },
     });
+    setFunds('0');
   };
 
   const wireChange = (e: ChangeEvent<HTMLInputElement>) => setWire(e.target.value);

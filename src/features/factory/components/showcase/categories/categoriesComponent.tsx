@@ -1,0 +1,44 @@
+import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
+import { CategoryComponent } from '@/src/features/factory/components/showcase/category/categoryComponent.tsx';
+import styles from '@/src/features/factory/components/showcase/categories/categories.module.scss';
+
+export const CategoriesComponent = () => {
+  const factory = useFactory();
+  // console.log(factory.feature);
+
+  const filteredFeature = Object.entries(factory.feature).reduce(
+    (acc, [key, value]) => {
+      if ('category' in value && value.enabled) {
+        acc[key] = value;
+      }
+      return acc;
+    },
+    {} as typeof factory.feature
+  );
+  // console.log(filteredFeature);
+
+  const groupedByCategory = Object.entries(filteredFeature).reduce(
+    (acc, [key, value]) => {
+      const category = value.category;
+      if (!acc[category!]) {
+        acc[category!] = {};
+      }
+      acc[category!][key] = value;
+      return acc;
+    },
+    {} as Record<string, typeof filteredFeature>
+  );
+  // console.log(groupedByCategory);
+
+  return (
+    <div className={styles.categories}>
+      {Object.entries(groupedByCategory).map(([category, feature]) => (
+        <CategoryComponent
+          key={category}
+          category={category}
+          feature={feature}
+        />
+      ))}
+    </div>
+  );
+};

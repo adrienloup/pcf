@@ -1,6 +1,6 @@
 import type { Factory } from '@/src/features/factory/domain/factory.ts';
 import { FEATURE_STATE } from '@/src/features/factory/states/featureState.ts';
-import { PRODUCTS_STATE } from '@/src/features/factory/states/productsState.ts';
+// import { PRODUCTS_STATE } from '@/src/features/factory/states/productsState.ts';
 import { WALLET_STATE } from '@/src/features/factory/states/walletState.ts';
 
 export const FACTORY_STATE: Factory = {
@@ -31,7 +31,7 @@ export const FACTORY_STATE: Factory = {
   operation: 0,
   operationMax: 7e2,
   processor: 1,
-  products: PRODUCTS_STATE,
+  // products: PRODUCTS_STATE,
   publicDemand: 0.5,
   swarmGifts: 0,
   swarmStrategy: 5,

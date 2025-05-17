@@ -8,26 +8,28 @@ export const useFeature = () => {
   const setAlert = useAlertsDispatch();
 
   useEffect(() => {
-    const entries = Object.entries(factory.feature);
+    const features = Object.entries(factory.feature);
 
-    for (let i = 0; i < entries.length; i++) {
-      const [feature, value] = entries[i];
-      if (value.enabled) continue;
+    for (let i = 0; i < features.length; i++) {
+      const [feature, value] = features[i];
 
-      const requirement = value.requirement;
-      let enabled = false;
+      if (value.disabled) continue;
 
-      if (typeof requirement === 'object') {
-        const { unit, value } = requirement;
-        const available = factory[unit];
-        enabled = available >= value;
+      const requirement = value.requirements;
+      let enabled = value.enabled ?? false;
+
+      if (Array.isArray(requirement) && requirement.every((r) => typeof r === 'object')) {
+        requirement.forEach((r) => {
+          const { unit, value } = r;
+          enabled = factory[unit] >= value;
+        });
       }
 
       if (enabled) {
-        setFactory({ type: 'UPDATE_FEATURE', feature: feature, enabled: true });
+        setFactory({ type: 'UPDATE_FEATURE', feature: feature, disabled: true, enabled: enabled });
         setAlert({ type: 'ADD_ALERT', alert: { id: feature, text: `${feature} unlocked` } });
-        console.info(`Feature unlocked "${feature}"`);
+        console.info(`Feature: ${feature} unlocked`);
       }
     }
-  }, [factory.feature, factory.clip, factory.clipper, factory.megaClipper, factory.funds]);
+  }, [factory.feature, factory.clip, factory.funds, factory.clipper]);
 };

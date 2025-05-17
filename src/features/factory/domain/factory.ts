@@ -1,5 +1,5 @@
-import type { Feature } from '@/src/features/factory/domain/feature.ts';
-import type { Product } from '@/src/features/factory/domain/product.ts';
+import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
+// import type { Product } from '@/src/features/factory/domain/product.ts';
 import type { Wallet } from '@/src/features/factory/domain/wallet.ts';
 
 export interface Factory {
@@ -12,7 +12,7 @@ export interface Factory {
   creativity: number;
   factory: number;
   factoryCost: number;
-  feature: Feature;
+  feature: FeatureState;
   funds: number;
   fundsPerSecond: number;
   harvesterDrone: number;
@@ -30,7 +30,7 @@ export interface Factory {
   operation: number;
   operationMax: number;
   processor: number;
-  products: Product[];
+  // products: Product[];
   publicDemand: number;
   swarmGifts: number;
   swarmStrategy: number;
@@ -74,7 +74,6 @@ export type FactoryDispatch =
   | { type: 'BUY_WIRE'; cost: number }
   | { type: 'UPDATE_WIRE_COST'; cost: number }
   | { type: 'BUY_CLIPPER'; cost: number }
-  | { type: 'BUY_PRODUCT'; id: string }
-  | { type: 'ENABLE_PRODUCT'; id: string }
-  | { type: 'UPDATE_FEATURE'; feature: string; enabled: boolean }
+  | { type: 'BUY_FEATURE'; feature: string }
+  | { type: 'UPDATE_FEATURE'; feature: string; disabled: boolean; enabled: boolean }
   | { type: 'INITIALIZE'; state: Factory };

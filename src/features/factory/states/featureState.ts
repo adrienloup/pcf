@@ -1,16 +1,37 @@
-import type { Feature } from '@/src/features/factory/domain/feature.ts';
+import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
 
-export const FEATURE_STATE: Feature = {
-  resources: { enabled: false, requirement: { unit: 'clip', value: 2e3 } },
-  fundsPerSecond: { enabled: false, requirement: undefined }, // requirement: revTracker
-  investments: { enabled: false, requirement: undefined }, // requirement: algorithmicTrading
-  clipper: { enabled: false, requirement: { unit: 'funds', value: 5 } },
-  megaClipper: { enabled: false, requirement: { unit: 'clipper', value: 75 } },
-  marketing: { enabled: false, requirement: { unit: 'funds', value: 200 } },
-  production: { enabled: false, requirement: undefined }, // requirement: releaseHypoDrones
-  computing: { enabled: false, requirement: undefined },
-  // factory: { enabled: false, requirement: undefined },
-  // swarmGifts: { enabled: false, requirement: undefined },
-  // swarmStrategy: { enabled: false, requirement: undefined },
-  // trust: { enabled: true, requirement: undefined },
+export const FEATURE_STATE: FeatureState = {
+  clipper: { disabled: false, enabled: false },
+  fundsPerSecond: { disabled: false, enabled: false },
+  offerAnotherChance: {
+    category: 'mechanic',
+    costs: [{ unit: 'clip', value: 3 }],
+    disabled: false,
+    effects: [
+      { unit: 'funds', value: 3 },
+      { unit: 'trust', value: 3 },
+    ],
+    enabled: false,
+    quantity: 1,
+    requirements: [
+      { unit: 'clip', value: 3 },
+      { unit: 'funds', value: 3 },
+    ],
+  },
+  resources: {
+    disabled: false,
+    enabled: false,
+    requirements: [{ unit: 'clip', value: 2 }],
+  },
+  revTracker: {
+    category: 'mechanic',
+    costs: [
+      { unit: 'clip', value: 2 },
+      { unit: 'funds', value: 2 },
+    ],
+    disabled: true,
+    effects: ['clipper', 'fundsPerSecond'],
+    enabled: true,
+    quantity: 1,
+  },
 };
