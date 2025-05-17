@@ -4,18 +4,16 @@ import styles from '@/src/features/factory/components/showcase/categories/catego
 
 export const CategoriesComponent = () => {
   const factory = useFactory();
-  // console.log(factory.feature);
 
   const filteredFeature = Object.entries(factory.feature).reduce(
     (acc, [key, value]) => {
-      if ('category' in value && value.enabled) {
+      if ('category' in value) {
         acc[key] = value;
       }
       return acc;
     },
     {} as typeof factory.feature
   );
-  // console.log(filteredFeature);
 
   const groupedByCategory = Object.entries(filteredFeature).reduce(
     (acc, [key, value]) => {
@@ -23,12 +21,13 @@ export const CategoriesComponent = () => {
       if (!acc[category!]) {
         acc[category!] = {};
       }
-      acc[category!][key] = value;
+      if (value.enabled) {
+        acc[category!][key] = value;
+      }
       return acc;
     },
     {} as Record<string, typeof filteredFeature>
   );
-  // console.log(groupedByCategory);
 
   return (
     <div className={styles.categories}>

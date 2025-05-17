@@ -49,17 +49,17 @@ export const featureReducer = (state: Factory, action: FactoryDispatch): Factory
       if (feature.quantity! <= 1) {
         updatedFeatures[featureName] = {
           ...updatedFeatures[featureName],
-          enabled: false,
           quantity: 0,
+          enabled: false,
         };
-        console.info(`Feature: ${featureName} deleted`);
       } else {
         updatedFeatures[featureName] = {
           ...updatedFeatures[featureName],
           quantity: updatedFeatures[featureName].quantity! - 1,
         };
       }
-      console.info(`Feature: ${featureName} purchased ${updatedState}`);
+      console.info(`Feature: ${featureName} purchased`);
+      console.info(updatedState);
 
       return {
         ...state,

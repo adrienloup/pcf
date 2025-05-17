@@ -31,5 +31,18 @@ export const useFeature = () => {
         console.info(`Feature: ${feature} unlocked`);
       }
     }
-  }, [factory.feature, factory.clip, factory.funds, factory.clipper, factory.creativity]);
+  }, [
+    factory.feature,
+    factory.clip,
+    factory.funds,
+    factory.wire,
+    factory.clipper,
+    factory.clipFactory,
+    factory.trust,
+    factory.processor,
+    factory.operation,
+    factory.creativity,
+    factory.drone,
+    factory.yomi,
+  ]);
 };

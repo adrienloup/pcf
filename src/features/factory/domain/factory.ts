@@ -11,6 +11,7 @@ export interface Factory {
   clipPrice: number;
   clipPriceRef: number;
   creativity: number;
+  drone: number;
   feature: FeatureState;
   funds: number;
   fundsPerSecond: number;
@@ -42,7 +43,7 @@ export interface Factory {
   wireCost: number;
   wireDrone: number;
   wireDroneCost: number;
-  yogi: number;
+  yomi: number;
 }
 
 export type FactoryDispatch =

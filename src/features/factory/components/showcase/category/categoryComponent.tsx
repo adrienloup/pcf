@@ -1,5 +1,6 @@
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { FeaturesComponent } from '@/src/features/factory/components/showcase/features/featuresComponent.tsx';
+import { EmptyComponent } from '@/src/common/shared/components/empty/emptyComponent.tsx';
 import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
 import styles from '@/src/features/factory/components/showcase/category/category.module.scss';
 
@@ -12,7 +13,7 @@ export const CategoryComponent = ({ category, feature }: { category: string; fea
       >
         {category} {`(${Object.keys(feature).length})`}
       </TitleComponent>
-      <FeaturesComponent feature={feature} />
+      {Object.keys(feature).length ? <FeaturesComponent feature={feature} /> : <EmptyComponent />}
     </div>
   );
 };

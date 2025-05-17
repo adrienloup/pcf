@@ -12,6 +12,7 @@ export const FACTORY_STATE: Factory = {
   clipPrice: 0.2,
   clipPriceRef: 0.2,
   creativity: 0,
+  drone: 0,
   feature: FEATURE_STATE,
   funds: 0,
   fundsPerSecond: 0,
@@ -43,70 +44,5 @@ export const FACTORY_STATE: Factory = {
   wireCost: 20,
   wireDrone: 0,
   wireDroneCost: 1e4,
-  yogi: 1e4,
+  yomi: 1e4,
 };
-
-/*
-  Feature:
-  + clipper feature
-    requirement: 5 funds
-  + megaClipper feature
-    requirement: 75 clipper
-  + marketing feature
-    requirement: 200 funds
-  + fundsPerSecond feature
-    requirement: revTracker product
-  + resources feature
-    requirement: 2e3 clip
-  + investments feature
-    requirement: algorithmicTrading product
-  + production feature
-    requirement: releaseHypoDrones product
-  Product:
-  + revTracker product
-    requirement: undefined
-  + begForMoreWire product
-    requirement: undefined
-  + improvedWireExtrusion product
-    requirement: undefined
-  + offerAnotherChance product
-    requirement: 1e5 creativity
-  + newSlogan product
-    requirement: lexicalProcessing product
-  + hostileTakeover product
-    requirement: algorithmicTrading product
-  + fullMonopoly product
-    requirement: hostileTakeover product
-  + algorithmicTrading product
-    requirement: 8 trust
-  + improvedClipper product
-    requirement: 1e4 operation
-  + evenBetterClipper product
-    requirement: 2e4 operation
-  + optimizedClipper product
-    requirement: 3e4 operation
-  + clipperDiagrams product
-    requirement: 1e5 operation
-  + improvedMegaClipper product
-    requirement: 20 creativity
-  + evenBetterMegaClipper product
-    requirement: 500 creativity
-  + optimizedMegaClipper product
-    requirement: 1e3 creativity
-  + clipperMegaDiagrams product
-    requirement: 1e4 creativity
-  + countyLimerick product
-    requirement: 10 creativity
-  + lexicalProcessing product
-    requirement: 50 creativity
-  + combinatorHarmonics product
-    requirement: 1e2 creativity
-  + catchyJingle product
-    requirement: 45e2 operation
-  + hypoHarmonics product
-    requirement: catchyJingle product
-  + hypoDrones product
-    requirement: hypoHarmonics product
-  + releaseHypoDrones product
-    requirement: hypoDrones product
- */
