@@ -9,7 +9,7 @@ export const DebugComponent = () => {
   const setFactory = useFactoryDispatch();
   const location = useLocation();
   const setAlerts = useAlertsDispatch();
-  const [alertsText, setAlertsText] = useState('Rev Tracker automatically calculates average');
+  const [alertsText, setAlertsText] = useState('Rev Tracker unlocked');
   const [clip, setClip] = useState('0');
   const [feature, setFeature] = useState('resources');
   const [funds, setFunds] = useState('0');

@@ -1,0 +1,38 @@
+.break {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.button {
+  position: sticky;
+  bottom: 1rem;
+  z-index: 2;
+  padding: var(--spacing-xs);
+  background-color: var(--color-9);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-s);
+  animation: Appear 700ms var(--ease-expo);
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+@keyframes Appear {
+  0% {
+    transform: translateY(100px);
+  }
+}
