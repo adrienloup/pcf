@@ -18,13 +18,13 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
         megaClipperCost: action.cost,
         funds: Math.max(0, state.funds - action.cost),
       };
-    case 'BUY_FACTORY':
-      if (state.funds < state.factoryCost) return state;
+    case 'BUY_CLIP_FACTORY':
+      if (state.funds < state.clipFactoryCost) return state;
       return {
         ...state,
-        factory: state.factory + 1,
-        factoryCost: action.cost,
-        funds: state.funds - state.factoryCost,
+        clipFactory: state.clipFactory + 1,
+        clipFactoryCost: action.cost,
+        funds: state.funds - state.clipFactoryCost,
       };
     case 'UPDATE_CLIPPER_BONUS':
       return {

@@ -16,7 +16,7 @@ export const SwarmStrategyComponent = () => {
     setValue(Number(e.target.value));
   };
 
-  if (!factory.feature.computing.enabled) return null;
+  if (!factory.feature.swarmStrategy.enabled) return null;
 
   return (
     <DialsComponent>

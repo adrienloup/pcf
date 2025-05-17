@@ -4,7 +4,7 @@ import { ProductionPerSecondComponent } from '@/src/features/factory/components/
 import { WireComponent } from '@/src/features/factory/components/dashboard/manufacturing/wireComponent.tsx';
 import { ClipperComponent } from '@/src/features/factory/components/dashboard/manufacturing/clipperComponent.tsx';
 import { MegaClipperComponent } from '@/src/features/factory/components/dashboard/manufacturing/megaClipperComponent.tsx';
-import { FactoryComponent } from '@/src/features/factory/components/dashboard/manufacturing/factoryComponent.tsx';
+import { ClipFactoryComponent } from '@/src/features/factory/components/dashboard/manufacturing/clipFactoryComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
 
 export const ManufacturingComponent = () => {
@@ -20,7 +20,7 @@ export const ManufacturingComponent = () => {
       <WireComponent />
       <ClipperComponent />
       <MegaClipperComponent />
-      <FactoryComponent />
+      <ClipFactoryComponent />
     </CardComponent>
   );
 };

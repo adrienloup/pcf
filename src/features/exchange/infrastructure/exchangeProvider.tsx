@@ -18,7 +18,7 @@ export function ExchangeProvider({ children }: { children: Children }) {
         const updated = { ...prev };
         for (const token of Object.keys(prev) as TokenSymbol[]) {
           const data = prev[token];
-          const variation = +(Math.random() * 200 - 100); // -100 et 100
+          const variation = +(Math.random() * 400 - 200); // -200 et 200
           const newPrice = +Math.max(0, data.price + variation);
           const newChange = variation;
           const newVolume = Math.max(0, data.volume + Math.random() * 100 - 50); // -50 et 50

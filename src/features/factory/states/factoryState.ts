@@ -1,18 +1,17 @@
 import type { Factory } from '@/src/features/factory/domain/factory.ts';
 import { FEATURE_STATE } from '@/src/features/factory/states/featureState.ts';
-// import { PRODUCTS_STATE } from '@/src/features/factory/states/productsState.ts';
 import { WALLET_STATE } from '@/src/features/factory/states/walletState.ts';
 
 export const FACTORY_STATE: Factory = {
   cash: 0,
   cashRef: 0,
   clip: 0,
+  clipFactory: 0,
+  clipFactoryCost: 1e5,
+  clipPerSecond: 0,
   clipPrice: 0.2,
   clipPriceRef: 0.2,
-  clipPerSecond: 0,
   creativity: 0,
-  factory: 0,
-  factoryCost: 1e5,
   feature: FEATURE_STATE,
   funds: 0,
   fundsPerSecond: 0,
@@ -31,12 +30,11 @@ export const FACTORY_STATE: Factory = {
   operation: 0,
   operationMax: 7e2,
   processor: 1,
-  // products: PRODUCTS_STATE,
   publicDemand: 0.5,
   swarmGifts: 0,
   swarmStrategy: 5,
-  trust: 0,
-  trustRef: 0,
+  trust: 1,
+  trustRef: 1,
   unsoldInventory: 0,
   unsoldInventoryBonus: 0,
   wallet: WALLET_STATE,

@@ -11,6 +11,7 @@ export const DebugComponent = () => {
   const setAlerts = useAlertsDispatch();
   const [alertsText, setAlertsText] = useState('Rev Tracker automatically calculates average');
   const [clip, setClip] = useState('0');
+  const [feature, setFeature] = useState('resources');
   const [funds, setFunds] = useState('0');
   const [wire, setWire] = useState('0');
   const [clipper, setClipper] = useState('0');
@@ -43,6 +44,18 @@ export const DebugComponent = () => {
     e.preventDefault();
     const alertsId = alertsText.replace(/\s/g, '');
     setAlerts({ type: 'ADD_ALERT', alert: { id: alertsId, text: alertsText } });
+  };
+
+  const featureChange = (e: ChangeEvent<HTMLInputElement>) => setFeature(e.target.value);
+  const featureSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFactory({
+      type: 'UPDATE_FEATURE',
+      feature: feature,
+      disabled: true,
+      enabled: true,
+    });
+    setFeature('');
   };
 
   const clipChange = (e: ChangeEvent<HTMLInputElement>) => setClip(e.target.value);
@@ -83,8 +96,6 @@ export const DebugComponent = () => {
     });
     setWire('0');
   };
-
-  // const marketingClick = () => setFactory({ type: 'BUY_MARKETING' });
 
   const clipperChange = (e: ChangeEvent<HTMLInputElement>) => setClipper(e.target.value);
   const clipperSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -181,9 +192,9 @@ export const DebugComponent = () => {
 
   const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
+  const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
-  const updateUnsoldInventory = (bonus: number) =>
-    setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
+  const updateUnsoldInventory = (bonus: number) => setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
 
   return display ? (
     <div
@@ -206,6 +217,14 @@ export const DebugComponent = () => {
       {/*  />*/}
       {/*  <button type="submit">Add</button>*/}
       {/*</form>*/}
+      <form onSubmit={featureSubmit}>
+        <label>feature</label>
+        <input
+          value={feature}
+          onChange={featureChange}
+        />
+        <button type="submit">Add</button>
+      </form>
       <form onSubmit={clipSubmit}>
         <label>clips</label>
         <input
@@ -350,12 +369,6 @@ export const DebugComponent = () => {
         </button>
         <button
           type="button"
-          onClick={() => updateClipperBonus(3)}
-        >
-          3
-        </button>
-        <button
-          type="button"
           onClick={() => updateClipperBonus(5)}
         >
           5
@@ -365,6 +378,45 @@ export const DebugComponent = () => {
           onClick={() => updateClipperBonus(10)}
         >
           10
+        </button>{' '}
+        <button
+          type="button"
+          onClick={() => updateClipperBonus(100)}
+        >
+          100
+        </button>
+      </form>
+      <form>
+        <label>megaClipperBonus</label>
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(0)}
+        >
+          0
+        </button>
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(2)}
+        >
+          2
+        </button>
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(5)}
+        >
+          5
+        </button>
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(10)}
+        >
+          10
+        </button>{' '}
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(100)}
+        >
+          100
         </button>
       </form>
       <form>
@@ -383,18 +435,6 @@ export const DebugComponent = () => {
         </button>
         <button
           type="button"
-          onClick={() => updateMarketingBonus(3)}
-        >
-          3
-        </button>
-        <button
-          type="button"
-          onClick={() => updateMarketingBonus(4)}
-        >
-          4
-        </button>
-        <button
-          type="button"
           onClick={() => updateMarketingBonus(5)}
         >
           5
@@ -404,6 +444,12 @@ export const DebugComponent = () => {
           onClick={() => updateMarketingBonus(10)}
         >
           10
+        </button>
+        <button
+          type="button"
+          onClick={() => updateMarketingBonus(100)}
+        >
+          100
         </button>
       </form>
       <form>
@@ -422,18 +468,6 @@ export const DebugComponent = () => {
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(3)}
-        >
-          3
-        </button>
-        <button
-          type="button"
-          onClick={() => updateUnsoldInventory(4)}
-        >
-          4
-        </button>
-        <button
-          type="button"
           onClick={() => updateUnsoldInventory(5)}
         >
           5
@@ -443,6 +477,12 @@ export const DebugComponent = () => {
           onClick={() => updateUnsoldInventory(10)}
         >
           10
+        </button>
+        <button
+          type="button"
+          onClick={() => updateUnsoldInventory(100)}
+        >
+          100
         </button>
       </form>
     </div>

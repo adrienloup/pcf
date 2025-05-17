@@ -5,38 +5,38 @@ import { DialComponent } from '@/src/common/shared/components//dial/dialComponen
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
 
-export const FactoryComponent = () => {
+export const ClipFactoryComponent = () => {
   const { t } = useTranslation();
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
 
-  const buyFactory = () => {
-    const cost = factory.factoryCost + (Math.random() * 5e5 + 5e5); // 5e5 et 1e6
-    setFactory({ type: 'BUY_FACTORY', cost });
+  const buyClipFactory = () => {
+    const cost = factory.clipFactoryCost + (Math.random() * 5e5 + 5e5); // 5e5 et 1e6
+    setFactory({ type: 'BUY_CLIP_FACTORY', cost });
   };
 
-  if (!factory.feature.factory.enabled) return null;
+  if (!factory.feature.clipFactory.enabled) return null;
 
   return (
     <DialsComponent>
       <DialComponent
-        value={factory.factoryCost}
+        value={factory.clipFactoryCost}
         style="currency"
         notation="compact"
-        label={t('factory.factoryCost')}
+        label={t('factory.clipFactoryCost')}
       />
       <DialComponent
-        value={factory.factory}
+        value={factory.clipFactory}
         notation="compact"
-        label={t('factory.factories')}
+        label={t('factory.clipFactories')}
       />
       <ClickerComponent
         className={styles.button}
         value={1}
         prefix="+"
-        suffix={t('factory.factory')}
-        disabled={factory.clip < factory.factoryCost}
-        onClick={buyFactory}
+        suffix={t('factory.clipFactory')}
+        disabled={factory.funds < factory.clipFactoryCost}
+        onClick={buyClipFactory}
       >
         +
       </ClickerComponent>

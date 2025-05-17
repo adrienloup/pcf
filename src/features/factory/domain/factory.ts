@@ -1,17 +1,16 @@
 import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
-// import type { Product } from '@/src/features/factory/domain/product.ts';
 import type { Wallet } from '@/src/features/factory/domain/wallet.ts';
 
 export interface Factory {
   cash: number;
   cashRef: number;
   clip: number;
+  clipFactory: number;
+  clipFactoryCost: number;
+  clipPerSecond: number;
   clipPrice: number;
   clipPriceRef: number;
-  clipPerSecond: number;
   creativity: number;
-  factory: number;
-  factoryCost: number;
   feature: FeatureState;
   funds: number;
   fundsPerSecond: number;
@@ -30,7 +29,6 @@ export interface Factory {
   operation: number;
   operationMax: number;
   processor: number;
-  // products: Product[];
   publicDemand: number;
   swarmGifts: number;
   swarmStrategy: number;
@@ -69,7 +67,7 @@ export type FactoryDispatch =
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
   | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
   | { type: 'UPDATE_SWARM_STRATEGY'; swarm: number }
-  | { type: 'BUY_FACTORY'; cost: number }
+  | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
   | { type: 'BUY_WIRE'; cost: number }
   | { type: 'UPDATE_WIRE_COST'; cost: number }

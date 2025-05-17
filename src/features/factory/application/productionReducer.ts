@@ -1,30 +1,31 @@
 import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+import { productionPerSecond } from '@/src/features/factory/infrastructure/productionPerSecond.ts';
 
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
-      // console.log('PRODUCTION_PER_SECOND');
-      const clipperPS = state.clipper * Math.max(1, state.clipperBonus);
-      const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
-      const productionPS =
-        state.wire >= state.factory
-          ? state.factory
-          : state.wire >= state.megaClipper + state.clipper
-            ? megaClipperPS + clipperPS
-            : state.wire >= state.megaClipper
-              ? megaClipperPS
-              : state.wire >= state.clipper
-                ? clipperPS
-                : 0;
+      // const clipperPS = state.clipper * Math.max(1, state.clipperBonus);
+      // const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
+      // let productionPS = 0;
+      // if (state.feature.clipFactory.enabled) {
+      //   productionPS = state.wire >= state.clipFactory ? state.clipFactory : 0;
+      // } else {
+      //   productionPS =
+      //     state.wire >= state.megaClipper + state.clipper
+      //       ? megaClipperPS + clipperPS
+      //       : state.wire >= state.megaClipper
+      //         ? megaClipperPS
+      //         : state.wire >= state.clipper
+      //           ? clipperPS
+      //           : 0;
+      // }
+      const productionPS = productionPerSecond(state);
       const clipPS = productionPS * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;
       const operationPS = state.feature.resources.enabled
         ? Math.min(state.operationMax, state.operation + 10 * state.processor)
         : state.operation;
-      const creativityPS = Math.min(
-        14e4,
-        operationPS === state.operationMax ? state.memory : state.creativity
-      );
+      const creativityPS = Math.min(14e4, operationPS === state.operationMax ? state.memory : state.creativity);
       return {
         ...state,
         operation: operationPS,

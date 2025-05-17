@@ -7,7 +7,7 @@ export const SwarmGiftsComponent = () => {
   const { t } = useTranslation();
   const factory = useFactory();
 
-  if (!factory.feature.computing.enabled) return null;
+  if (!factory.feature.swarmGifts.enabled) return null;
 
   return (
     <DialsComponent>
