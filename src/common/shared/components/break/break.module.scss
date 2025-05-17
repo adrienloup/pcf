@@ -14,12 +14,15 @@
   position: sticky;
   bottom: 1rem;
   z-index: 2;
-  padding: var(--spacing-xs);
   background-color: var(--color-9);
+  animation: Appear 700ms var(--ease-expo);
+}
+
+.label {
   display: flex;
   flex-direction: column;
+  padding: var(--spacing-xs);
   font-size: var(--font-size-s);
-  animation: Appear 700ms var(--ease-expo);
 }
 
 .backdrop {
@@ -33,6 +36,6 @@
 
 @keyframes Appear {
   0% {
-    transform: translateY(100px);
+    transform: translateY(100px) scale(0.8);
   }
 }
