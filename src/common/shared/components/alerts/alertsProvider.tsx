@@ -9,6 +9,7 @@ import type { Children } from '@/src/common/shared/types/children.ts';
 
 export const AlertsProvider = ({ children }: { children: Children }) => {
   const [alerts, setAlerts] = useReducer(alertsReducer, []);
+  const container = document.querySelector('#_pcf_3mma_0');
 
   return (
     <AlertsContext.Provider value={alerts}>
@@ -25,7 +26,7 @@ export const AlertsProvider = ({ children }: { children: Children }) => {
                   />
                 ))}
               </AlertsComponent>,
-              document.body
+              container!
             )
           : null}
         {children}

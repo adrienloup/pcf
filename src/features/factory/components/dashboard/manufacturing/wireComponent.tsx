@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
 import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
+import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
@@ -10,6 +11,7 @@ import styles from '@/src/common/shared/components/card/card.module.scss';
 export const WireComponent = () => {
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
+  const { isPlay } = useGame();
 
   const buyWire = () => {
     const cost = factory.wireCost + (Math.random() * (1.25 - 0.25) + 0.25); // 0.25 et 1.25
@@ -21,7 +23,7 @@ export const WireComponent = () => {
     setFactory({ type: 'UPDATE_WIRE_COST', cost });
   }, [factory.wireCost]);
 
-  useInterval(updateWireCost, 1e4);
+  useInterval(updateWireCost, 1e4, isPlay);
 
   return (
     <DialsComponent>

@@ -76,14 +76,6 @@
   font-size: var(--font-size-s);
   pointer-events: initial;
 
-  &:active {
-    box-shadow:
-      inset 0 0.4rem var(--color-21),
-      inset 0 -0.4rem var(--color-21),
-      inset 0.4rem 0 var(--color-21),
-      inset -0.4rem 0 var(--color-21);
-  }
-
   .info & {
     color: var(--color-7);
   }

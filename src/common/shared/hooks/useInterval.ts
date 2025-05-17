@@ -1,8 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-export const useInterval = (callback: () => void, delay: number) => {
+export const useInterval = (callback: () => void, delay: number, enabled: boolean = true) => {
+  const savedCallback = useRef(callback);
+
   useEffect(() => {
-    const intervalId = setInterval(callback, delay);
-    return () => clearInterval(intervalId);
-  }, [callback, delay]);
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const id = setInterval(() => savedCallback.current(), delay);
+    return () => clearInterval(id);
+  }, [delay, enabled]);
 };

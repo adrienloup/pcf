@@ -1,8 +1,10 @@
 import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
+import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
 import styles from '@/src/app/layout/settings/settings.module.scss';
 
 export const SettingsComponent = () => {
   const { settings, setLanguage, setMode, setStage, setTheme } = useSettings();
+  const { isPlay, setPlay } = useGame();
 
   return (
     <div className={styles.settings}>
@@ -27,6 +29,9 @@ export const SettingsComponent = () => {
         <span>Mode : {settings.mode}</span>
         <button onClick={() => setMode('dark')}>dark</button>
         <button onClick={() => setMode('light')}>light</button>
+      </div>
+      <div>
+        <button onClick={setPlay}>{isPlay ? 'Pause' : 'Play'}</button>
       </div>
     </div>
   );

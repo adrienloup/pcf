@@ -50,6 +50,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
         funds: state.funds - action.cost,
       };
     case 'UPDATE_WIRE_COST':
+      console.log('UPDATE_WIRE_COST');
       return {
         ...state,
         wireCost: action.cost,

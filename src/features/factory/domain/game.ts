@@ -1,4 +1,4 @@
 export interface Game {
-  isRunning: boolean;
-  playPauseToggle: () => void;
+  isPlay: boolean;
+  setPlay: () => void;
 }

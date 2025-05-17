@@ -12,14 +12,14 @@ import type { Children } from '@/src/common/shared/types/children.ts';
 export function FactoryProvider({ children }: { children: Children }) {
   const [storedState, setStoredState] = useLocalStorage<Factory>(FACTORY_KEY, FACTORY_STATE);
   const [state, setState] = useReducer(factoryReducer, storedState);
-  const [isRunning, setIsRunning] = useState(true);
+  const [isPlay, setIsPlay] = useState(true);
 
   useEffect(() => {
     setStoredState(state);
   }, [state, setStoredState]);
 
-  const playPauseToggle = useCallback(() => {
-    setIsRunning((prev) => !prev);
+  const setPlay = useCallback(() => {
+    setIsPlay((prev) => !prev);
   }, []);
 
   const sellUnsoldInventory = useCallback(() => {
@@ -32,13 +32,13 @@ export function FactoryProvider({ children }: { children: Children }) {
     console.log('PRODUCTION_PER_SECOND');
   }, []);
 
-  useInterval(sellUnsoldInventory, isRunning ? 5e2 : 0);
-  useInterval(updatePerSecond, isRunning ? 1e3 : 0);
+  useInterval(sellUnsoldInventory, 5e2, isPlay);
+  useInterval(updatePerSecond, 1e3, isPlay);
 
   return (
     <FactoryContext.Provider value={state}>
       <FactoryDispatchContext.Provider value={setState}>
-        <GameContext.Provider value={{ isRunning, playPauseToggle }}>{children}</GameContext.Provider>
+        <GameContext.Provider value={{ isPlay, setPlay }}>{children}</GameContext.Provider>
       </FactoryDispatchContext.Provider>
     </FactoryContext.Provider>
   );
