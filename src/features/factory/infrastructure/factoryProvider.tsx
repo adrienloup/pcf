@@ -26,8 +26,8 @@ export function FactoryProvider({ children }: { children: Children }) {
   }, [state, setStoredState]);
 
   useEffect(() => {
-    if (isPlay) console.warn('Start');
-    else console.warn('Stop');
+    if (isPlay) console.warn('game started');
+    else console.warn('game stopped');
   }, [isPlay]);
 
   const setPlay = useCallback(() => {
