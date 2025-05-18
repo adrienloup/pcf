@@ -22,11 +22,11 @@ export const SwarmStrategyComponent = () => {
 
   const swarmGiftsMax = fibonacci(factory.drone, 0, 1).filter((d) => factory.drone >= d).length;
   const swarmGifts = Math.ceil(((factory.swarmStrategy / 100) * swarmGiftsMax) / 3);
-  const swarmGiftsInterval = Math.max(1000, 5000 / Math.sqrt(1 + factory.drone));
+  const swarmGiftsInterval = Math.max(1000, (5000 - Math.sqrt(1 + factory.drone)) / 5);
 
   const updateAddGifts = useCallback(() => {
     setFactory({ type: 'ADD_GIFTS', swarmGifts });
-  }, [factory.drone]);
+  }, [swarmGifts]);
 
   useInterval(updateAddGifts, swarmGiftsInterval, isPlay);
 

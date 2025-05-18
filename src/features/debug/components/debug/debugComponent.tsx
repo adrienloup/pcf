@@ -201,7 +201,7 @@ export const DebugComponent = () => {
         drone: Number(drone),
       },
     });
-    setCash('0');
+    setDrone('0');
   };
 
   const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
