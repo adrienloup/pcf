@@ -1,37 +1,100 @@
 import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
 import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
+import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
 import styles from '@/src/app/layout/settings/settings.module.scss';
 
-export const SettingsComponent = () => {
-  const { settings, setLanguage, setMode, setStage, setTheme } = useSettings();
+export const SettingsComponent = ({ open }: { open: boolean }) => {
+  const { setLanguage, setMode, setStage, setTheme } = useSettings();
   const { isPlay, setPlay } = useGame();
 
   return (
     <div className={styles.settings}>
-      <div>
-        <span>Language : {settings.language}</span>
-        <button onClick={() => setLanguage('en')}>en</button>
-        <button onClick={() => setLanguage('fr')}>fr</button>
+      <div className={styles.setting}>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setLanguage('en')}
+          tabIndex={open ? 0 : -1}
+        >
+          en
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setLanguage('fr')}
+          tabIndex={open ? 0 : -1}
+        >
+          fr
+        </ButtonComponent>
       </div>
-      <div>
-        <span>Stage : {settings.stage}</span>
-        <button onClick={() => setStage('dusk')}>dusk</button>
-        <button onClick={() => setStage('tumult')}>tumult</button>
-        <button onClick={() => setStage('cataclysm')}>cataclysm</button>
+      <div className={styles.setting}>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setStage('dusk')}
+          tabIndex={open ? 0 : -1}
+        >
+          dusk
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setStage('tumult')}
+          tabIndex={open ? 0 : -1}
+        >
+          tumult
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setStage('cataclysm')}
+          tabIndex={open ? 0 : -1}
+        >
+          cataclysm
+        </ButtonComponent>
       </div>
-      <div>
-        <span>Theme : {settings.theme}</span>
-        <button onClick={() => setTheme('simplest')}>simplest</button>
-        <button onClick={() => setTheme('mirror')}>mirror</button>
-        <button onClick={() => setTheme('ultra')}>ultra</button>
+      <div className={styles.setting}>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setTheme('simplest')}
+          tabIndex={open ? 0 : -1}
+        >
+          simplest
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setTheme('mirror')}
+          tabIndex={open ? 0 : -1}
+        >
+          mirror
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setTheme('ultra')}
+          tabIndex={open ? 0 : -1}
+        >
+          ultra
+        </ButtonComponent>
       </div>
-      <div>
-        <span>Mode : {settings.mode}</span>
-        <button onClick={() => setMode('dark')}>dark</button>
-        <button onClick={() => setMode('light')}>light</button>
+      <div className={styles.setting}>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setMode('dark')}
+          tabIndex={open ? 0 : -1}
+        >
+          dark
+        </ButtonComponent>
+        <ButtonComponent
+          className={styles.button}
+          onClick={() => setMode('light')}
+          tabIndex={open ? 0 : -1}
+        >
+          light
+        </ButtonComponent>
       </div>
-      <div>
-        <button onClick={setPlay}>{isPlay ? 'Pause' : 'Play'}</button>
+      <div className={styles.setting}>
+        <ButtonComponent
+          className={styles.button}
+          onClick={setPlay}
+          tabIndex={open ? 0 : -1}
+        >
+          {isPlay ? 'pause' : 'start'}
+        </ButtonComponent>
       </div>
     </div>
   );

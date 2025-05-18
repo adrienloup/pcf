@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useMenu } from '@/src/app/layout/menu/useMenu.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
 import { SettingsComponent } from '@/src/app/layout/settings/settingsComponent.tsx';
+import { NavigationComponent } from '@/src/app/layout/navigation/navigationComponent.tsx';
 // import { IconComponent } from '@/src/generic/common/components/icon/Icon.component.tsx';
 import styles from '@/src/app/layout/menu/menu.module.scss';
 
@@ -41,18 +41,8 @@ export const MenuComponent = () => {
         {/*<IconComponent icon={open ? 'menu_open' : 'menu'} />*/}
       </ButtonComponent>
       <div className={styles.inside}>
-        <ul>
-          <li>
-            <Link to={'/pcf'}>factory</Link>
-          </li>
-          <li>
-            <Link to={'/pcf/explore'}>explore</Link>
-          </li>
-          <li>
-            <Link to={'/pcf/shop'}>shop</Link>
-          </li>
-        </ul>
-        <SettingsComponent />
+        <NavigationComponent open={open} />
+        <SettingsComponent open={open} />
       </div>
     </div>
   );

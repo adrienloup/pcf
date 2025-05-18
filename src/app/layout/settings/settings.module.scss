@@ -1,4 +1,20 @@
 .settings {
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
   color: var(--theme-color-1);
+}
+
+.setting {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  text-transform: uppercase;
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  background-color: var(--theme-color-1);
+  color: var(--theme-color-2);
 }

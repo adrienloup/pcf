@@ -13,4 +13,4 @@ createRoot(document.getElementById('_pcf_3mma_0')!).render(
   </StrictMode>
 );
 
-console.log(`%c[pcf] ${version} @jff`, 'font-weight: bold; color: #5b00ff;');
+console.log(`%c[pcf] ${version} @jff`, 'font-weight: bold; color: #6300ff;');

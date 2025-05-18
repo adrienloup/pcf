@@ -1,32 +1,55 @@
+$tablet-portrait: 1024px;
+$mobile-landscape: 768px;
+
 .menu {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-s);
   position: relative;
   height: 0;
   transition-property: height;
-  transition-duration: 200ms;
+  transition-duration: 300ms;
   transition-timing-function: var(--ease-expo);
   background-color: var(--theme-color-2);
   //will-change: height;
 
   &.open {
-    height: 8rem;
+    height: 14rem;
     transition-duration: 400ms;
+
+    @media (min-width: $mobile-landscape) {
+      height: 10rem;
+    }
+
+    @media (min-width: $tablet-portrait) {
+      height: 8rem;
+    }
   }
 }
 
 .inside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
   overflow: hidden;
-  height: 8rem;
+  height: 14rem;
+  padding: var(--spacing-s);
   transform: translateY(-1rem);
   opacity: 0;
   transition-property: transform, opacity;
-  transition-duration: 200ms;
+  transition-duration: 100ms;
   transition-timing-function: var(--ease-quad);
   //will-change: opacity;
 
+  @media (min-width: $mobile-landscape) {
+    height: 10rem;
+  }
+
+  @media (min-width: $tablet-portrait) {
+    height: 8rem;
+  }
+
   .open & {
+    transition-duration: 200ms;
     transform: translateY(0);
     opacity: 1;
   }

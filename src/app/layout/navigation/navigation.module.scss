@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+}
+
+.list {
+  display: flex;
+  gap: var(--spacing-s);
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--theme-color-1);
+}
