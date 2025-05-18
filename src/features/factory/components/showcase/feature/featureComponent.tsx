@@ -7,7 +7,13 @@ import { NumberComponent } from '@/src/common/shared/components/number/numberCom
 import type { Feature } from '@/src/features/factory/domain/feature.ts';
 import styles from '@/src/features/factory/components/showcase/feature/feature.module.scss';
 
-export const FeatureComponent = ({ featureName, featureValue }: { featureName: string; featureValue: Feature }) => {
+export const FeatureComponent = ({
+  featureName,
+  featureValue,
+}: {
+  featureName: string;
+  featureValue: Feature;
+}) => {
   const { t } = useTranslation();
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
@@ -42,7 +48,8 @@ export const FeatureComponent = ({ featureName, featureValue }: { featureName: s
           components={{
             firstEffect: (
               <>
-                {Array.isArray(featureValue.effects) && featureValue.effects.every((r) => typeof r === 'object') ? (
+                {Array.isArray(featureValue.effects) &&
+                featureValue.effects.every((r) => typeof r === 'object') ? (
                   <NumberComponent
                     value={featureValue.effects?.[0]?.value}
                     notation="compact"
@@ -52,7 +59,8 @@ export const FeatureComponent = ({ featureName, featureValue }: { featureName: s
             ),
             secondEffect: (
               <>
-                {Array.isArray(featureValue.effects) && featureValue.effects.every((r) => typeof r === 'object') ? (
+                {Array.isArray(featureValue.effects) &&
+                featureValue.effects.every((r) => typeof r === 'object') ? (
                   <NumberComponent
                     value={featureValue.effects?.[1]?.value}
                     notation="compact"
@@ -69,7 +77,8 @@ export const FeatureComponent = ({ featureName, featureValue }: { featureName: s
           components={{
             firstCost: (
               <>
-                {Array.isArray(featureValue.costs) && featureValue.costs.every((r) => typeof r === 'object') ? (
+                {Array.isArray(featureValue.costs) &&
+                featureValue.costs.every((r) => typeof r === 'object') ? (
                   <NumberComponent
                     value={featureValue.costs?.[0]?.value}
                     notation="compact"
@@ -79,7 +88,8 @@ export const FeatureComponent = ({ featureName, featureValue }: { featureName: s
             ),
             secondCost: (
               <>
-                {Array.isArray(featureValue.costs) && featureValue.costs.every((r) => typeof r === 'object') ? (
+                {Array.isArray(featureValue.costs) &&
+                featureValue.costs.every((r) => typeof r === 'object') ? (
                   <NumberComponent
                     value={featureValue.costs?.[1]?.value}
                     notation="compact"

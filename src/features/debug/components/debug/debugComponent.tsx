@@ -21,6 +21,7 @@ export const DebugComponent = () => {
   const [operation, setOperation] = useState('0');
   const [creativity, setCreativity] = useState('0');
   const [cash, setCash] = useState('0');
+  const [drone, setDrone] = useState('0');
 
   const display = useMemo(() => {
     // const isDebug = location.search == '?debug';
@@ -190,11 +191,25 @@ export const DebugComponent = () => {
     setCash('0');
   };
 
+  const droneChange = (e: ChangeEvent<HTMLInputElement>) => setDrone(e.target.value);
+  const droneSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFactory({
+      type: 'INITIALIZE',
+      state: {
+        ...factory,
+        drone: Number(drone),
+      },
+    });
+    setCash('0');
+  };
+
   const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
   const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
-  const updateUnsoldInventory = (bonus: number) => setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
+  const updateUnsoldInventory = (bonus: number) =>
+    setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
 
   return display ? (
     <div
@@ -311,6 +326,14 @@ export const DebugComponent = () => {
         <input
           value={cash}
           onChange={cashChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <form onSubmit={droneSubmit}>
+        <label>drone</label>
+        <input
+          value={drone}
+          onChange={droneChange}
         />
         <button type="submit">Add</button>
       </form>

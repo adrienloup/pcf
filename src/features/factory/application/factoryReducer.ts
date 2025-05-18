@@ -6,6 +6,7 @@ import { mechanicReducer } from '@/src/features/factory/application/mechanicRedu
 import { productionReducer } from '@/src/features/factory/application/productionReducer.ts';
 import { resourcesReducer } from '@/src/features/factory/application/resourcesReducer.ts';
 import { strategyReducer } from '@/src/features/factory/application/strategyReducer.ts';
+import { swarmReducer } from '@/src/features/factory/application/swarmReducer.ts';
 
 const reducers = [
   businessReducer,
@@ -14,6 +15,7 @@ const reducers = [
   productionReducer,
   resourcesReducer,
   strategyReducer,
+  swarmReducer,
 ];
 
 export const factoryReducer = (state: Factory, action: FactoryDispatch): Factory => {

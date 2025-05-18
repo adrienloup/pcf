@@ -12,7 +12,7 @@ export const FACTORY_STATE: Factory = {
   clipPrice: 0.2,
   clipPriceRef: 0.2,
   creativity: 0,
-  drone: 50,
+  drone: 0,
   feature: FEATURE_STATE,
   funds: 0,
   fundsPerSecond: 0,

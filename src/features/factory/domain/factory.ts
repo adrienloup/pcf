@@ -60,6 +60,9 @@ export type FactoryDispatch =
   | { type: 'INCREASE_MEMORY' }
   | { type: 'INCREASE_PROCESSOR' }
   | { type: 'ALLOCATE_TRUST' }
+  | { type: 'BUY_HARVESTER_DRONE'; drone: number }
+  | { type: 'BUY_HARVESTER_WIRE'; drone: number }
+  | { type: 'ADD_GIFTS'; swarmGifts: number }
   | { type: 'INCREASE_WALLET'; symbol: string; price: number }
   | { type: 'DECREASE_WALLET'; symbol: string; price: number }
   | { type: 'INCREASE_TRUST'; trust: number }

@@ -11,8 +11,10 @@ export const WalletComponent = () => {
   const setFactory = useFactoryDispatch();
   const { tokens } = useExchange();
 
-  const decreaseWallet = (symbol: string, price: number) => setFactory({ type: 'DECREASE_WALLET', symbol, price });
-  const increaseWallet = (symbol: string, price: number) => setFactory({ type: 'INCREASE_WALLET', symbol, price });
+  const decreaseWallet = (symbol: string, price: number) =>
+    setFactory({ type: 'DECREASE_WALLET', symbol, price });
+  const increaseWallet = (symbol: string, price: number) =>
+    setFactory({ type: 'INCREASE_WALLET', symbol, price });
 
   const getPrice = (symbol: string) => tokens[symbol as TokenSymbol].price * 0.1;
   const getVolume = (symbol: string) => tokens[symbol as TokenSymbol].volume;

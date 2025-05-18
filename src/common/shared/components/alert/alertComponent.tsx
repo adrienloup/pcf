@@ -30,7 +30,12 @@ export const AlertComponent = ({ text, status = 'warning', timeout = 3e3, close 
 
   return (
     <div
-      className={classNames([styles.alert, styles[status], timeout > 0 ? styles.in : '', out ? styles.out : ''])}
+      className={classNames([
+        styles.alert,
+        styles[status],
+        timeout > 0 ? styles.in : '',
+        out ? styles.out : '',
+      ])}
       role="alert"
       aria-live="assertive"
     >

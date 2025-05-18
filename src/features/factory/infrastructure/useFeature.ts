@@ -44,5 +44,6 @@ export const useFeature = () => {
     factory.creativity,
     factory.drone,
     factory.yomi,
+    setFactory,
   ]);
 };

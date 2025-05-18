@@ -4,11 +4,10 @@ import { DialComponent } from '@/src/common/shared/components/dial/dialComponent
 
 export const SwarmComputingComponent = () => {
   const factory = useFactory();
-  const status: 'actif' | 'lonely' = factory.swarmStrategy > 1 ? 'actif' : 'lonely';
+  const status: 'actif' | 'lonely' = factory.swarmStrategy > 10 ? 'actif' : 'lonely';
 
   return (
     <DialsComponent>
-      {factory.swarmStrategy}
       <DialComponent
         value={factory.drone}
         notation="compact"
@@ -19,11 +18,11 @@ export const SwarmComputingComponent = () => {
         notation="compact"
         label="status"
       />
-      <DialComponent
-        value={factory.swarmStatus}
-        notation="compact"
-        label="next gift in 17 seconds"
-      />
+      {/*<DialComponent*/}
+      {/*  value={factory.swarmStatus}*/}
+      {/*  notation="compact"*/}
+      {/*  label="next gift in 17 seconds"*/}
+      {/*/>*/}
     </DialsComponent>
   );
 };
