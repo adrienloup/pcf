@@ -18,7 +18,7 @@ export const ClipPriceComponent = () => {
         value={factory.clipPrice}
         style="currency"
         label={t('factory.clipPrice')}
-        bonus={
+        tile={
           factory.marketingBonus > 0 ? (
             <BonusComponent
               value={factory.marketingBonus}

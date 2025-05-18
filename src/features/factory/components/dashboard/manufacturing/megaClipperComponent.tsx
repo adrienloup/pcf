@@ -30,7 +30,7 @@ export const MegaClipperComponent = () => {
         value={factory.megaClipper}
         notation="compact"
         label={t('factory.megaClippers')}
-        bonus={
+        tile={
           factory.megaClipperBonus > 0 ? (
             <BonusComponent
               value={factory.megaClipperBonus}

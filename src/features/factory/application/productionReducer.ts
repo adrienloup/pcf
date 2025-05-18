@@ -1,25 +1,24 @@
 import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
-import { productionPerSecond } from '@/src/features/factory/infrastructure/productionPerSecond.ts';
 import { fibonacci } from '@/src/common/shared/utils/fibonacci.ts';
+
+function productionPerSecond(state: Factory): number {
+  const { wire, feature, clipFactory, megaClipper, clipper, clipperBonus, megaClipperBonus } = state;
+  const megaClipperPS = megaClipper * 500 * Math.max(1, megaClipperBonus);
+  const clipperPS = clipper * Math.max(1, clipperBonus);
+  const clipFactoryPS = Math.min(clipFactory * 1e3, 1e11);
+  if (feature.clipFactory.enabled) {
+    return wire >= clipFactory ? clipFactoryPS : 0;
+  }
+  const totalClipper = megaClipper + clipper;
+  if (wire >= totalClipper) return megaClipperPS + clipperPS;
+  if (wire >= megaClipper) return megaClipperPS;
+  if (wire >= clipper) return clipperPS;
+  return 0;
+}
 
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
-      // const clipperPS = state.clipper * Math.max(1, state.clipperBonus);
-      // const megaClipperPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
-      // let productionPS = 0;
-      // if (state.feature.clipFactory.enabled) {
-      //   productionPS = state.wire >= state.clipFactory ? state.clipFactory : 0;
-      // } else {
-      //   productionPS =
-      //     state.wire >= state.megaClipper + state.clipper
-      //       ? megaClipperPS + clipperPS
-      //       : state.wire >= state.megaClipper
-      //         ? megaClipperPS
-      //         : state.wire >= state.clipper
-      //           ? clipperPS
-      //           : 0;
-      // }
       const productionPS = productionPerSecond(state);
       const clipPS = productionPS * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;

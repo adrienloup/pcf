@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GameContext } from '@/src/features/factory/infrastructure/gameContext.tsx';
+import { GameContext } from '@/src/features/factory/infrastructure/gameContext.ts';
 
 export const useGame = () => {
   const context = useContext(GameContext);

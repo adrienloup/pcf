@@ -30,7 +30,7 @@ export const ClipperComponent = () => {
         value={factory.clipper}
         notation="compact"
         label={t('factory.clippers')}
-        bonus={
+        tile={
           factory.clipperBonus > 0 ? (
             <BonusComponent
               value={factory.clipperBonus}

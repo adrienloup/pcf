@@ -14,7 +14,7 @@ export const UnsoldInventoryComponent = () => {
         value={factory.unsoldInventory}
         notation="compact"
         label={t('factory.unsoldInventory')}
-        bonus={
+        tile={
           factory.unsoldInventoryBonus > 0 ? (
             <BonusComponent
               value={factory.unsoldInventoryBonus}

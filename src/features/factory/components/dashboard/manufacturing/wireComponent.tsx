@@ -32,7 +32,7 @@ export const WireComponent = () => {
         style="currency"
         notation="compact"
         label="wire cost"
-        bonus={<BonusComponent value={factory.wireBonus} />}
+        tile={<BonusComponent value={factory.wireBonus} />}
       />
       <DialComponent
         value={factory.wire}

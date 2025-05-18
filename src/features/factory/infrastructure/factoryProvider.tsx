@@ -3,8 +3,11 @@ import { createPortal } from 'react-dom';
 import { useLocalStorage } from '@/src/common/shared/hooks/useLocalStorage.ts';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
 import { factoryReducer } from '@/src/features/factory/application/factoryReducer.ts';
-import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/infrastructure/factoryContext.tsx';
-import { GameContext } from '@/src/features/factory/infrastructure/gameContext.tsx';
+import {
+  FactoryContext,
+  FactoryDispatchContext,
+} from '@/src/features/factory/infrastructure/factoryContext.ts';
+import { GameContext } from '@/src/features/factory/infrastructure/gameContext.ts';
 import { BreakComponent } from '@/src/common/shared/components/break/breakComponent.tsx';
 import { FACTORY_KEY } from '@/src/features/factory/infrastructure/factoryKey.ts';
 import { FACTORY_STATE } from '@/src/features/factory/states/factoryState.ts';

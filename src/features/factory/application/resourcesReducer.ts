@@ -8,7 +8,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
         ...state,
         memory: Math.min(state.memory + 1, 100),
         trust: Math.max(0, state.trust - 1),
-        operationMax: (state.memory + 1) * 700,
+        operationMax: (state.memory + 1) * 900,
       };
     case 'INCREASE_PROCESSOR':
       if (state.processor > 100) return state;

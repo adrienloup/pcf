@@ -146,7 +146,6 @@ export const FEATURE_STATE: FeatureState = {
     quantity: 1,
   },
   swarmGifts: { disabled: false, enabled: false },
-  swarmStrategy: { disabled: false, enabled: false },
   wireDrone: { disabled: false, enabled: false },
   wireDroneProcess: {
     category: 'drones',
