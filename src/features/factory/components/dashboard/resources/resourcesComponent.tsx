@@ -7,7 +7,6 @@ import { MemoryComponent } from '@/src/features/factory/components/dashboard/res
 import { ProcessorComponent } from '@/src/features/factory/components/dashboard/resources/processorComponent.tsx';
 import { OperationComponent } from '@/src/features/factory/components/dashboard/resources/operationComponent.tsx';
 import { CreativityComponent } from '@/src/features/factory/components/dashboard/resources/creativityComponent.tsx';
-import { SwarmStrategyComponent } from '@/src/features/factory/components/dashboard/resources/swarmStrategyComponent.tsx';
 import { EmptyComponent } from '@/src/common/shared/components/empty/emptyComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
 
@@ -20,7 +19,7 @@ export const ResourcesComponent = () => {
         tag="h2"
         className={styles.title}
       >
-        Resources
+        resources
       </TitleComponent>
       {factory.feature.resources.enabled ? (
         <>
@@ -30,7 +29,6 @@ export const ResourcesComponent = () => {
           <ProcessorComponent />
           <OperationComponent />
           <CreativityComponent />
-          <SwarmStrategyComponent />
         </>
       ) : (
         <EmptyComponent />

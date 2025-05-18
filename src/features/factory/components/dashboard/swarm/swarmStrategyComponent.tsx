@@ -11,8 +11,8 @@ export const SwarmStrategyComponent = () => {
   const think = value / 10;
   const work = 1 - value / 10;
 
-  const updateStrategy = (e: ChangeEvent<HTMLInputElement>) => {
-    setFactory({ type: 'UPDATE_SWARM_STRATEGY', swarm: Number(e.target.value) });
+  const updateSwarmStrategy = (e: ChangeEvent<HTMLInputElement>) => {
+    setFactory({ type: 'UPDATE_SWARM_STRATEGY', strategy: Number(e.target.value) });
     setValue(Number(e.target.value));
   };
 
@@ -36,7 +36,7 @@ export const SwarmStrategyComponent = () => {
         max={10}
         step={1}
         value={value}
-        onChange={updateStrategy}
+        onChange={updateSwarmStrategy}
       />
     </DialsComponent>
   );

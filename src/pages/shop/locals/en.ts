@@ -3,15 +3,15 @@ import type { Translation } from '@/src/common/shared/types/translation.ts';
 export const en: Translation = {
   shop: {
     titlePage: 'shop',
-    harvesterDrones: {
-      title: 'harvester drones',
+    harvesterDrone: {
+      title: 'harvester drone',
       effect: 'gather raw matter and prepare it for processing',
       cost: 'cost: <firstCost />\u00a0operations',
       quantity: 'quantity: <quantity />',
     },
-    improvedClippers: {
-      title: 'improved clippers',
-      effect: 'increases clippers performance by <firstEffect />',
+    improvedClipper: {
+      title: 'improved clipper',
+      effect: 'increases clipper performance by <firstEffect />',
       cost: 'cost: <firstCost />\u00a0operations',
       quantity: 'quantity: <quantity />',
     },
@@ -27,8 +27,8 @@ export const en: Translation = {
       cost: 'cost: <firstCost />\u00a0operations',
       quantity: 'quantity: <quantity />',
     },
-    wireDrones: {
-      title: 'wire drones',
+    wireDrone: {
+      title: 'wire drone',
       effect: 'process acquired matter into wire',
       cost: 'cost: <firstCost />\u00a0operations',
       quantity: 'quantity: <quantity />',

@@ -14,7 +14,7 @@ export const ManufacturingComponent = () => {
         tag="h2"
         className={styles.title}
       >
-        Manufacturing
+        manufacturing
       </TitleComponent>
       <ProductionPerSecondComponent />
       <WireComponent />

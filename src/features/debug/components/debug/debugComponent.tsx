@@ -378,7 +378,13 @@ export const DebugComponent = () => {
           onClick={() => updateClipperBonus(10)}
         >
           10
-        </button>{' '}
+        </button>
+        <button
+          type="button"
+          onClick={() => updateClipperBonus(50)}
+        >
+          50
+        </button>
         <button
           type="button"
           onClick={() => updateClipperBonus(100)}
@@ -411,7 +417,13 @@ export const DebugComponent = () => {
           onClick={() => updateMegaClipperBonus(10)}
         >
           10
-        </button>{' '}
+        </button>
+        <button
+          type="button"
+          onClick={() => updateMegaClipperBonus(50)}
+        >
+          50
+        </button>
         <button
           type="button"
           onClick={() => updateMegaClipperBonus(100)}
@@ -432,12 +444,6 @@ export const DebugComponent = () => {
           onClick={() => updateMarketingBonus(2)}
         >
           2
-        </button>
-        <button
-          type="button"
-          onClick={() => updateMarketingBonus(5)}
-        >
-          5
         </button>
         <button
           type="button"
@@ -477,6 +483,12 @@ export const DebugComponent = () => {
           onClick={() => updateUnsoldInventory(10)}
         >
           10
+        </button>
+        <button
+          type="button"
+          onClick={() => updateUnsoldInventory(50)}
+        >
+          50
         </button>
         <button
           type="button"

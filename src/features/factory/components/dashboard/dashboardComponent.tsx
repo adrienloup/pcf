@@ -6,7 +6,7 @@ import { BusinessComponent } from '@/src/features/factory/components/dashboard/b
 import { ResourcesComponent } from '@/src/features/factory/components/dashboard/resources/resourcesComponent.tsx';
 import { InvestmentsComponent } from '@/src/features/factory/components/dashboard/investments/investmentsComponent.tsx';
 import { ProductionComponent } from '@/src/features/factory/components/dashboard/production/productionComponent.tsx';
-import { ComputingComponent } from '@/src/features/factory/components/dashboard/computing/computingComponent.tsx';
+import { SwarmComponent } from '@/src/features/factory/components/dashboard/swarm/swarmComponent.tsx';
 import { PowerComponent } from '@/src/features/factory/components/dashboard/power/powerComponent.tsx';
 import styles from '@/src/features/factory/components/dashboard/dashboard.module.scss';
 
@@ -25,7 +25,7 @@ export const DashboardComponent = () => {
         <ResourcesComponent />
         <InvestmentsComponent />
         <ProductionComponent />
-        <ComputingComponent />
+        <SwarmComponent />
         <PowerComponent />
       </CardsComponent>
     </article>

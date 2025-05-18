@@ -10,7 +10,7 @@ export const PowerComponent = () => {
         tag="h2"
         className={styles.title}
       >
-        Power
+        power
       </TitleComponent>
       <EmptyComponent />
     </CardComponent>

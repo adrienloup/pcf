@@ -32,6 +32,7 @@ export interface Factory {
   processor: number;
   publicDemand: number;
   swarmGifts: number;
+  swarmStatus: number;
   swarmStrategy: number;
   trust: number;
   trustRef: number;
@@ -67,7 +68,7 @@ export type FactoryDispatch =
   | { type: 'UPDATE_MEGA_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
   | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
-  | { type: 'UPDATE_SWARM_STRATEGY'; swarm: number }
+  | { type: 'UPDATE_SWARM_STRATEGY'; strategy: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
   | { type: 'BUY_WIRE'; cost: number }

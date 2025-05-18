@@ -1,5 +1,6 @@
 import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
 import { productionPerSecond } from '@/src/features/factory/infrastructure/productionPerSecond.ts';
+import { fibonacci } from '@/src/common/shared/utils/fibonacci.ts';
 
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
@@ -25,7 +26,7 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       const operationPS = state.feature.resources.enabled
         ? Math.min(state.operationMax, state.operation + 10 * state.processor)
         : state.operation;
-      const creativityPS = Math.min(14e4, operationPS === state.operationMax ? state.memory : state.creativity);
+      const creativityPS = fibonacci(operationPS, 0, 1).filter((t) => operationPS >= t).length;
       return {
         ...state,
         operation: operationPS,

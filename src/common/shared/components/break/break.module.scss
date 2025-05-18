@@ -15,7 +15,7 @@
   bottom: 1rem;
   z-index: 2;
   background-color: var(--color-9);
-  animation: Appear 700ms var(--ease-expo);
+  animation: Appear 500ms var(--ease-expo);
 }
 
 .label {
@@ -36,6 +36,6 @@
 
 @keyframes Appear {
   0% {
-    transform: translateY(100px) scale(0.8);
+    transform: translateY(100%) scale(0.9);
   }
 }

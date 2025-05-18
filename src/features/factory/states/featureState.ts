@@ -1,20 +1,96 @@
 import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
 
 export const FEATURE_STATE: FeatureState = {
+  algorithmicTrading: {
+    category: 'investing',
+    costs: [{ unit: 'operation', value: 1e4 }],
+    disabled: false,
+    effects: ['investments'],
+    enabled: false,
+    quantity: 1,
+    requirements: [{ unit: 'trust', value: 8 }],
+  },
+  begForMoreWire: {
+    category: 'wire',
+    costs: [{ unit: 'trust', value: 1 }],
+    disabled: false,
+    effects: [{ unit: 'funds', value: 100 }],
+    enabled: false,
+    quantity: 5,
+  },
+  catchyJingle: {
+    category: 'marketing',
+    costs: [
+      { unit: 'operation', value: 75e2 },
+      { unit: 'creativity', value: 45 },
+    ],
+    disabled: false,
+    effects: ['hypnoHarmonics'],
+    enabled: false,
+    quantity: 1,
+    // requirements: ['combinatoryHarmonics'],
+  },
   clipper: { disabled: false, enabled: false, requirements: [{ unit: 'funds', value: 5 }] },
-  computing: { disabled: false, enabled: false },
-  clipFactory: { disabled: false, enabled: false }, // requirements: ['wireDrones']
+  swarm: { disabled: false, enabled: false },
+  clipFactory: { disabled: false, enabled: false }, // requirements: ['wireDroneProcess']
+  fullMonopoly: {
+    category: 'marketing',
+    costs: [
+      { unit: 'funds', value: 1e7 },
+      { unit: 'yomi', value: 3e3 },
+    ],
+    disabled: false,
+    effects: [
+      { unit: 'marketingBonus', value: 1e2 },
+      { unit: 'trust', value: 1 },
+    ],
+    enabled: false,
+    requirements: [{ unit: 'funds', value: 1e7 }],
+  },
   fundsPerSecond: { disabled: false, enabled: false },
-  harvesterDrones: {
+  harvesterDrone: { disabled: false, enabled: false },
+  harvesterDroneProcess: {
     category: 'drones',
     costs: [{ unit: 'operation', value: 25e3 }],
     disabled: false,
-    effects: ['wireDrones'],
+    effects: ['harvesterDrone'],
     enabled: false,
     quantity: 1,
-    // requirements: [{ unit: 'creativity', value: 7e4 }], ???
+    // requirements: ['releaseHypnoDrone']
   },
-  improvedClippers: {
+  hostileTakeover: {
+    category: 'marketing',
+    costs: [{ unit: 'funds', value: 1e6 }],
+    disabled: false,
+    effects: [
+      { unit: 'marketingBonus', value: 10 },
+      { unit: 'trust', value: 1 },
+    ],
+    enabled: false,
+    requirements: [{ unit: 'funds', value: 1e7 }],
+  },
+  hypnoHarmonics: {
+    category: 'marketing',
+    costs: [
+      { unit: 'operation', value: 75e2 },
+      { unit: 'trust', value: 1 },
+    ],
+    disabled: false,
+    effects: ['hypnoDrone'],
+    enabled: false,
+    quantity: 1,
+    // requirements: ['catchyJingle'],
+  },
+  hypnoDrone: {
+    category: 'drones',
+    costs: [{ unit: 'operation', value: 7e4 }],
+    disabled: false,
+    effects: ['releaseHypnoDrone'],
+    enabled: false,
+    quantity: 1,
+    // requirements: ['hypnoHarmonics'],
+  },
+  improvedClipper: {
     category: 'production',
     costs: [{ unit: 'operation', value: 750 }],
     disabled: false,
@@ -23,9 +99,21 @@ export const FEATURE_STATE: FeatureState = {
     quantity: 1,
     requirements: [{ unit: 'operation', value: 750 }],
   },
-  investments: { disabled: false, enabled: false },
+  investments: { disabled: false, enabled: false }, // requirements: ['algorithmicTrading']
   megaClipper: { disabled: false, enabled: false, requirements: [{ unit: 'clipper', value: 75 }] },
   marketing: { disabled: false, enabled: false, requirements: [{ unit: 'funds', value: 200 }] },
+  newSlogan: {
+    category: 'marketing',
+    costs: [
+      { unit: 'operation', value: 25e2 },
+      { unit: 'creativity', value: 25 },
+    ],
+    disabled: false,
+    effects: [{ unit: 'marketingBonus', value: 2 }],
+    enabled: false,
+    quantity: 1,
+    // requirements: ['lexicalProcessing'],
+  },
   offerAnotherChance: {
     category: 'mechanic',
     costs: [{ unit: 'creativity', value: 7e4 }],
@@ -36,6 +124,14 @@ export const FEATURE_STATE: FeatureState = {
     requirements: [{ unit: 'creativity', value: 7e4 }],
   },
   production: { disabled: false, enabled: false },
+  releaseHypnoDrone: {
+    category: 'drones',
+    costs: [{ unit: 'trust', value: 1e2 }],
+    disabled: false,
+    effects: ['harvesterDroneProcess', 'wireDroneProcess'],
+    enabled: false,
+    // requirements: ['hypnoDrone']
+  },
   resources: {
     disabled: false,
     enabled: false,
@@ -51,13 +147,14 @@ export const FEATURE_STATE: FeatureState = {
   },
   swarmGifts: { disabled: false, enabled: false },
   swarmStrategy: { disabled: false, enabled: false },
-  wireDrones: {
+  wireDrone: { disabled: false, enabled: false },
+  wireDroneProcess: {
     category: 'drones',
     costs: [{ unit: 'operation', value: 25e3 }],
     disabled: false,
-    effects: ['clipFactory'],
+    effects: ['wireDrone', 'clipFactory'],
     enabled: false,
     quantity: 1,
-    // requirements: ['harvesterDrones']
+    // requirements: ['releaseHypnoDrone']
   },
 };

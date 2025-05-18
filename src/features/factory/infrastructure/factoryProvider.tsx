@@ -22,6 +22,11 @@ export function FactoryProvider({ children }: { children: Children }) {
     setStoredState(state);
   }, [state, setStoredState]);
 
+  useEffect(() => {
+    if (isPlay) console.warn('Start');
+    else console.warn('Stop');
+  }, [isPlay]);
+
   const setPlay = useCallback(() => {
     setIsPlay((prev) => !prev);
   }, []);

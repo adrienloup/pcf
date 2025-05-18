@@ -9,6 +9,8 @@ export const HarvesterDroneComponent = () => {
   const { t } = useTranslation();
   const factory = useFactory();
 
+  if (!factory.feature.harvesterDrone.enabled) return null;
+
   return (
     <DialsComponent>
       <DialComponent

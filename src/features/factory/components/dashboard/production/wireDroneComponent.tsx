@@ -9,6 +9,8 @@ export const WireDroneComponent = () => {
   const { t } = useTranslation();
   const factory = useFactory();
 
+  if (!factory.feature.wireDrone.enabled) return null;
+
   return (
     <DialsComponent>
       <DialComponent

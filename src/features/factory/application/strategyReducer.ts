@@ -6,7 +6,7 @@ export const strategyReducer = (state: Factory, action: FactoryDispatch): Factor
     case 'UPDATE_SWARM_STRATEGY':
       return {
         ...state,
-        swarmStrategy: action.swarm,
+        swarmStrategy: action.strategy,
       };
     default:
       return state;

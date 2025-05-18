@@ -16,7 +16,7 @@ export const InvestmentsComponent = () => {
         tag="h2"
         className={styles.title}
       >
-        Investments
+        investments
       </TitleComponent>
       {factory.feature.investments.enabled ? (
         <>

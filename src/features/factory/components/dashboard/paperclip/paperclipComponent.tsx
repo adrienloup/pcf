@@ -19,7 +19,7 @@ export const PaperclipComponent = () => {
           value={factory.clip}
           notation="compact"
         />
-        Paperclips
+        paperclips
       </TitleComponent>
       <ButtonComponent
         className={styles.button}

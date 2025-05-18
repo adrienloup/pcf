@@ -15,10 +15,15 @@ export const ProductionComponent = () => {
         tag="h2"
         className={styles.title}
       >
-        Production
+        production
       </TitleComponent>
       {factory.feature.production.enabled ? (
         <>
+          <div>Available matter 0g</div>
+          <div>Acquired matter 0g</div>
+          <div>0g per second</div>
+          <div>Wire: 0 inches</div>
+          <div>0 inches per second</div>
           <HarvesterDroneComponent />
           <WireDroneComponent />
         </>
