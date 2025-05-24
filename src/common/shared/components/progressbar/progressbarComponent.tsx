@@ -6,7 +6,7 @@ export const ProgressbarComponent = ({
   valueNow,
   valueMin = 0,
   valueMax = 100,
-  size = 'small',
+  size = 'medium',
   className,
 }: Progressbar) => {
   const getStyle = (valueNow: number) => ({

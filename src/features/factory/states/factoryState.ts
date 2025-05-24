@@ -32,6 +32,7 @@ export const FACTORY_STATE: Factory = {
   operationMax: 7e2,
   processor: 1,
   publicDemand: 0.5,
+  stage: 1,
   swarmGifts: 0,
   swarmStatus: 0,
   swarmStrategy: 0,

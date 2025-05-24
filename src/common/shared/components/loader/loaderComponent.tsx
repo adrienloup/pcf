@@ -7,7 +7,7 @@ import styles from '@/src/common/shared/components/loader/loader.module.scss';
 export const LoaderComponent = ({
   className,
   duration = 1e3,
-  size = 'large',
+  size = 'medium',
   ...props
 }: Loader) => {
   const [progress, setProgress] = useState(0);

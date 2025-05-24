@@ -3,7 +3,6 @@ $mobile-landscape: 768px;
 .profile {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: var(--spacing-m);
   padding-top: var(--spacing-l);
 
@@ -20,7 +19,7 @@ $mobile-landscape: 768px;
       animation-duration: 500ms;
       animation-fill-mode: backwards;
 
-      @for $i from 1 through 2 {
+      @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
           animation-delay: #{100ms + $i * 100ms};
         }

@@ -31,6 +31,7 @@ export interface Factory {
   operationMax: number;
   processor: number;
   publicDemand: number;
+  stage: number;
   swarmGifts: number;
   swarmStatus: number;
   swarmStrategy: number;
@@ -72,6 +73,7 @@ export type FactoryDispatch =
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
   | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
   | { type: 'UPDATE_SWARM_STRATEGY'; strategy: number }
+  | { type: 'UPDATE_STAGE'; stage: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
   | { type: 'BUY_WIRE'; cost: number }
