@@ -32,34 +32,35 @@
   bottom: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.2;
-
-  div {
-    background-color: var(--theme-color-1);
-    height: calc(100% / 20);
-    width: 100%;
-    animation: Fade 2000ms infinite;
-    animation-direction: alternate;
-
-    @for $i from 1 through 20 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 200ms};
-      }
-    }
-  }
+  opacity: 0.5;
+  background-color: var(--theme-color-1);
+  //
+  //div {
+  //  background-color: var(--theme-color-1);
+  //  height: calc(100% / 20);
+  //  width: 100%;
+  //  animation: Fade 2000ms infinite;
+  //  animation-direction: alternate;
+  //
+  //  @for $i from 1 through 20 {
+  //    &:nth-child(#{$i}) {
+  //      animation-delay: #{$i * 200ms};
+  //    }
+  //  }
+  //}
 }
 
 @keyframes Appear {
   0% {
-    transform: translateY(100%) scale(0.95);
+    transform: translateY(100%) scale(0.9);
   }
 }
 
-@keyframes Fade {
-  from {
-    background-color: var(--theme-color-1);
-  }
-  to {
-    background-color: var(--theme-color-2);
-  }
-}
+//@keyframes Fade {
+//  from {
+//    background-color: var(--theme-color-1);
+//  }
+//  to {
+//    background-color: var(--theme-color-2);
+//  }
+//}

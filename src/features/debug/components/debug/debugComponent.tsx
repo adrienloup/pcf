@@ -258,7 +258,7 @@ export const DebugComponent = () => {
         <button type="submit">Add</button>
       </form>
       <form onSubmit={clipSubmit}>
-        <label>clips</label>
+        <label>clip</label>
         <input
           value={clip}
           onChange={clipChange}

@@ -13,7 +13,6 @@ export const TrustComponent = () => {
   const trustRef = useRef(factory.trustRef);
 
   // Trust increase according to the fibonacci sequence: f = f(n-1) + f(n-2)
-  // For example: 2e3 Clip = 1 Trust; 3e3 Clip = 2 Trust; 5e3 Clip = 3 Trust; 8e3 Clip = 4 Trust
   const trusts: number[] = useMemo(() => fibonacci(factory.clip, 2e3, 3e3), [factory.clip]);
   const trust: number = useMemo(
     () => trusts.filter((t) => factory.clip >= t).length,

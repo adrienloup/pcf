@@ -25,7 +25,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
         trustRef: action.trust,
       };
     case 'ALLOCATE_TRUST': {
-      console.log('ALLOCATE_TRUST');
+      // console.log('ALLOCATE_TRUST');
       return {
         ...state,
         memory: 0,

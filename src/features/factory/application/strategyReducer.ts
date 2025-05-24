@@ -8,12 +8,6 @@ export const strategyReducer = (state: Factory, action: FactoryDispatch): Factor
         ...state,
         swarmStrategy: action.strategy,
       };
-    case 'UPDATE_STAGE':
-      if (state.wire <= 0) return state;
-      return {
-        ...state,
-        stage: action.stage,
-      };
     default:
       return state;
   }

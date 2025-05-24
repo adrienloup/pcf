@@ -67,13 +67,13 @@ export type FactoryDispatch =
   | { type: 'INCREASE_WALLET'; symbol: string; price: number }
   | { type: 'DECREASE_WALLET'; symbol: string; price: number }
   | { type: 'INCREASE_TRUST'; trust: number }
+  // | { type: 'INCREASE_STAGE'; stage: number }
   | { type: 'UPDATE_MARKETING_BONUS'; bonus: number }
   | { type: 'UPDATE_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_MEGA_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
   | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
   | { type: 'UPDATE_SWARM_STRATEGY'; strategy: number }
-  | { type: 'UPDATE_STAGE'; stage: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
   | { type: 'BUY_WIRE'; cost: number }

@@ -12,7 +12,7 @@ const LayoutComponent = lazy(() =>
 
 function ProfilePage() {
   const { t } = useTranslation();
-  useTitle('Welcome');
+  useTitle('Profile');
 
   return (
     <Suspense fallback={<LoaderComponent aria-label={t('app.loading')} />}>
