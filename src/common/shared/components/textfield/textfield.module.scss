@@ -1,0 +1,58 @@
+$tablet-portrait: 769px;
+
+.textfield {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  background-color: var(--color-2);
+  border: 0.2rem solid var(--color-3);
+  color: var(--color-1);
+
+  &.focus {
+    outline: 0.2rem solid var(--color-outline);
+    outline-offset: -0.35rem;
+  }
+
+  &.success {
+    border-color: var(--color-chartreuse);
+  }
+
+  &.warning {
+    border-color: var(--color-orange);
+  }
+
+  &.error {
+    border-color: var(--color-red);
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 0 0.75rem;
+    background-color: transparent;
+    border: 0;
+    font-family: var(--font-text-regular);
+    font-size: 1.5rem;
+    color: var(--color-1);
+    outline: 0;
+
+    &::placeholder {
+      color: var(--color-1);
+    }
+
+    & + .icon {
+      margin: 0 1rem 0 0;
+    }
+  }
+
+  @media (max-width: $tablet-portrait) {
+    height: 3rem;
+  }
+}
+
+.icon {
+  margin-left: 1rem;
+  font-size: 2rem;
+  pointer-events: none;
+}

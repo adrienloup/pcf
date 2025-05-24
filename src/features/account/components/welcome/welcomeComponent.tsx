@@ -11,7 +11,6 @@ export const WelcomeComponent = () => {
       className={styles.welcome}
       role="article"
     >
-      <h1>welcome!</h1>
       {user ? <LoggedComponent /> : <LoginComponent />}
     </article>
   );

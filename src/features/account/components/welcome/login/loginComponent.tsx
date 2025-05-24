@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
-
-function usernameTest(value: string) {
-  return /^[A-Za-z]{3,10}$/.test(value);
-}
-
-function passwordTest(value: string) {
-  return /^[A-Za-z0-9]{5,10}$/.test(value);
-}
+import { regexTest } from '@/src/common/shared/utils/regexTest.ts';
+import { StubbornComponent } from '@/src/features/account/components/welcome/stubborn/stubbornComponent.tsx';
+import styles from '@/src/features/account/components/welcome/login/login.module.scss';
 
 export const LoginComponent = () => {
   const { setLogin, setRegister } = useAccount();
@@ -23,12 +18,12 @@ export const LoginComponent = () => {
     }
   };
 
-  const onRegister = () => {
+  const onSignup = () => {
     const errors: string[] = [];
-    if (!usernameTest(username)) {
+    if (!regexTest(/^[A-Za-z]{3,10}$/, username)) {
       errors.push('your username must be 3 to 10 alphabetic characters');
     }
-    if (!passwordTest(password)) {
+    if (!regexTest(/^[A-Za-z0-9]{5,10}$/, password)) {
       errors.push('your password must be 5 to 10 alphanumeric characters');
     }
     if (errors.length > 0) {
@@ -42,24 +37,26 @@ export const LoginComponent = () => {
   };
 
   return (
-    <div style={{ padding: '4rem', color: 'green', fontSize: '2rem' }}>
-      <input
-        placeholder="Nom d'utilisateur"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br />
-      <input
-        placeholder="Mot de passe"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <div>
-        <button onClick={onLogin}>Connexion</button>
-        <button onClick={onRegister}>Créer un compte</button>
-      </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
+    <>
+      <StubbornComponent />
+      <form className={styles.login}>
+        <input
+          placeholder="Nom d'utilisateur"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          placeholder="Mot de passe"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div>
+          <button onClick={onLogin}>Connexion</button>
+          <button onClick={onSignup}>Créer un compte</button>
+        </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </form>
+    </>
   );
 };
