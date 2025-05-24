@@ -25,6 +25,7 @@ export const DebugComponent = () => {
   const [creativity, setCreativity] = useState('0');
   const [cash, setCash] = useState('0');
   const [drone, setDrone] = useState('0');
+  const [swarmGifts, setSwarmGifts] = useState('0');
 
   const display = useMemo(() => {
     // const isDebug = location.search == '?debug';
@@ -208,6 +209,16 @@ export const DebugComponent = () => {
     setDrone('0');
   };
 
+  const swarmGiftsChange = (e: ChangeEvent<HTMLInputElement>) => setSwarmGifts(e.target.value);
+  const swarmGiftsSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFactory({
+      type: 'ADD_GIFTS',
+      swarmGifts: Number(swarmGifts),
+    });
+    setSwarmGifts('0');
+  };
+
   const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
   const updateMegaClipperBonus = (bonus: number) =>
@@ -340,6 +351,14 @@ export const DebugComponent = () => {
         <input
           value={drone}
           onChange={droneChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <form onSubmit={swarmGiftsSubmit}>
+        <label>swarmGifts</label>
+        <input
+          value={swarmGifts}
+          onChange={swarmGiftsChange}
         />
         <button type="submit">Add</button>
       </form>

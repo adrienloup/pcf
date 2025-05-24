@@ -2,6 +2,7 @@ import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts'
 import { TurbanComponent } from '@/src/common/shared/components/turban/turbanComponent.tsx';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
+import { ResumeComponent } from '@/src/features/account/components/resume/resumeComponent.tsx';
 import { LoginComponent } from '@/src/features/account/components/login/loginComponent.tsx';
 import styles from '@/src/features/account/components/profile/profile.module.scss';
 
@@ -29,7 +30,7 @@ export const ProfileComponent = () => {
               disconnect
             </ButtonComponent>
           </TurbanComponent>
-          <div className={styles.inner}>progress blabla</div>
+          <ResumeComponent />
         </>
       ) : (
         <LoginComponent />

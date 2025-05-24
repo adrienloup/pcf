@@ -20,7 +20,7 @@ function productionPerSecond(state: Factory): number {
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
-      console.log('PRODUCTION_PER_SECOND');
+      // console.log('PRODUCTION_PER_SECOND');
       const productionPS = productionPerSecond(state);
       const clipPS = productionPS * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;

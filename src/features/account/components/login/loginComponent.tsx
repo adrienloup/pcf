@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAlertsDispatch } from '@/src/common/shared/components/alerts/useAlerts.ts';
 import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
 import { regexTest } from '@/src/common/shared/utils/regexTest.ts';
 import { TextFieldComponent } from '@/src/common/shared/components/textfield/textFieldComponent.tsx';
@@ -9,6 +10,7 @@ import styles from '@/src/features/account/components/login/login.module.scss';
 
 export const LoginComponent = () => {
   const { t } = useTranslation();
+  const setAlerts = useAlertsDispatch();
   const { setLogin, setRegister } = useAccount();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,6 +31,8 @@ export const LoginComponent = () => {
       setUsernameError(t('app.incorrectIdentifiers'));
       setPasswordError(t('app.incorrectIdentifiers'));
     }
+
+    setAlerts({ type: 'ADD_ALERT', alert: { id: 'login', text: 'connection successful' } });
   };
 
   const onSignup = () => {
@@ -53,6 +57,8 @@ export const LoginComponent = () => {
       setUsernameError(t('app.usernameAlreadyTaken'));
       return;
     }
+
+    setAlerts({ type: 'ADD_ALERT', alert: { id: 'signup', text: 'successful registration' } });
   };
 
   return (

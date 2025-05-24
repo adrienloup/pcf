@@ -34,7 +34,7 @@ export const FACTORY_STATE: Factory = {
   publicDemand: 0.5,
   swarmGifts: 0,
   swarmStatus: 0,
-  swarmStrategy: 5,
+  swarmStrategy: 0,
   trust: 0,
   trustRef: 0,
   unsoldInventory: 0,
