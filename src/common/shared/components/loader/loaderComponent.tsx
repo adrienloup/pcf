@@ -4,12 +4,20 @@ import { ProgressbarComponent } from '@/src/common/shared/components/progressbar
 import type { Loader } from '@/src/common/shared/components/loader/loader.ts';
 import styles from '@/src/common/shared/components/loader/loader.module.scss';
 
-export const LoaderComponent = ({ className, duration = 1e3, size = 'large', ...props }: Loader) => {
+export const LoaderComponent = ({
+  className,
+  duration = 1e3,
+  size = 'large',
+  ...props
+}: Loader) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (progress >= 100) return;
-    const interval = setInterval(() => setProgress((prev) => Math.min(prev + 1, 100)), duration / 100);
+    const interval = setInterval(
+      () => setProgress((prev) => Math.min(prev + 1, 100)),
+      duration / 100
+    );
     return () => clearInterval(interval);
   }, [progress, duration]);
 

@@ -4,9 +4,8 @@ import { ExchangeContext } from '@/src/features/exchange/infrastructure/exchange
 import { EXCHANGE_KEY } from '@/src/features/exchange/infrastructure/exchangeKey.ts';
 import { EXCHANGE_STATE } from '@/src/features/exchange/states/exchangeState.ts';
 import type { TokenSymbol } from '@/src/features/exchange/domain/token.ts';
-import type { Children } from '@/src/common/shared/types/children.ts';
-
 import type { Tokens } from '@/src/features/exchange/domain/tokens.ts';
+import type { Children } from '@/src/common/shared/types/children.ts';
 
 export function ExchangeProvider({ children }: { children: Children }) {
   const [storedState, setStoredState] = useLocalStorage<Tokens>(EXCHANGE_KEY, EXCHANGE_STATE);

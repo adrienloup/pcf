@@ -1,27 +1,30 @@
-$tablet-portrait: 1024px;
+$tablet-landscape: 1280px;
 $mobile-landscape: 768px;
+$mobile-portrait: 400px;
 
 .menu {
-  display: flex;
-  flex-direction: column;
   position: relative;
   height: 0;
+  background-color: var(--theme-color-2);
   transition-property: height;
   transition-duration: 300ms;
   transition-timing-function: var(--ease-expo);
-  background-color: var(--theme-color-2);
   //will-change: height;
 
   &.open {
-    height: 14rem;
+    height: 20rem;
     transition-duration: 400ms;
+
+    @media (min-width: $mobile-portrait) {
+      height: 18rem;
+    }
 
     @media (min-width: $mobile-landscape) {
       height: 10rem;
     }
 
-    @media (min-width: $tablet-portrait) {
-      height: 8rem;
+    @media (min-width: $tablet-landscape) {
+      height: 7rem;
     }
   }
 }
@@ -29,29 +32,33 @@ $mobile-landscape: 768px;
 .inside {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-s);
+  justify-content: center;
   overflow: hidden;
-  height: 14rem;
-  padding: var(--spacing-s);
-  transform: translateY(-1rem);
-  opacity: 0;
-  transition-property: transform, opacity;
+  height: 0;
+  transform: translateY(1rem);
+  visibility: hidden;
+  transition-property: height, transform;
   transition-duration: 100ms;
-  transition-timing-function: var(--ease-quad);
-  //will-change: opacity;
-
-  @media (min-width: $mobile-landscape) {
-    height: 10rem;
-  }
-
-  @media (min-width: $tablet-portrait) {
-    height: 8rem;
-  }
+  transition-timing-function: var(--ease-expo);
+  //will-change: height;
 
   .open & {
-    transition-duration: 200ms;
+    height: 20rem;
     transform: translateY(0);
-    opacity: 1;
+    visibility: visible;
+    transition-duration: 400ms;
+
+    @media (min-width: $mobile-portrait) {
+      height: 18rem;
+    }
+
+    @media (min-width: $mobile-landscape) {
+      height: 10rem;
+    }
+
+    @media (min-width: $tablet-landscape) {
+      height: 7rem;
+    }
   }
 }
 
@@ -59,7 +66,6 @@ $mobile-landscape: 768px;
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 2;
   display: flex;
   align-items: center;
   padding: var(--spacing-xs);
@@ -72,5 +78,15 @@ $mobile-landscape: 768px;
   &.active,
   &:active {
     outline: 0.25rem solid var(--color-7);
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+
+  @media (min-width: $tablet-landscape) {
+    flex-direction: row;
   }
 }

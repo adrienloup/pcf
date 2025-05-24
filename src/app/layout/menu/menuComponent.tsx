@@ -5,6 +5,7 @@ import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
 import { SettingsComponent } from '@/src/app/layout/settings/settingsComponent.tsx';
 import { NavigationComponent } from '@/src/app/layout/navigation/navigationComponent.tsx';
+import { ControlsComponent } from '@/src/app/layout/controls/controlsComponent.tsx';
 // import { IconComponent } from '@/src/generic/common/components/icon/Icon.component.tsx';
 import styles from '@/src/app/layout/menu/menu.module.scss';
 
@@ -41,8 +42,11 @@ export const MenuComponent = () => {
         {/*<IconComponent icon={open ? 'menu_open' : 'menu'} />*/}
       </ButtonComponent>
       <div className={styles.inside}>
-        <NavigationComponent open={open} />
-        <SettingsComponent open={open} />
+        <NavigationComponent />
+        <div className={styles.settings}>
+          <SettingsComponent />
+          <ControlsComponent />
+        </div>
       </div>
     </div>
   );

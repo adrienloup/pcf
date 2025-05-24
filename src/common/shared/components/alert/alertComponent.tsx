@@ -5,7 +5,13 @@ import { ButtonComponent } from '@/src/common/shared/components/button/buttonCom
 import type { Alert } from '@/src/common/shared/components/alert/alert.ts';
 import styles from '@/src/common/shared/components/alert/alert.module.scss';
 
-export const AlertComponent = ({ text, status = 'warning', timeout = 3e3, close = true, remove }: Alert) => {
+export const AlertComponent = ({
+  text,
+  status = 'warning',
+  timeout = 3e3,
+  close = true,
+  remove,
+}: Alert) => {
   const outTimer = useRef(0);
   const removeTimer = useRef(0);
   const [out, setOut] = useState(false);

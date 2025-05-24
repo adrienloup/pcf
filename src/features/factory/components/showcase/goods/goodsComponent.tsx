@@ -17,7 +17,7 @@ export const GoodsComponent = () => {
       </TitleComponent>
       <ButtonComponent
         className={styles.button}
-        to={'/pcf'}
+        to={'/pcf/factory'}
       >
         factory
       </ButtonComponent>

@@ -1,5 +1,8 @@
 import { type ChangeEvent, useCallback } from 'react';
-import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
+import {
+  useFactory,
+  useFactoryDispatch,
+} from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 // import { ExponentComponent } from '@/src/common/shared/components/exponent/exponentComponent.tsx';

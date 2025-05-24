@@ -2,7 +2,8 @@ import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/fac
 import { fibonacci } from '@/src/common/shared/utils/fibonacci.ts';
 
 function productionPerSecond(state: Factory): number {
-  const { wire, feature, clipFactory, megaClipper, clipper, clipperBonus, megaClipperBonus } = state;
+  const { wire, feature, clipFactory, megaClipper, clipper, clipperBonus, megaClipperBonus } =
+    state;
   const megaClipperPS = megaClipper * 500 * Math.max(1, megaClipperBonus);
   const clipperPS = clipper * Math.max(1, clipperBonus);
   const clipFactoryPS = Math.min(clipFactory * 1e3, 1e11);
@@ -19,6 +20,7 @@ function productionPerSecond(state: Factory): number {
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
+      console.log('PRODUCTION_PER_SECOND');
       const productionPS = productionPerSecond(state);
       const clipPS = productionPS * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;
@@ -45,7 +47,8 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
         unsoldInventory: state.unsoldInventory + Math.max(1, state.unsoldInventoryBonus),
         wire: state.wire - 1,
         clipPerSecond: state.clipPerSecond + Math.max(1, state.unsoldInventoryBonus),
-        fundsPerSecond: state.fundsPerSecond + Math.max(1, state.unsoldInventoryBonus) * state.clipPrice,
+        fundsPerSecond:
+          state.fundsPerSecond + Math.max(1, state.unsoldInventoryBonus) * state.clipPrice,
       };
     default:
       return state;

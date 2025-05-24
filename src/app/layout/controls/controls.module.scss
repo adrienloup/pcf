@@ -1,0 +1,26 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+  align-items: center;
+  padding: 0 var(--spacing-s);
+  color: var(--theme-color-1);
+}
+
+.control {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.title {
+  font-size: var(--font-size-s);
+}
+
+.button {
+  text-transform: uppercase;
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  background-color: var(--theme-color-1);
+  color: var(--theme-color-2);
+}

@@ -1,0 +1,9 @@
+.user {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: var(--spacing-xs);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+}

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from '@/src/app/layout/navigation/navigation.module.scss';
 
-export const NavigationComponent = ({ open }: { open: boolean }) => {
+export const NavigationComponent = () => {
   return (
     <nav
       className={styles.navigation}
@@ -10,9 +10,8 @@ export const NavigationComponent = ({ open }: { open: boolean }) => {
       <ul className={styles.list}>
         <li>
           <Link
-            to={'/pcf'}
+            to={'/pcf/factory'}
             className={styles.link}
-            tabIndex={open ? 0 : -1}
           >
             factory
           </Link>
@@ -21,7 +20,6 @@ export const NavigationComponent = ({ open }: { open: boolean }) => {
           <Link
             to={'/pcf/shop'}
             className={styles.link}
-            tabIndex={open ? 0 : -1}
           >
             shop
           </Link>
@@ -30,9 +28,16 @@ export const NavigationComponent = ({ open }: { open: boolean }) => {
           <Link
             to={'/pcf/explore'}
             className={styles.link}
-            tabIndex={open ? 0 : -1}
           >
             explore
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={'/pcf/profile'}
+            className={styles.link}
+          >
+            profile
           </Link>
         </li>
       </ul>

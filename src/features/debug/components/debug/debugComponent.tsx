@@ -1,5 +1,8 @@
 import { type ChangeEvent, useMemo, useState } from 'react';
-import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
+import {
+  useFactory,
+  useFactoryDispatch,
+} from '@/src/features/factory/infrastructure/useFactory.ts';
 import { useLocation } from 'react-router-dom';
 import { useAlertsDispatch } from '@/src/common/shared/components/alerts/useAlerts.ts';
 import styles from '@/src/features/debug/components/debug/debug.module.scss';
@@ -25,7 +28,8 @@ export const DebugComponent = () => {
 
   const display = useMemo(() => {
     // const isDebug = location.search == '?debug';
-    const isDebug = location.search.split('=')[0] == '?debug' ? location.search.split('=').pop() : '';
+    const isDebug =
+      location.search.split('=')[0] == '?debug' ? location.search.split('=').pop() : '';
     // if (isDebug) {
     //   localStorage.setItem('_debug_3mma_0', 'debug');
     // } else {
@@ -206,8 +210,10 @@ export const DebugComponent = () => {
 
   const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
-  const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
-  const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
+  const updateMegaClipperBonus = (bonus: number) =>
+    setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
+  const updateMarketingBonus = (bonus: number) =>
+    setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
   const updateUnsoldInventory = (bonus: number) =>
     setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
 

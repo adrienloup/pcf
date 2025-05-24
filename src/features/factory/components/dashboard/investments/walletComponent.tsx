@@ -1,4 +1,7 @@
-import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
+import {
+  useFactory,
+  useFactoryDispatch,
+} from '@/src/features/factory/infrastructure/useFactory.ts';
 import { useExchange } from '@/src/features/exchange/infrastructure/useExchange.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';

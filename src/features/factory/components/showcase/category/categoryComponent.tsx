@@ -4,7 +4,13 @@ import { EmptyComponent } from '@/src/common/shared/components/empty/emptyCompon
 import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
 import styles from '@/src/features/factory/components/showcase/category/category.module.scss';
 
-export const CategoryComponent = ({ category, feature }: { category: string; feature: FeatureState }) => {
+export const CategoryComponent = ({
+  category,
+  feature,
+}: {
+  category: string;
+  feature: FeatureState;
+}) => {
   return (
     <div className={styles.category}>
       <TitleComponent
