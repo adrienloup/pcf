@@ -6,7 +6,7 @@ import { ButtonComponent } from '@/src/common/shared/components/button/buttonCom
 import { SettingsComponent } from '@/src/app/layout/settings/settingsComponent.tsx';
 import { NavigationComponent } from '@/src/app/layout/navigation/navigationComponent.tsx';
 import { ControlsComponent } from '@/src/app/layout/controls/controlsComponent.tsx';
-// import { IconComponent } from '@/src/generic/common/components/icon/Icon.component.tsx';
+// import { IconComponent } from '@/src/generic/common/components/icon/iconComponent.tsx';
 import styles from '@/src/app/layout/menu/menu.module.scss';
 
 export const MenuComponent = () => {

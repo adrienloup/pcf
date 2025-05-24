@@ -1,28 +1,15 @@
-import { useId, useState } from "react";
-import { StatusType } from "../../../models/Status";
-import { FormField } from "../FormField/FormField";
-import { Icon } from "../../Icon/Icon";
-import styles from "./TextField.module.scss";
+import { useId, useState } from 'react';
+import { classNames } from '@/src/common/shared/utils/classNames.ts';
+import { FormFieldComponent } from '@/src/common/shared/components/formfield/formFieldComponent.tsx';
+import { IconComponent } from '@/src/common/shared/components/icon/iconComponent.tsx';
+import type { TextField } from '@/src/common/shared/components/textfield/textField.ts';
+import styles from '@/src/common/shared/components/textfield/textfield.module.scss';
 
-interface TextFieldProps {
-  cssClass?: string;
-  id?: string;
-  label?: string;
-  placeholder?: string;
-  helperText?: string;
-  errorMessage?: string;
-  value?: string;
-  prefix?: string;
-  suffix?: string;
-  status?: StatusType;
-  onChange: (e: { target: { value: string } }) => void;
-}
-
-export const TextField = ({
-  cssClass,
+export const TextFieldComponent = ({
+  className,
   id,
   label,
-  placeholder = "Placeholder",
+  placeholder = 'placeholder',
   helperText,
   errorMessage,
   value,
@@ -30,29 +17,30 @@ export const TextField = ({
   suffix,
   status,
   onChange,
-}: TextFieldProps) => {
+}: TextField) => {
   const uId = useId();
   const [focus, setFocus] = useState(false);
 
   return (
-    <FormField
+    <FormFieldComponent
       label={label}
       helperText={helperText}
       errorMessage={errorMessage}
     >
       <div
-        className={[
+        className={classNames([
           styles.textfield,
-          focus ? ` ${styles.focus}` : "",
-          status
-            ? ` ${styles[status]}`
-            : errorMessage
-              ? ` ${styles.error}`
-              : "",
-          cssClass ? ` ${cssClass}` : "",
-        ].join("")}
+          focus ? styles.focus : '',
+          status ? styles[status] : errorMessage ? styles.error : '',
+          className,
+        ])}
       >
-        {prefix && <Icon name={prefix} cssClass={styles.icon} />}
+        {prefix && (
+          <IconComponent
+            icon={prefix}
+            className={styles.icon}
+          />
+        )}
         <input
           type="text"
           id={id ? id : uId}
@@ -63,8 +51,13 @@ export const TextField = ({
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
         />
-        {suffix && <Icon name={suffix} cssClass={styles.icon} />}
+        {suffix && (
+          <IconComponent
+            icon={suffix}
+            className={styles.icon}
+          />
+        )}
       </div>
-    </FormField>
+    </FormFieldComponent>
   );
 };

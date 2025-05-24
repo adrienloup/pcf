@@ -1,58 +1,48 @@
-$tablet-portrait: 769px;
-
 .textfield {
   overflow: hidden;
   display: flex;
   align-items: center;
   height: 4rem;
-  background-color: var(--color-2);
-  border: 0.2rem solid var(--color-3);
-  color: var(--color-1);
+  background-color: var(--theme-color-1);
+  border: 0.25rem solid var(--theme-color-2);
+  font-size: var(--font-size-m);
+  color: var(--theme-color-2);
 
   &.focus {
-    outline: 0.2rem solid var(--color-outline);
-    outline-offset: -0.35rem;
+    outline: 0.25rem solid var(--color-7);
+    outline-offset: -0.25rem;
   }
 
   &.success {
-    border-color: var(--color-chartreuse);
+    border-color: var(--color-6);
   }
 
   &.warning {
-    border-color: var(--color-orange);
+    border-color: var(--color-9);
   }
 
   &.error {
-    border-color: var(--color-red);
+    border-color: var(--color-10);
   }
 
   input {
     width: 100%;
     height: 100%;
-    padding: 0 0.75rem;
+    padding: 0 var(--spacing-s);
     background-color: transparent;
     border: 0;
-    font-family: var(--font-text-regular);
-    font-size: 1.5rem;
-    color: var(--color-1);
+    font-family: var(--theme-font-text), sans-serif;
+    font-weight: normal;
+    font-size: var(--font-size-m);
+    color: var(--theme-color-2);
     outline: 0;
 
     &::placeholder {
-      color: var(--color-1);
+      color: var(--theme-color-2);
     }
 
     & + .icon {
-      margin: 0 1rem 0 0;
+      margin: 0 var(--spacing-s) 0 0;
     }
   }
-
-  @media (max-width: $tablet-portrait) {
-    height: 3rem;
-  }
-}
-
-.icon {
-  margin-left: 1rem;
-  font-size: 2rem;
-  pointer-events: none;
 }

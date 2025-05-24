@@ -10,7 +10,7 @@ import { ProductionComponent } from '@/src/features/factory/components/dashboard
 import { SwarmComponent } from '@/src/features/factory/components/dashboard/swarm/swarmComponent.tsx';
 import { PowerComponent } from '@/src/features/factory/components/dashboard/power/powerComponent.tsx';
 import { UserComponent } from '@/src/features/account/components/user/userComponent.tsx';
-import { LoginComponent } from '@/src/features/account/components/welcome/login/loginComponent.tsx';
+import { LoginComponent } from '@/src/features/account/components/login/loginComponent.tsx';
 import styles from '@/src/features/factory/components/dashboard/dashboard.module.scss';
 
 export const DashboardComponent = () => {

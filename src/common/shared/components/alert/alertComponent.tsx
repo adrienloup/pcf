@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
-// import { IconComponent } from '@/src/generic/common/components/icon/Icon.component.tsx';
+// import { IconComponent } from '@/src/generic/common/components/icon/iconComponent.tsx';
 import type { Alert } from '@/src/common/shared/components/alert/alert.ts';
 import styles from '@/src/common/shared/components/alert/alert.module.scss';
 
