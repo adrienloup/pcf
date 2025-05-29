@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
+// import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ProgressbarComponent } from '@/src/common/shared/components/progressbar/progressbarComponent.tsx';
@@ -7,7 +7,7 @@ import styles from '@/src/features/account/components/profile/resume/resume.modu
 
 export const ResumeComponent = () => {
   const { t } = useTranslation();
-  const factory = useFactory();
+  // const factory = useFactory();
 
   return (
     <div className={styles.resume}>
@@ -15,7 +15,7 @@ export const ResumeComponent = () => {
         <DialComponent label={t('profile.stage')} />
         <ProgressbarComponent
           valueMin={0}
-          valueNow={factory.stage}
+          valueNow={30}
           valueMax={100}
           size="small"
         />

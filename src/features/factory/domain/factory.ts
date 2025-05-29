@@ -32,7 +32,6 @@ export interface Factory {
   operationMax: number;
   processor: number;
   publicDemand: number;
-  stage: number;
   swarmGifts: number;
   swarmStatus: number;
   swarmStrategy: number;
@@ -46,6 +45,7 @@ export interface Factory {
   wireCost: number;
   wireDrone: number;
   wireDroneCost: number;
+  wirePerSecond: number;
   yomi: number;
 }
 
@@ -68,7 +68,6 @@ export type FactoryDispatch =
   | { type: 'INCREASE_WALLET'; symbol: string; price: number }
   | { type: 'DECREASE_WALLET'; symbol: string; price: number }
   | { type: 'INCREASE_TRUST'; trust: number }
-  // | { type: 'INCREASE_STAGE'; stage: number }
   | { type: 'UPDATE_MARKETING_BONUS'; bonus: number }
   | { type: 'UPDATE_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_MEGA_CLIPPER_BONUS'; bonus: number }

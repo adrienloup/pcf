@@ -2,7 +2,13 @@ import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import type { FormField } from '@/src/common/shared/components/formfield/formField.ts';
 import styles from '@/src/common/shared/components/formfield/formField.module.scss';
 
-export const FormFieldComponent = ({ children, label, helperText, errorMessage, className }: FormField) => {
+export const FormFieldComponent = ({
+  children,
+  label,
+  helperText,
+  errorMessage,
+  className,
+}: FormField) => {
   return (
     <div className={classNames([styles.formfield, className])}>
       {label && <div className={styles.label}>{label}</div>}

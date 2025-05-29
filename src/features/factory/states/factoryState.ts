@@ -33,7 +33,6 @@ export const FACTORY_STATE: Factory = {
   operationMax: 7e2,
   processor: 1,
   publicDemand: 0.5,
-  stage: 1,
   swarmGifts: 0,
   swarmStatus: 0,
   swarmStrategy: 0,
@@ -47,5 +46,6 @@ export const FACTORY_STATE: Factory = {
   wireCost: 20,
   wireDrone: 0,
   wireDroneCost: 1e4,
+  wirePerSecond: 0,
   yomi: 1e4,
 };
