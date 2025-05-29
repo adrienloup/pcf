@@ -1,8 +1,10 @@
+$mobile-landscape: 768px;
+
 .settings {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-s);
   align-items: center;
+  gap: var(--spacing-s);
   padding: 0 var(--spacing-s);
   color: var(--theme-color-1);
 }
@@ -14,7 +16,12 @@
 }
 
 .title {
+  flex: 0 0 100%;
   font-size: var(--font-size-s);
+
+  @media (min-width: $mobile-landscape) {
+    flex: initial;
+  }
 }
 
 .button {

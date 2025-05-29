@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { HeaderComponent } from '@/src/app/layout/header/headerComponent.tsx';
 import { MainComponent } from '@/src/app/layout/main/mainComponent.tsx';
 import { FooterComponent } from '@/src/app/layout/footer/footerComponent.tsx';
+import { NoRoomComponent } from '@/src/app/layout/noroom/noRoomComponent.tsx';
 import type { Layout } from '@/src/app/layout/layout/layout.ts';
 
 function LayoutComponent({ children }: Layout) {
@@ -14,6 +15,7 @@ function LayoutComponent({ children }: Layout) {
       <HeaderComponent />
       <MainComponent>{children}</MainComponent>
       <FooterComponent />
+      <NoRoomComponent />
     </>
   );
 }

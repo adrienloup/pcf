@@ -58,7 +58,7 @@ export const DebugComponent = () => {
     setFactory({
       type: 'UPDATE_FEATURE',
       feature: feature,
-      disabled: true,
+      actived: true,
       enabled: true,
     });
     setFeature('');
@@ -123,7 +123,7 @@ export const DebugComponent = () => {
       type: 'INITIALIZE',
       state: {
         ...factory,
-        trust: parseInt(trust),
+        trust: Math.min(Number(trust), 100),
       },
     });
     setTrust('0');
@@ -225,8 +225,9 @@ export const DebugComponent = () => {
     setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) =>
     setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
-  const updateUnsoldInventory = (bonus: number) =>
+  const updateUnsoldInventoryBonus = (bonus: number) =>
     setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
+  const updateDroneBonus = (bonus: number) => setFactory({ type: 'UPDATE_DRONE_BONUS', bonus });
 
   return display ? (
     <div
@@ -510,39 +511,60 @@ export const DebugComponent = () => {
         <label>unsoldInventoryBonus</label>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(0)}
+          onClick={() => updateUnsoldInventoryBonus(0)}
         >
           0
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(2)}
+          onClick={() => updateUnsoldInventoryBonus(2)}
         >
           2
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(5)}
+          onClick={() => updateUnsoldInventoryBonus(5)}
         >
           5
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(10)}
+          onClick={() => updateUnsoldInventoryBonus(10)}
         >
           10
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(50)}
+          onClick={() => updateUnsoldInventoryBonus(50)}
         >
           50
         </button>
         <button
           type="button"
-          onClick={() => updateUnsoldInventory(100)}
+          onClick={() => updateUnsoldInventoryBonus(100)}
         >
           100
+        </button>
+      </form>
+      <form>
+        <label>droneBonus</label>
+        <button
+          type="button"
+          onClick={() => updateDroneBonus(10)}
+        >
+          10
+        </button>
+        <button
+          type="button"
+          onClick={() => updateDroneBonus(100)}
+        >
+          100
+        </button>
+        <button
+          type="button"
+          onClick={() => updateDroneBonus(1000)}
+        >
+          1e3
         </button>
       </form>
     </div>

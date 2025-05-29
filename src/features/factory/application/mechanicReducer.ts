@@ -30,16 +30,16 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
       if (state.funds < state.harvesterDroneCost) return state;
       return {
         ...state,
-        drone: state.drone + action.drone,
-        harvesterDrone: state.harvesterDrone + action.drone,
+        drone: state.drone + state.droneBonus,
+        harvesterDrone: state.harvesterDrone + state.droneBonus,
         funds: Math.max(0, state.funds - state.harvesterDroneCost),
       };
-    case 'BUY_HARVESTER_WIRE':
+    case 'BUY_WIRE_DRONE':
       if (state.funds < state.wireDroneCost) return state;
       return {
         ...state,
-        drone: state.drone + action.drone,
-        wireDrone: state.wireDrone + action.drone,
+        drone: state.drone + state.droneBonus,
+        wireDrone: state.wireDrone + state.droneBonus,
         funds: Math.max(0, state.funds - state.wireDroneCost),
       };
     case 'UPDATE_CLIPPER_BONUS':
@@ -51,6 +51,11 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
       return {
         ...state,
         megaClipperBonus: action.bonus,
+      };
+    case 'UPDATE_DRONE_BONUS':
+      return {
+        ...state,
+        droneBonus: action.bonus,
       };
     default:
       return state;

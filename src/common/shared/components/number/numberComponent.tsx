@@ -1,14 +1,7 @@
 import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
 import type { Number } from '@/src/common/shared/components/number/number.ts';
 
-export const NumberComponent = ({
-  className,
-  value,
-  style,
-  notation,
-  compactDisplay,
-  valueMax,
-}: Number) => {
+export const NumberComponent = ({ className, value, style, notation, compactDisplay, valueMax }: Number) => {
   const { settings } = useSettings();
 
   const options = {

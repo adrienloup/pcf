@@ -6,13 +6,11 @@ import { DebugComponent } from '@/src/features/debug/components/debug/debugCompo
 import { LoaderComponent } from '@/src/common/shared/components/loader/loaderComponent.tsx';
 import { ProfileComponent } from '@/src/features/account/components/profile/profileComponent.tsx';
 
-const LayoutComponent = lazy(() =>
-  fallback(import('@/src/app/layout/layout/layoutComponent.tsx'), 15e2)
-);
+const LayoutComponent = lazy(() => fallback(import('@/src/app/layout/layout/layoutComponent.tsx'), 15e2));
 
 function ProfilePage() {
   const { t } = useTranslation();
-  useTitle('Profile');
+  useTitle(t('profile.titlePage'));
 
   return (
     <Suspense fallback={<LoaderComponent aria-label={t('app.loading')} />}>

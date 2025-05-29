@@ -1,8 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import {
-  useFactory,
-  useFactoryDispatch,
-} from '@/src/features/factory/infrastructure/useFactory.ts';
+import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';

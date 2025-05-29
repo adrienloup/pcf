@@ -4,7 +4,7 @@ import type { FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
 export type Feature = {
   category?: string;
   costs?: UnitValue[];
-  disabled: boolean;
+  actived: boolean;
   effects?: FactoryDispatch | UnitValue[] | string[];
   enabled: boolean;
   quantity?: number;

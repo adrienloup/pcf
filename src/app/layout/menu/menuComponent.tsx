@@ -43,7 +43,7 @@ export const MenuComponent = () => {
       </ButtonComponent>
       <div className={styles.inside}>
         <NavigationComponent />
-        <div className={styles.settings}>
+        <div className={styles.actions}>
           <SettingsComponent />
           <ControlsComponent />
         </div>

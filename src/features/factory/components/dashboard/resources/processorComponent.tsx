@@ -1,8 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import {
-  useFactory,
-  useFactoryDispatch,
-} from '@/src/features/factory/infrastructure/useFactory.ts';
+import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';

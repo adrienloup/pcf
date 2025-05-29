@@ -1,9 +1,6 @@
 import { useCallback } from 'react';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
-import {
-  useFactory,
-  useFactoryDispatch,
-} from '@/src/features/factory/infrastructure/useFactory.ts';
+import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
 import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
@@ -28,7 +25,9 @@ export const WireComponent = () => {
     setFactory({ type: 'UPDATE_WIRE_COST', cost });
   }, [factory.wireCost]);
 
-  useInterval(updateWireCost, 1e4, isPlay && !!user);
+  useInterval(updateWireCost, 1e4, isPlay && !!user && !factory.feature.clipFactory.enabled);
+
+  if (factory.feature.clipFactory.enabled) return null;
 
   return (
     <DialsComponent>

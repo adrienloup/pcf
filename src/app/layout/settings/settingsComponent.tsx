@@ -4,7 +4,7 @@ import styles from '@/src/app/layout/settings/settings.module.scss';
 
 export const SettingsComponent = () => {
   // const { setLanguage, setMode, setStage, setTheme } = useSettings();
-  const { setLanguage, setTheme, setMode } = useSettings();
+  const { setLanguage, setMode } = useSettings();
 
   return (
     <div className={styles.settings}>
@@ -46,7 +46,7 @@ export const SettingsComponent = () => {
           cataclysm
         </ButtonComponent>
       </div>*/}
-      <div className={styles.setting}>
+      {/*<div className={styles.setting}>
         <ButtonComponent
           className={styles.button}
           onClick={() => setTheme('simplest')}
@@ -65,7 +65,7 @@ export const SettingsComponent = () => {
         >
           ultra
         </ButtonComponent>
-      </div>
+      </div>*/}
       <div className={styles.setting}>
         <ButtonComponent
           className={styles.button}

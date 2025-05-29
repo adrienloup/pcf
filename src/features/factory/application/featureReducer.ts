@@ -73,7 +73,7 @@ export const featureReducer = (state: Factory, action: FactoryDispatch): Factory
           ...state.feature,
           [action.feature]: {
             ...state.feature[action.feature],
-            disabled: action.disabled,
+            actived: action.actived,
             enabled: action.enabled,
           },
         },

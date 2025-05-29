@@ -1,6 +1,5 @@
 import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
-import { StubbornComponent } from '@/src/features/account/components/stubborn/stubbornComponent.tsx';
-import { LoggedComponent } from '@/src/features/account/components/logged/loggedComponent.tsx';
+import { LeadingComponent } from '@/src/features/account/components/welcome/leading/leadingComponent.tsx';
 import { LoginComponent } from '@/src/features/account/components/login/loginComponent.tsx';
 import styles from '@/src/features/account/components/welcome/welcome.module.scss';
 
@@ -12,14 +11,7 @@ export const WelcomeComponent = () => {
       className={styles.welcome}
       role="article"
     >
-      {user ? (
-        <>
-          <StubbornComponent />
-          <LoggedComponent />
-        </>
-      ) : (
-        <LoginComponent />
-      )}
+      {user ? <LeadingComponent /> : <LoginComponent />}
     </article>
   );
 };

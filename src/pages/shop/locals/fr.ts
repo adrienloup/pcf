@@ -2,7 +2,7 @@ import type { Translation } from '@/src/common/shared/types/translation.ts';
 
 export const fr: Translation = {
   shop: {
-    titlePage: 'shop',
+    titlePage: 'boutique',
     harvesterDrone: {
       title: 'harvester drone',
       effect: 'gather raw matter and prepare it for processing',

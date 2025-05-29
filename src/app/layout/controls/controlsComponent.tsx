@@ -14,16 +14,16 @@ export const ControlsComponent = () => {
         <ButtonComponent
           className={styles.button}
           disabled={!user}
-          onClick={setLogout}
+          onClick={setPlay}
         >
-          disconnect
+          {isPlay ? 'pause' : 'start'}
         </ButtonComponent>
         <ButtonComponent
           className={styles.button}
           disabled={!user}
-          onClick={setPlay}
+          onClick={setLogout}
         >
-          {isPlay ? 'pause' : 'start'}
+          disconnect
         </ButtonComponent>
       </div>
     </div>

@@ -13,7 +13,7 @@ export const useFeature = () => {
     for (let i = 0; i < features.length; i++) {
       const [feature, value] = features[i];
 
-      if (value.disabled) continue;
+      if (value.actived) continue;
 
       const requirement = value.requirements;
       let enabled = value.enabled ?? false;
@@ -26,7 +26,7 @@ export const useFeature = () => {
       }
 
       if (enabled) {
-        setFactory({ type: 'UPDATE_FEATURE', feature: feature, disabled: true, enabled: enabled });
+        setFactory({ type: 'UPDATE_FEATURE', feature: feature, actived: true, enabled: enabled });
         setAlert({ type: 'ADD_ALERT', alert: { id: feature, text: `${feature} unlocked` } });
         console.info(`Feature: ${feature} unlocked`);
       }

@@ -5,10 +5,7 @@ import { USER_KEY } from '@/src/features/account/infrastructure/userKey.ts';
 import type { Children } from '@/src/common/shared/types/children.ts';
 
 export function AccountProvider({ children }: { children: Children }) {
-  const [users, setUsers] = useLocalStorage<{ username: string; password: string }[]>(
-    USERS_KEY,
-    []
-  );
+  const [users, setUsers] = useLocalStorage<{ username: string; password: string }[]>(USERS_KEY, []);
   const [user, setUser] = useLocalStorage<string | null>(USER_KEY, null);
 
   const setKey = (): string => `_factory_3mma_0::${user ?? 'guest'}`;

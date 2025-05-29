@@ -35,8 +35,7 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
         unsoldInventory: state.unsoldInventory + Math.max(1, state.unsoldInventoryBonus),
         wire: state.wire - 1,
         clipPerSecond: state.clipPerSecond + Math.max(1, state.unsoldInventoryBonus),
-        fundsPerSecond:
-          state.fundsPerSecond + Math.max(1, state.unsoldInventoryBonus) * state.clipPrice,
+        fundsPerSecond: state.fundsPerSecond + Math.max(1, state.unsoldInventoryBonus) * state.clipPrice,
       };
     default:
       return state;
