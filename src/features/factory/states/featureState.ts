@@ -145,6 +145,7 @@ export const FEATURE_STATE: FeatureState = {
     enabled: true,
     quantity: 1,
   },
+  spaceExploration: { actived: false, enabled: false },
   swarmGifts: { actived: false, enabled: false },
   wireDrone: { actived: false, enabled: false },
   wireDroneProcess: {

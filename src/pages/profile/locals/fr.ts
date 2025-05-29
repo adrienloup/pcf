@@ -4,7 +4,7 @@ export const fr: Translation = {
   profile: {
     titlePage: 'profil',
     profile: 'profil',
-    stage: 'étape',
+    stage: 'étape {{stage}}',
     universe: 'univers',
   },
 };
