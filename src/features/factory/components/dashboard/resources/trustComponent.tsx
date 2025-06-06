@@ -11,10 +11,7 @@ export const TrustComponent = () => {
 
   // Trust increase according to the fibonacci sequence: f = f(n-1) + f(n-2)
   const trusts: number[] = useMemo(() => fibonacci(factory.clip, 2e3, 3e3), [factory.clip]);
-  const trust: number = useMemo(
-    () => trusts.filter((t) => factory.clip >= t).length,
-    [trusts, factory.clip]
-  );
+  const trust: number = useMemo(() => trusts.filter((t) => factory.clip >= t).length, [trusts, factory.clip]);
 
   useEffect(() => {
     if (trust !== trustRef.current && factory.feature.resources && factory.trust < 100) {

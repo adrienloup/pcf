@@ -38,3 +38,21 @@ npm run lint
 ```bash
 npm run format
 ```
+
+## Checking Component Tests
+
+```bash
+npm run test:component
+```
+
+## What’s Inside?
+
+- [Cypress](https://www.cypress.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [React@19](https://react.dev)
+- [React-dom@19](https://react.dev)
+- [React-i18next](https://react.i18next.com/guides/quick-start)
+- [Vite](https://vitejs.dev)
+- [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa)
+- [Vitest](https://vitest.dev/)

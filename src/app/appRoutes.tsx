@@ -6,11 +6,5 @@ import { ShopRoutes } from '@/src/pages/shop/shopRoutes.tsx';
 import { WelcomeRoutes } from '@/src/pages/welcome/welcomeRoutes.tsx';
 
 export const AppRoutes = () => {
-  return useRoutes([
-    ...ExploreRoutes,
-    ...FactoryRoutes,
-    ...ProfileRoutes,
-    ...ShopRoutes,
-    ...WelcomeRoutes,
-  ]);
+  return useRoutes([...ExploreRoutes, ...FactoryRoutes, ...ProfileRoutes, ...ShopRoutes, ...WelcomeRoutes]);
 };

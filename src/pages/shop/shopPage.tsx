@@ -6,9 +6,7 @@ import { LoaderComponent } from '@/src/common/shared/components/loader/loaderCom
 import { DebugComponent } from '@/src/features/debug/components/debug/debugComponent.tsx';
 import { ShowcaseComponent } from '@/src/features/factory/components/showcase/showcaseComponent.tsx';
 
-const LayoutComponent = lazy(() =>
-  fallback(import('@/src/app/layout/layout/layoutComponent.tsx'), 15e2)
-);
+const LayoutComponent = lazy(() => fallback(import('@/src/app/layout/layout/layoutComponent.tsx'), 15e2));
 
 function ShopPage() {
   const { t } = useTranslation();
