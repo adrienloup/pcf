@@ -3,6 +3,7 @@ import type { Translation } from '@/src/common/shared/types/translation.ts';
 export const fr: Translation = {
   factory: {
     titlePage: 'usine',
+    paperclips: 'trombones',
     clipFactory: 'clipFactory',
     clipFactoryCost: 'clip factory cost',
     clipFactories: 'clip factories',

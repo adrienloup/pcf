@@ -3,6 +3,7 @@ $mobile-landscape: 768px;
 .navigation {
   display: flex;
   flex-flow: column wrap;
+  align-items: flex-start;
   gap: var(--spacing-s);
   padding: 0 var(--spacing-s) var(--spacing-s);
 

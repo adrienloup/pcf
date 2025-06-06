@@ -4,6 +4,9 @@ $mobile-landscape: 768px;
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
   gap: var(--spacing-m);
   padding-top: var(--spacing-l);
 
