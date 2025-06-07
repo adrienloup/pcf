@@ -31,12 +31,21 @@ export const ClipFactoryComponent = () => {
         notation="compact"
         label={t('factory.clipFactories')}
         tile={
-          factory.clipFactory >= 1e8 ? (
-            <ThumbnailComponent
-              label={t('app.noSpace')}
-              status="warning"
-            />
-          ) : null
+          <>
+            {factory.clipFactoryBonus > 0 ? (
+              <ThumbnailComponent
+                value={factory.clipFactoryBonus}
+                label="x"
+                status="success"
+              />
+            ) : null}
+            {factory.clipFactory >= 1e8 ? (
+              <ThumbnailComponent
+                label={t('app.noSpace')}
+                status="warning"
+              />
+            ) : null}
+          </>
         }
       />
       <ClickerComponent

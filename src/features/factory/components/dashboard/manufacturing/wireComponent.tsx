@@ -38,7 +38,7 @@ export const WireComponent = () => {
         label="wire cost"
         tile={
           <ThumbnailComponent
-            value={factory.wireBonus}
+            value={factory.wireQuantity}
             label="+"
           />
         }
@@ -50,7 +50,7 @@ export const WireComponent = () => {
       />
       <ClickerComponent
         className={styles.button}
-        value={factory.wireBonus}
+        value={factory.wireQuantity}
         prefix="+"
         suffix="wire"
         disabled={factory.funds < factory.wireCost}

@@ -23,6 +23,7 @@ export const ClipPriceComponent = () => {
             <ThumbnailComponent
               value={factory.marketingBonus}
               label="x"
+              status="success"
             />
           ) : null
         }

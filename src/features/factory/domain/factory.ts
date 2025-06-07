@@ -6,6 +6,7 @@ export interface Factory {
   cashRef: number;
   clip: number;
   clipFactory: number;
+  clipFactoryBonus: number;
   clipFactoryCost: number;
   clipPerSecond: number;
   clipPrice: number;
@@ -40,11 +41,11 @@ export interface Factory {
   unsoldInventoryBonus: number;
   wallet: Wallet;
   wire: number;
-  wireBonus: number;
   wireCost: number;
   wireDrone: number;
   wireDroneCost: number;
   wirePerSecond: number;
+  wireQuantity: number;
   yomi: number;
 }
 
@@ -71,7 +72,7 @@ export type FactoryDispatch =
   | { type: 'UPDATE_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_MEGA_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
-  | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
+  | { type: 'UPDATE_WIRE_QUANTITY'; quantity: number }
   | { type: 'UPDATE_SWARM_STRATEGY'; strategy: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }

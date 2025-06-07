@@ -45,7 +45,7 @@ npm run format
 npm run test:component
 ```
 
-## Checking E2E Tests   
+## Checking E2E Tests
 
 ```bash
 npm test:e2e:run

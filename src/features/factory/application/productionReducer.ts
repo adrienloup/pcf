@@ -5,7 +5,7 @@ import { mechanicPerSecond } from '@/src/features/factory/utils/mechanicPerSecon
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
-      console.log('PRODUCTION_PER_SECOND');
+      // console.log('PRODUCTION_PER_SECOND');
       const mechanicPS = mechanicPerSecond(state);
       const clipPS = mechanicPS.clip * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;
@@ -29,7 +29,7 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
         clip: state.clip + clipPS,
         // wire: Math.max(0, state.wire - mechanicPS),
         wire: wirePS,
-        wirePerSecond: wireMatterPS, // @TODO
+        wirePerSecond: wireMatterPS,
       };
     }
     case 'UNIT_PRODUCTION':

@@ -23,6 +23,7 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
       return {
         ...state,
         clipFactory: state.clipFactory + 1,
+        clipFactoryBonus: state.clipFactory + 1 > 9 ? 100 : state.clipFactoryBonus,
         clipFactoryCost: action.cost,
         funds: Math.max(0, state.funds - state.clipFactoryCost),
       };

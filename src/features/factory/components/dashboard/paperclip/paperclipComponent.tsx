@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { NumberComponent } from '@/src/common/shared/components/number/numberComponent.tsx';
 import { TurbanComponent } from '@/src/common/shared/components/turban/turbanComponent.tsx';
@@ -7,7 +7,6 @@ import { ButtonComponent } from '@/src/common/shared/components/button/buttonCom
 import styles from '@/src/common/shared/components/turban/turban.module.scss';
 
 export const PaperclipComponent = () => {
-  const { t } = useTranslation();
   const factory = useFactory();
 
   return (
@@ -16,11 +15,12 @@ export const PaperclipComponent = () => {
         tag="h1"
         className={styles.title}
       >
-        <NumberComponent
-          className={styles.number}
-          value={factory.clip}
+        <Trans
+          i18nKey={'factory.paperclips'}
+          components={{
+            clip: <NumberComponent value={factory.clip} />,
+          }}
         />
-        {t('factory.paperclips')}
       </TitleComponent>
       <ButtonComponent
         className={styles.button}

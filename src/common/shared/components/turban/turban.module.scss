@@ -13,21 +13,13 @@ $mobile-landscape: 768px;
 }
 
 .title {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--spacing-s);
+  overflow: hidden;
+  max-width: calc(100vw - (var(--spacing-s) * 2));
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-transform: uppercase;
   font-size: var(--font-size-l);
-}
-
-.number {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  max-width: calc(100vw - (var(--spacing-s) * 2));
-  display: block;
-  overflow: hidden;
 
   @media (min-width: $mobile-landscape) {
     max-width: calc(100vw - (var(--spacing-m) * 2));

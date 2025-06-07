@@ -19,6 +19,7 @@ export const UnsoldInventoryComponent = () => {
             <ThumbnailComponent
               value={factory.unsoldInventoryBonus}
               label="x"
+              status="success"
             />
           ) : null
         }

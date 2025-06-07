@@ -225,7 +225,7 @@ export const DebugComponent = () => {
     setSwarmGifts('0');
   };
 
-  const updateWire = (bonus: number) => setFactory({ type: 'UPDATE_WIRE_BONUS', bonus });
+  const updateWire = (quantity: number) => setFactory({ type: 'UPDATE_WIRE_QUANTITY', quantity });
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
   const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
@@ -374,7 +374,7 @@ export const DebugComponent = () => {
         <button type="submit">Add</button>
       </form>
       <form>
-        <label>wirebonus</label>
+        <label>wireQuantity</label>
         <button
           type="button"
           onClick={() => updateWire(1e2)}

@@ -45,7 +45,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
       if (state.funds < state.wireCost) return state;
       return {
         ...state,
-        wire: state.wire + state.wireBonus,
+        wire: state.wire + state.wireQuantity,
         wireCost: action.cost,
         funds: Math.max(0, state.funds - action.cost),
       };
@@ -55,10 +55,10 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
         ...state,
         wireCost: action.cost,
       };
-    case 'UPDATE_WIRE_BONUS':
+    case 'UPDATE_WIRE_QUANTITY':
       return {
         ...state,
-        wireBonus: action.bonus,
+        wireQuantity: action.quantity,
       };
     case 'UPDATE_MARKETING_BONUS':
       return {

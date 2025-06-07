@@ -10,7 +10,7 @@ export const WireMatterPerSecondComponent = () => {
       <DialComponent
         value={factory.wirePerSecond}
         notation="compact"
-        label="inches per second"
+        label="inches wire per second"
       />
     </DialsComponent>
   );
