@@ -21,7 +21,7 @@ export function AccountProvider({ children }: { children: Children }) {
     return false;
   };
 
-  const setRegister = (username: string, password: string): boolean => {
+  const setSignup = (username: string, password: string): boolean => {
     if (users.some((u) => u.username === username)) return false;
     setUsers([...users, { username, password }]);
     setUser(username);
@@ -33,7 +33,7 @@ export function AccountProvider({ children }: { children: Children }) {
       value={{
         user,
         setLogin,
-        setRegister,
+        setSignup,
         setLogout,
         setKey,
       }}

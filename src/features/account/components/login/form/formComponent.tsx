@@ -9,7 +9,7 @@ import styles from '@/src/features/account/components/login/form/form.module.scs
 
 export const FormComponent = () => {
   const { t } = useTranslation();
-  const { setLogin, setRegister } = useAccount();
+  const { setLogin, setSignup } = useAccount();
   const setAlerts = useAlertsDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -53,7 +53,7 @@ export const FormComponent = () => {
 
     if (!valid) return;
 
-    if (!setRegister(username, password)) {
+    if (!setSignup(username, password)) {
       setUsernameError(t('app.usernameAlreadyTaken'));
       return;
     }

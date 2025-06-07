@@ -8,13 +8,7 @@ import { welcomeTranslation } from '@/src/pages/welcome/welcomeTranslation.ts';
 import i18n from 'i18next';
 
 i18n.use(initReactI18next).init({
-  resources: translation(
-    appTranslation,
-    factoryTranslation,
-    profileTranslation,
-    shopTranslation,
-    welcomeTranslation
-  ),
+  resources: translation(appTranslation, factoryTranslation, profileTranslation, shopTranslation, welcomeTranslation),
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,

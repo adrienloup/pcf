@@ -219,8 +219,7 @@ export const DebugComponent = () => {
   const updateClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_CLIPPER_BONUS', bonus });
   const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
-  const updateUnsoldInventoryBonus = (bonus: number) =>
-    setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
+  const updateUnsoldInventoryBonus = (bonus: number) => setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
   const updateDroneBonus = (bonus: number) => setFactory({ type: 'UPDATE_DRONE_BONUS', bonus });
 
   return display ? (
