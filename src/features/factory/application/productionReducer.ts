@@ -29,7 +29,7 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
         clip: state.clip + clipPS,
         // wire: Math.max(0, state.wire - mechanicPS),
         wire: wirePS,
-        wirePerSecond: wireMatterPS,
+        wirePerSecond: wireMatterPS, // @TODO
       };
     }
     case 'UNIT_PRODUCTION':

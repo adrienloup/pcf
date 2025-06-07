@@ -2,9 +2,9 @@
 import { useTranslation } from 'react-i18next';
 import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
-import styles from '@/src/common/shared/components/pause/pause.module.scss';
+import styles from '@/src/common/shared/components/play/play.module.scss';
 
-export const PauseComponent = () => {
+export const PlayComponent = () => {
   const { t } = useTranslation();
   const { isPlay, setPlay } = useGame();
   const label = `${isPlay ? t('app.start') : t('app.stop')} <span>${t('app.press')}</span>`;
@@ -21,7 +21,7 @@ export const PauseComponent = () => {
   // }, []);
 
   return (
-    <div className={styles.pause}>
+    <div className={styles.play}>
       <ButtonComponent
         onClick={setPlay}
         className={styles.button}

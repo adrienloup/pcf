@@ -4,7 +4,7 @@ import { DialsComponent } from '@/src/common/shared/components/dials/dialsCompon
 import { DialComponent } from '@/src/common/shared/components//dial/dialComponent.tsx';
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
-import { BonusComponent } from '@/src/common/shared/components/bonus/bonusComponent.tsx';
+import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 
 export const ClipFactoryComponent = () => {
   const { t } = useTranslation();
@@ -31,8 +31,8 @@ export const ClipFactoryComponent = () => {
         notation="compact"
         label={t('factory.clipFactories')}
         tile={
-          <BonusComponent
-            prefix="No space"
+          <ThumbnailComponent
+            label={t('app.noSpace')}
             status="warning"
           />
         }

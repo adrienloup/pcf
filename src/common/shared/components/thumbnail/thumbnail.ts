@@ -1,8 +1,8 @@
 import type { Status } from '@/src/common/shared/types/status.ts';
 
-export interface Bonus {
+export interface Thumbnail {
   className?: string;
-  prefix?: string;
+  label?: string;
   value?: number;
   status?: Status;
 }

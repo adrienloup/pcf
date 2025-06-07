@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
-import { BonusComponent } from '@/src/common/shared/components/bonus/bonusComponent.tsx';
+import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 
 export const UnsoldInventoryComponent = () => {
   const { t } = useTranslation();
@@ -16,9 +16,9 @@ export const UnsoldInventoryComponent = () => {
         label={t('factory.unsoldInventory')}
         tile={
           factory.unsoldInventoryBonus > 0 ? (
-            <BonusComponent
+            <ThumbnailComponent
               value={factory.unsoldInventoryBonus}
-              prefix="x"
+              label="x"
             />
           ) : null
         }

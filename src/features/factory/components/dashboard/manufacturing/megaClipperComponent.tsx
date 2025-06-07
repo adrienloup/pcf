@@ -4,7 +4,7 @@ import { DialsComponent } from '@/src/common/shared/components/dials/dialsCompon
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
-import { BonusComponent } from '@/src/common/shared/components/bonus/bonusComponent.tsx';
+import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 
 export const MegaClipperComponent = () => {
   const { t } = useTranslation();
@@ -32,9 +32,9 @@ export const MegaClipperComponent = () => {
         label={t('factory.megaClippers')}
         tile={
           factory.megaClipperBonus > 0 ? (
-            <BonusComponent
+            <ThumbnailComponent
               value={factory.megaClipperBonus}
-              prefix="x"
+              label="x"
             />
           ) : null
         }

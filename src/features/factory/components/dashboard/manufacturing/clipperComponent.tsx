@@ -3,7 +3,7 @@ import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastru
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
-import { BonusComponent } from '@/src/common/shared/components/bonus/bonusComponent.tsx';
+import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
 
 export const ClipperComponent = () => {
@@ -32,9 +32,9 @@ export const ClipperComponent = () => {
         label={t('factory.clippers')}
         tile={
           factory.clipperBonus > 0 ? (
-            <BonusComponent
+            <ThumbnailComponent
               value={factory.clipperBonus}
-              prefix="x"
+              label="x"
             />
           ) : null
         }

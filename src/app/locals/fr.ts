@@ -21,5 +21,6 @@ export const fr: Translation = {
     logged: 'connecté en tant que {{user}}',
     disconnect: 'déconnecter',
     continue: 'continuer',
+    noSpace: "pas d'espace",
   },
 };

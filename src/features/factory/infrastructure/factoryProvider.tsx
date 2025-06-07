@@ -1,11 +1,13 @@
 import { createPortal } from 'react-dom';
-import { useCallback, useEffect, useReducer, useState } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
+import { useLocalStorage } from '@/src/common/shared/hooks/useLocalStorage.ts';
 import { factoryReducer } from '@/src/features/factory/application/factoryReducer.ts';
 import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/infrastructure/factoryContext.ts';
 import { GameContext } from '@/src/features/factory/infrastructure/gameContext.ts';
-import { PauseComponent } from '@/src/common/shared/components/pause/pauseComponent.tsx';
+import { PlayComponent } from '@/src/common/shared/components/play/playComponent.tsx';
+import { PLAY_KEY } from '@/src/features/factory/infrastructure/playKey.ts';
 import { FACTORY_STATE } from '@/src/features/factory/states/factoryState.ts';
 import type { Children } from '@/src/common/shared/types/children.ts';
 
@@ -17,7 +19,8 @@ export function FactoryProvider({ children }: { children: Children }) {
     const stored = localStorage.getItem(setKey());
     return stored ? JSON.parse(stored) : FACTORY_STATE;
   });
-  const [isPlay, setIsPlay] = useState(true);
+  const [isPlay, setIsPlay] = useLocalStorage<boolean>(PLAY_KEY, true);
+  // const [isPlay, setIsPlay] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem(setKey());
@@ -55,7 +58,7 @@ export function FactoryProvider({ children }: { children: Children }) {
     >
       <FactoryDispatchContext.Provider value={setFactory}>
         <GameContext.Provider value={{ isPlay, setPlay }}>
-          {!isPlay ? createPortal(<PauseComponent />, pcf!) : null}
+          {!isPlay ? createPortal(<PlayComponent />, pcf!) : null}
           {children}
         </GameContext.Provider>
       </FactoryDispatchContext.Provider>
