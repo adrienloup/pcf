@@ -3,14 +3,16 @@ import { NumberComponent } from '@/src/common/shared/components/number/numberCom
 import type { Bonus } from '@/src/common/shared/components/bonus/bonus.ts';
 import styles from '@/src/common/shared/components/bonus/bonus.module.scss';
 
-export const BonusComponent = ({ className, value, prefix }: Bonus) => {
+export const BonusComponent = ({ className, value, prefix, status = 'info' }: Bonus) => {
   return (
-    <span className={classNames([styles.bonus, className])}>
+    <span className={classNames([styles.bonus, styles[status], className])}>
       {prefix}
-      <NumberComponent
-        value={value}
-        notation="compact"
-      />
+      {value ? (
+        <NumberComponent
+          value={value}
+          notation="compact"
+        />
+      ) : null}
     </span>
   );
 };

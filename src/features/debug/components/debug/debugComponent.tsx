@@ -2,6 +2,8 @@ import { type ChangeEvent, useMemo, useState } from 'react';
 import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { useLocation } from 'react-router-dom';
 import { useAlertsDispatch } from '@/src/common/shared/components/alerts/useAlerts.ts';
+import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
+import type { Stage } from '@/src/app/layout/settings/settings.ts';
 import styles from '@/src/features/debug/components/debug/debug.module.scss';
 
 export const DebugComponent = () => {
@@ -9,7 +11,9 @@ export const DebugComponent = () => {
   const setFactory = useFactoryDispatch();
   const location = useLocation();
   const setAlerts = useAlertsDispatch();
-  const [alertsText, setAlertsText] = useState('Rev Tracker unlocked');
+  const { setStage } = useSettings();
+  const [alertsT, setAlertsT] = useState('Rev Tracker unlocked');
+  const [stageT, setStageT] = useState('dusk');
   const [clip, setClip] = useState('0');
   const [feature, setFeature] = useState('resources');
   const [funds, setFunds] = useState('0');
@@ -41,11 +45,17 @@ export const DebugComponent = () => {
     return !!window.localStorage.getItem('_debug_3mma_0');
   }, [location.search]);
 
-  const alertsChange = (e: ChangeEvent<HTMLInputElement>) => setAlertsText(e.target.value);
+  const alertsChange = (e: ChangeEvent<HTMLInputElement>) => setAlertsT(e.target.value);
   const alertsSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const alertsId = alertsText.replace(/\s/g, '');
-    setAlerts({ type: 'ADD_ALERT', alert: { id: alertsId, text: alertsText } });
+    const alertsId = alertsT.replace(/\s/g, '');
+    setAlerts({ type: 'ADD_ALERT', alert: { id: alertsId, text: alertsT } });
+  };
+
+  const stageChange = (e: ChangeEvent<HTMLInputElement>) => setStageT(e.target.value);
+  const stageSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStage(stageT as Stage);
   };
 
   const featureChange = (e: ChangeEvent<HTMLInputElement>) => setFeature(e.target.value);
@@ -220,7 +230,6 @@ export const DebugComponent = () => {
   const updateMegaClipperBonus = (bonus: number) => setFactory({ type: 'UPDATE_MEGA_CLIPPER_BONUS', bonus });
   const updateMarketingBonus = (bonus: number) => setFactory({ type: 'UPDATE_MARKETING_BONUS', bonus });
   const updateUnsoldInventoryBonus = (bonus: number) => setFactory({ type: 'UPDATE_UNSOLD_INVENTORY_BONUS', bonus });
-  const updateDroneBonus = (bonus: number) => setFactory({ type: 'UPDATE_DRONE_BONUS', bonus });
 
   return display ? (
     <div
@@ -230,8 +239,16 @@ export const DebugComponent = () => {
       <form onSubmit={alertsSubmit}>
         <label>alerts</label>
         <input
-          value={alertsText}
+          value={alertsT}
           onChange={alertsChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <form onSubmit={stageSubmit}>
+        <label>stage</label>
+        <input
+          value={stageT}
+          onChange={stageChange}
         />
         <button type="submit">Add</button>
       </form>
@@ -537,27 +554,6 @@ export const DebugComponent = () => {
           onClick={() => updateUnsoldInventoryBonus(100)}
         >
           100
-        </button>
-      </form>
-      <form>
-        <label>droneBonus</label>
-        <button
-          type="button"
-          onClick={() => updateDroneBonus(10)}
-        >
-          10
-        </button>
-        <button
-          type="button"
-          onClick={() => updateDroneBonus(100)}
-        >
-          100
-        </button>
-        <button
-          type="button"
-          onClick={() => updateDroneBonus(1000)}
-        >
-          1e3
         </button>
       </form>
     </div>

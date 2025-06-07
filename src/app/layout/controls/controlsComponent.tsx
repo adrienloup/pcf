@@ -4,7 +4,7 @@ import { ButtonComponent } from '@/src/common/shared/components/button/buttonCom
 import styles from '@/src/app/layout/controls/controls.module.scss';
 
 export const ControlsComponent = () => {
-  const { user, setLogout } = useAccount();
+  const { user } = useAccount();
   const { isPlay, setPlay } = useGame();
 
   return (
@@ -17,13 +17,6 @@ export const ControlsComponent = () => {
           onClick={setPlay}
         >
           {isPlay ? 'pause' : 'start'}
-        </ButtonComponent>
-        <ButtonComponent
-          className={styles.button}
-          disabled={!user}
-          onClick={setLogout}
-        >
-          disconnect
         </ButtonComponent>
       </div>
     </div>

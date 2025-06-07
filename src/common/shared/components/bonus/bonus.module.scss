@@ -4,5 +4,26 @@
   margin: var(--spacing-xs);
   padding: 0 0.25rem;
   font-size: var(--font-size-xs);
-  border: 0.2rem solid var(--theme-color-2);
+  border-width: 0.2rem;
+  border-style: solid;
+
+  &.info {
+    border-color: var(--theme-color-2);
+    color: var(--theme-color-2);
+  }
+
+  &.success {
+    border-color: var(--color-6);
+    color: var(--color-6);
+  }
+
+  &.warning {
+    border-color: var(--color-9);
+    color: var(--color-9);
+  }
+
+  &.error {
+    border-color: var(--color-5);
+    color: var(--color-5);
+  }
 }

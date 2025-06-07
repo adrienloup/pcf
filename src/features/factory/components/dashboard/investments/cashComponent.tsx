@@ -41,7 +41,7 @@ export const CashComponent = () => {
           +
         </ClickerComponent>
         <ClickerComponent
-          className={classNames([styles.button, styles.label])}
+          className={classNames([styles.button, styles.auto])}
           aria-label="Increase cash"
           value={factory.cashRef}
           prefix="+"

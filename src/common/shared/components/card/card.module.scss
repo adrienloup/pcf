@@ -91,10 +91,10 @@ $tablet-landscape: 1280px;
   background-color: var(--theme-color-2);
   font-size: var(--font-size-l);
   color: var(--theme-color-1);
-}
 
-.label {
-  width: auto;
-  padding: 0 var(--spacing-xs);
-  font-size: var(--font-size-s);
+  &.auto {
+    width: auto;
+    padding: 0 var(--spacing-xs);
+    font-size: var(--font-size-s);
+  }
 }

@@ -12,7 +12,6 @@ export interface Factory {
   clipPriceRef: number;
   creativity: number;
   drone: number;
-  droneBonus: number;
   feature: FeatureState;
   funds: number;
   fundsPerSecond: number;
@@ -62,8 +61,8 @@ export type FactoryDispatch =
   | { type: 'INCREASE_MEMORY' }
   | { type: 'INCREASE_PROCESSOR' }
   | { type: 'ALLOCATE_TRUST' }
-  | { type: 'BUY_HARVESTER_DRONE' }
-  | { type: 'BUY_WIRE_DRONE' }
+  | { type: 'BUY_HARVESTER_DRONE'; drone: number }
+  | { type: 'BUY_WIRE_DRONE'; drone: number }
   | { type: 'ADD_GIFTS'; swarmGifts: number }
   | { type: 'INCREASE_WALLET'; symbol: string; price: number }
   | { type: 'DECREASE_WALLET'; symbol: string; price: number }
@@ -73,7 +72,6 @@ export type FactoryDispatch =
   | { type: 'UPDATE_MEGA_CLIPPER_BONUS'; bonus: number }
   | { type: 'UPDATE_UNSOLD_INVENTORY_BONUS'; bonus: number }
   | { type: 'UPDATE_WIRE_BONUS'; bonus: number }
-  | { type: 'UPDATE_DRONE_BONUS'; bonus: number }
   | { type: 'UPDATE_SWARM_STRATEGY'; strategy: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
