@@ -7,13 +7,13 @@ vi.mock('react-i18next', () => ({
 }));
 
 // ResizeObserver event
-const ResizeObserverMock = vi.fn(() => ({
+const mockResizeObserver = vi.fn(() => ({
   observe: vi.fn(),
   unobserve: vi.fn(),
   disconnect: vi.fn(),
 }));
 
-vi.stubGlobal('ResizeObserver', ResizeObserverMock);
+vi.stubGlobal('ResizeObserver', mockResizeObserver);
 
 // crollTo method
 window.HTMLElement.prototype.scrollTo = vi.fn();
