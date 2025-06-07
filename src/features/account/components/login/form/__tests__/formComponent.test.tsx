@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { mockSetLogin, mockSetSignup } from '@/src/features/account/infrastructure/__mocks__/useAccount.mock.ts';
 import { mockSetAlerts } from '@/src/common/shared/components/alerts/__mocks__/useAlerts.mock.ts';
 import { FormComponent } from '@/src/features/account/components/login/form/formComponent.tsx';

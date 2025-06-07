@@ -1,5 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { mockMenu, mockSetMenu } from '@/src/app/layout/menu/__mocks__/useMenu.mock.ts';
 import { MenuComponent } from '@/src/app/layout/menu/menuComponent.tsx';
 
