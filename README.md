@@ -45,6 +45,13 @@ npm run format
 npm run test:component
 ```
 
+## Checking E2E Tests   
+
+```bash
+npm test:e2e:run
+npm test:e2e:open
+```
+
 ## What’s Inside?
 
 - [Cypress](https://www.cypress.io/)
