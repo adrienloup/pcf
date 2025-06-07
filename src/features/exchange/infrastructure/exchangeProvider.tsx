@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
 import { useLocalStorage } from '@/src/common/shared/hooks/useLocalStorage.ts';
 import { ExchangeContext } from '@/src/features/exchange/infrastructure/exchangeContext.ts';
 import { EXCHANGE_KEY } from '@/src/features/exchange/infrastructure/exchangeKey.ts';
@@ -8,10 +9,12 @@ import type { Tokens } from '@/src/features/exchange/domain/tokens.ts';
 import type { Children } from '@/src/common/shared/types/children.ts';
 
 export function ExchangeProvider({ children }: { children: Children }) {
+  const { isPlay } = useGame();
   const [storedState, setStoredState] = useLocalStorage<Tokens>(EXCHANGE_KEY, EXCHANGE_STATE);
   const [tokens, setTokens] = useState<Tokens>(storedState);
 
   useEffect(() => {
+    if (!isPlay) return;
     const interval = setInterval(() => {
       setTokens((prev) => {
         const updated = { ...prev };
@@ -33,7 +36,7 @@ export function ExchangeProvider({ children }: { children: Children }) {
     }, 3e3);
     setStoredState(tokens);
     return () => clearInterval(interval);
-  }, [tokens]);
+  }, [isPlay, tokens]);
 
   return <ExchangeContext.Provider value={{ tokens }}>{children}</ExchangeContext.Provider>;
 }

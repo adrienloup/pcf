@@ -17,8 +17,8 @@ export const PaperclipComponent = () => {
         className={styles.title}
       >
         <NumberComponent
+          className={styles.number}
           value={factory.clip}
-          notation="compact"
         />
         {t('factory.paperclips')}
       </TitleComponent>

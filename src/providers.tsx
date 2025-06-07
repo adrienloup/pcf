@@ -1,9 +1,9 @@
-import { AccountProvider } from '@/src/features/account/infrastructure/accountProvider.tsx';
 import { AlertsProvider } from '@/src/common/shared/components/alerts/alertsProvider.tsx';
-import { ExchangeProvider } from '@/src/features/exchange/infrastructure/exchangeProvider.tsx';
-import { FactoryProvider } from '@/src/features/factory/infrastructure/factoryProvider.tsx';
 import { MenuProvider } from '@/src/app/layout/menu/menuProvider.tsx';
 import { SettingsProvider } from '@/src/app/layout/settings/settingsProvider.tsx';
+import { AccountProvider } from '@/src/features/account/infrastructure/accountProvider.tsx';
+import { FactoryProvider } from '@/src/features/factory/infrastructure/factoryProvider.tsx';
+import { ExchangeProvider } from '@/src/features/exchange/infrastructure/exchangeProvider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/common/shared/types/children.ts';
 
@@ -21,10 +21,10 @@ const allProviders = (providers: Providers) =>
   );
 
 export const Providers: FunctionComponent<{ children: Children }> = allProviders([
-  [AccountProvider],
   [AlertsProvider],
-  [ExchangeProvider],
-  [FactoryProvider],
   [MenuProvider],
   [SettingsProvider],
+  [AccountProvider],
+  [FactoryProvider],
+  [ExchangeProvider],
 ]);

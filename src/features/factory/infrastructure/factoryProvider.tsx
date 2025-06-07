@@ -14,27 +14,26 @@ import type { Children } from '@/src/common/shared/types/children.ts';
 const pcf = document.getElementById('_pcf_3mma_0');
 
 export function FactoryProvider({ children }: { children: Children }) {
-  const { user, setKey } = useAccount();
+  const { user, setUserFactory } = useAccount();
   const [factory, setFactory] = useReducer(factoryReducer, null, () => {
-    const stored = localStorage.getItem(setKey());
+    const stored = localStorage.getItem(setUserFactory());
     return stored ? JSON.parse(stored) : FACTORY_STATE;
   });
   const [isPlay, setIsPlay] = useLocalStorage<boolean>(PLAY_KEY, true);
-  // const [isPlay, setIsPlay] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem(setKey());
+    const stored = localStorage.getItem(setUserFactory());
     if (stored) {
       setFactory({ type: 'INITIALIZE', state: JSON.parse(stored) });
     } else {
       setFactory({ type: 'INITIALIZE', state: FACTORY_STATE });
-      localStorage.setItem(setKey(), JSON.stringify(FACTORY_STATE));
+      localStorage.setItem(setUserFactory(), JSON.stringify(FACTORY_STATE));
     }
-  }, [setKey()]);
+  }, [setUserFactory()]);
 
   useEffect(() => {
-    localStorage.setItem(setKey(), JSON.stringify(factory));
-  }, [factory, setKey()]);
+    localStorage.setItem(setUserFactory(), JSON.stringify(factory));
+  }, [factory, setUserFactory()]);
 
   const setPlay = useCallback(() => {
     setIsPlay((prev) => !prev);

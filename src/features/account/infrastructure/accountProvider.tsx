@@ -8,9 +8,7 @@ export function AccountProvider({ children }: { children: Children }) {
   const [users, setUsers] = useLocalStorage<{ username: string; password: string }[]>(USERS_KEY, []);
   const [user, setUser] = useLocalStorage<string | null>(USER_KEY, null);
 
-  const setKey = (): string => `_factory_3mma_0::${user ?? 'guest'}`;
-
-  const setLogout = (): void => setUser(null);
+  const setUserFactory = (): string => `_factory_3mma_0::${user ?? 'guest'}`;
 
   const setLogin = (username: string, password: string): boolean => {
     const loggedUser = users.find((u) => u.username === username && u.password === password);
@@ -28,14 +26,16 @@ export function AccountProvider({ children }: { children: Children }) {
     return true;
   };
 
+  const setLogout = (): void => setUser(null);
+
   return (
     <AccountContext.Provider
       value={{
         user,
+        setUserFactory,
         setLogin,
         setSignup,
         setLogout,
-        setKey,
       }}
     >
       {children}
