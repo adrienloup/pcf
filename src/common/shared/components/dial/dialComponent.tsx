@@ -19,9 +19,8 @@ export const DialComponent = ({
       className={classNames([styles.dial, disabled ? styles.disabled : ''])}
       style={styleCss}
     >
-      {stringValues && <span className={styles.value}>{stringValues}</span>}
+      {stringValues}
       <NumberComponent
-        className={styles.value}
         valueMax={valueMax}
         notation={notation}
         compactDisplay={notation == 'compact' ? 'short' : undefined}

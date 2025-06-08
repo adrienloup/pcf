@@ -25,9 +25,9 @@ export const WireComponent = () => {
     setFactory({ type: 'UPDATE_WIRE_COST', cost });
   }, [factory.wireCost]);
 
-  useInterval(updateWireCost, 1e4, isPlay && !!user && !factory.feature.clipFactory.enabled);
+  useInterval(updateWireCost, 1e4, isPlay && !!user && !factory.feature.production.enabled);
 
-  if (factory.feature.clipFactory.enabled) return null;
+  if (factory.feature.production.enabled) return null;
 
   return (
     <DialsComponent>
@@ -52,7 +52,7 @@ export const WireComponent = () => {
         className={styles.button}
         value={factory.wireQuantity}
         prefix="+"
-        suffix="wire"
+        suffix="inches"
         disabled={factory.funds < factory.wireCost}
         onClick={buyWire}
       >

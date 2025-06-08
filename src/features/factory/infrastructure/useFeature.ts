@@ -42,7 +42,8 @@ export const useFeature = () => {
     factory.processor,
     factory.operation,
     factory.creativity,
-    factory.drone,
+    factory.harvesterDrone,
+    factory.wireDrone,
     factory.yomi,
     setFactory,
   ]);

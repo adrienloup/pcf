@@ -14,20 +14,17 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       //   : state.operation;
       const operationPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
       const creativityPS = fibonacci(operationPS, 0, 1).filter((t) => operationPS >= t).length;
-      const wireMatterPS = Math.ceil(state.wireDrone * (1 - state.swarmStrategy / 100));
-      // console.log('wireMatterPS', wireMatterPS);
-      const wirePS = Math.max(0, state.wire + wireMatterPS - mechanicPS.wire);
-      // console.log('wirePS', wirePS);
-      // console.log('matter', Math.ceil(state.harvesterDrone * (1 - state.swarmStrategy / 100)));
+      const wireMatterPS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
+      const wireDeltaPS = wireMatterPS - mechanicPS.wire;
+      const wirePS = Math.max(0, state.wire + wireDeltaPS);
       return {
         ...state,
-        operation: operationPS,
-        creativity: creativityPS,
-        clipPerSecond: clipPS,
-        fundsPerSecond: fundsPS,
-        unsoldInventory: state.unsoldInventory + clipPS,
         clip: state.clip + clipPS,
-        // wire: Math.max(0, state.wire - mechanicPS),
+        clipPerSecond: clipPS,
+        creativity: creativityPS,
+        fundsPerSecond: fundsPS,
+        operation: operationPS,
+        unsoldInventory: state.unsoldInventory + clipPS,
         wire: wirePS,
         wirePerSecond: wireMatterPS,
       };

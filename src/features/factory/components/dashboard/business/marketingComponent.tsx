@@ -29,6 +29,7 @@ export const MarketingComponent = () => {
       <ClickerComponent
         className={styles.button}
         aria-label={t('increaseMarketing')}
+        value={1}
         prefix="+"
         suffix={t('factory.marketing')}
         disabled={factory.funds < factory.marketingCost || factory.marketing >= 10}

@@ -11,6 +11,8 @@ export const fr: Translation = {
     clipper: 'clipper',
     clipperCost: 'clipper cost',
     clippers: 'clippers',
+    disorganization: 'disorganization',
+    synchronizeCost: 'synchronize cost',
     megaClipper: 'mega clipper',
     megaClipperCost: 'mega clipper cost',
     megaClippers: 'mega clippers',
@@ -38,5 +40,7 @@ export const fr: Translation = {
     increaseClipPrice: 'increase clip price',
     decreaseClipPrice: 'decrease clip price',
     increaseProcessor: 'increase processor',
+    synchronize: 'synchronize',
+    noSpace: "pas d'espace",
   },
 };

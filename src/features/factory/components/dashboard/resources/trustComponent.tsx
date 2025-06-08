@@ -17,7 +17,9 @@ export const TrustComponent = () => {
     if (trust !== trustRef.current && factory.feature.resources && factory.trust < 100) {
       setFactory({ type: 'INCREASE_TRUST', trust });
       trustRef.current = trust;
-      console.info(`Trust: f(${factory.trust} + ${trust} = ${factory.trust + trust}`);
+      console.info(
+        `Trust: f( ${factory.trust} + ${trust} ) = ${factory.trust + trust}${factory.trust + trust >= 100 ? ' => 100' : ''}`
+      );
     }
   }, [trust, factory.trust, factory.feature.resources, setFactory]);
 

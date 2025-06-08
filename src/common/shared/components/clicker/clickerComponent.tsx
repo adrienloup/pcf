@@ -12,7 +12,7 @@ export const ClickerComponent = ({
   currency,
   prefix,
   suffix,
-  value = 1,
+  value,
   onClick,
   ...props
 }: Clicker) => {

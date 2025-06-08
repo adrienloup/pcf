@@ -21,6 +21,5 @@ export const en: Translation = {
     logged: 'logged in as {{user}}',
     disconnect: 'disconnect',
     continue: 'continue',
-    noSpace: 'no space',
   },
 };

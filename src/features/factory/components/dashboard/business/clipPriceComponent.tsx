@@ -32,22 +32,22 @@ export const ClipPriceComponent = () => {
         <ClickerComponent
           className={styles.button}
           aria-label={t('decreaseClipPrice')}
-          value={0.01 * factory.marketingBonus}
+          value={0.01 * Math.max(1, factory.marketingBonus)}
           prefix="-"
-          suffix={t('factory.price')}
           disabled={factory.clipPriceRef === 0.1}
           onClick={() => setFactory({ type: 'DECREASE_CLIP_PRICE' })}
+          currency
         >
           -
         </ClickerComponent>
         <ClickerComponent
           className={styles.button}
           aria-label={t('increaseClipPrice')}
-          value={0.01 * factory.marketingBonus}
+          value={0.01 * Math.max(1, factory.marketingBonus)}
           prefix="+"
-          suffix={t('factory.price')}
           disabled={factory.clipPriceRef === 1}
           onClick={() => setFactory({ type: 'INCREASE_CLIP_PRICE' })}
+          currency
         >
           +
         </ClickerComponent>

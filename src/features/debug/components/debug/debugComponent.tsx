@@ -25,7 +25,8 @@ export const DebugComponent = () => {
   const [operation, setOperation] = useState('0');
   const [creativity, setCreativity] = useState('0');
   const [cash, setCash] = useState('0');
-  const [drone, setDrone] = useState('0');
+  const [harvesterDrone, setHarvesterDrone] = useState('0');
+  const [wireDrone, setWireDrone] = useState('0');
   const [swarmGifts, setSwarmGifts] = useState('0');
 
   const display = useMemo(() => {
@@ -202,17 +203,30 @@ export const DebugComponent = () => {
     setCash('0');
   };
 
-  const droneChange = (e: ChangeEvent<HTMLInputElement>) => setDrone(e.target.value);
-  const droneSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+  const harvesterDroneChange = (e: ChangeEvent<HTMLInputElement>) => setHarvesterDrone(e.target.value);
+  const harvesterDroneSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFactory({
       type: 'INITIALIZE',
       state: {
         ...factory,
-        drone: Number(drone),
+        harvesterDrone: Number(harvesterDrone),
       },
     });
-    setDrone('0');
+    setHarvesterDrone('0');
+  };
+
+  const wireDroneChange = (e: ChangeEvent<HTMLInputElement>) => setWireDrone(e.target.value);
+  const wireDroneSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFactory({
+      type: 'INITIALIZE',
+      state: {
+        ...factory,
+        wireDrone: Number(wireDrone),
+      },
+    });
+    setWireDrone('0');
   };
 
   const swarmGiftsChange = (e: ChangeEvent<HTMLInputElement>) => setSwarmGifts(e.target.value);
@@ -357,11 +371,19 @@ export const DebugComponent = () => {
         />
         <button type="submit">Add</button>
       </form>
-      <form onSubmit={droneSubmit}>
-        <label>drone</label>
+      <form onSubmit={harvesterDroneSubmit}>
+        <label>harvesterDrone</label>
         <input
-          value={drone}
-          onChange={droneChange}
+          value={harvesterDrone}
+          onChange={harvesterDroneChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <form onSubmit={wireDroneSubmit}>
+        <label>wireDrone</label>
+        <input
+          value={wireDrone}
+          onChange={wireDroneChange}
         />
         <button type="submit">Add</button>
       </form>
