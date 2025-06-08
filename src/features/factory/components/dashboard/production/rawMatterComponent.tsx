@@ -2,15 +2,15 @@ import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts'
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 
-export const WireMatterComponent = () => {
+export const RawMatterComponent = () => {
   const factory = useFactory();
 
   return (
     <DialsComponent>
       <DialComponent
-        value={factory.wire}
+        value={factory.rawMatter}
         notation="compact"
-        label="inches wire"
+        label="matter available"
       />
     </DialsComponent>
   );

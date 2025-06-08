@@ -32,7 +32,9 @@ export interface Factory {
   operationMax: number;
   processor: number;
   publicDemand: number;
-  synchronizeCost: number;
+  rawMatter: number;
+  rawMatterPerSecond: number;
+  synchronizationCost: number;
   swarmGifts: number;
   swarmStatus: number;
   swarmStrategy: number;
@@ -63,8 +65,8 @@ export type FactoryDispatch =
   | { type: 'INCREASE_MEMORY' }
   | { type: 'INCREASE_PROCESSOR' }
   | { type: 'ALLOCATE_TRUST' }
-  | { type: 'INCREASE_DISORGANIZATION' }
-  | { type: 'RESET_DISORGANIZATION' }
+  | { type: 'INCREASE_DISORGANIZATION_SWARM' }
+  | { type: 'RESET_DISORGANIZATION_SWARM' }
   | { type: 'BUY_HARVESTER_DRONE'; drone: number }
   | { type: 'BUY_WIRE_DRONE'; drone: number }
   | { type: 'ADD_GIFTS'; swarmGifts: number }

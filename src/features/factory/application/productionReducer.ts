@@ -9,24 +9,23 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       const mechanicPS = mechanicPerSecond(state);
       const clipPS = mechanicPS.clip * Math.max(1, state.unsoldInventoryBonus);
       const fundsPS = clipPS * state.clipPrice;
-      // const operationPS = state.feature.resources.enabled
-      //   ? Math.min(state.operationMax, state.operation + 10 * state.processor)
-      //   : state.operation;
       const operationPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
       const creativityPS = fibonacci(operationPS, 0, 1).filter((t) => operationPS >= t).length;
-      const wireMatterPS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
-      const wireDeltaPS = wireMatterPS - mechanicPS.wire;
-      const wirePS = Math.max(0, state.wire + wireDeltaPS);
+      const _wirePS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
+      const wirePS = Math.max(0, state.wire + _wirePS - mechanicPS.wire);
+      const _rawMatterPS = state.harvesterDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
+      const rawMatterPS = Math.max(0, state.rawMatter + _rawMatterPS);
       return {
         ...state,
         clip: state.clip + clipPS,
         clipPerSecond: clipPS,
         creativity: creativityPS,
         fundsPerSecond: fundsPS,
+        rawMatter: rawMatterPS,
         operation: operationPS,
         unsoldInventory: state.unsoldInventory + clipPS,
         wire: wirePS,
-        wirePerSecond: wireMatterPS,
+        wirePerSecond: _wirePS,
       };
     }
     case 'UNIT_PRODUCTION':

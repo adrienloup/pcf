@@ -46,13 +46,13 @@ export const WireComponent = () => {
       <DialComponent
         value={factory.wire}
         notation="compact"
-        label="inches wire"
+        label="wire"
       />
       <ClickerComponent
         className={styles.button}
         value={factory.wireQuantity}
         prefix="+"
-        suffix="inches"
+        suffix="wire"
         disabled={factory.funds < factory.wireCost}
         onClick={buyWire}
       >

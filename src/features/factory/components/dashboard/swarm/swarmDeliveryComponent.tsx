@@ -34,7 +34,7 @@ export const SwarmDeliveryComponent = () => {
       <DialComponent
         value={swarmGifts}
         notation="compact"
-        label={`gift in ${swarmGifts > 0 ? (swarmGiftsInterval / 1000).toFixed() : 0} seconds`}
+        label={`gift in ${(swarmGiftsInterval / 1000).toFixed()} seconds`}
       />
     </DialsComponent>
   );

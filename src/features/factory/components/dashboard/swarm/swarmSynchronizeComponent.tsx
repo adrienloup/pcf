@@ -20,13 +20,13 @@ export const SwarmSynchronizeComponent = () => {
   const setFactory = useFactoryDispatch();
   const setAlerts = useAlertsDispatch();
 
-  const ratio = factory.wireDrone / Math.max(factory.harvesterDrone, 1);
+  const synchronization = factory.wireDrone / Math.max(factory.harvesterDrone, 1);
 
   const increaseDisorganization = useCallback(() => {
-    setFactory({ type: 'INCREASE_DISORGANIZATION' });
-  }, [ratio, factory.disorganization]);
+    setFactory({ type: 'INCREASE_DISORGANIZATION_SWARM' });
+  }, []);
 
-  useInterval(increaseDisorganization, 2e3, isPlay && !!user && ratio > 1.5);
+  useInterval(increaseDisorganization, 2e3, isPlay && !!user && synchronization > 1.5);
 
   useEffect(() => {
     if (factory.disorganization >= 100) {
@@ -40,12 +40,12 @@ export const SwarmSynchronizeComponent = () => {
   return (
     <DialsComponent>
       <DialComponent
-        value={factory.synchronizeCost}
+        value={factory.synchronizationCost}
         style="currency"
         notation="compact"
-        label={t('factory.synchronizeCost')}
+        label={t('factory.synchronizationCost')}
         tile={
-          ratio > 1.5 ? (
+          synchronization > 1.5 ? (
             <ThumbnailComponent
               label={t('factory.disorganization')}
               status="warning"
@@ -53,12 +53,17 @@ export const SwarmSynchronizeComponent = () => {
           ) : null
         }
       />
+      <DialComponent
+        value={synchronization}
+        notation="compact"
+        label={t('factory.synchronization')}
+      />
       <ClickerComponent
         className={classNames([styles.button, styles.auto])}
-        value={factory.synchronizeCost}
+        value={factory.synchronizationCost}
         prefix="-"
-        disabled={factory.funds < factory.synchronizeCost || factory.disorganization < 100}
-        onClick={() => setFactory({ type: 'RESET_DISORGANIZATION' })}
+        disabled={factory.funds < factory.synchronizationCost || factory.disorganization < 100}
+        onClick={() => setFactory({ type: 'RESET_DISORGANIZATION_SWARM' })}
         currency
       >
         {t('factory.synchronize')}

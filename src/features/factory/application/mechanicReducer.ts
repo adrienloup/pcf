@@ -14,9 +14,9 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
       if (state.funds < state.megaClipperCost) return state;
       return {
         ...state,
+        funds: Math.max(0, state.funds - action.cost),
         megaClipper: state.megaClipper + 1,
         megaClipperCost: action.cost,
-        funds: Math.max(0, state.funds - action.cost),
       };
     case 'BUY_CLIP_FACTORY': {
       if (state.funds < state.clipFactoryCost) return state;
@@ -30,20 +30,28 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
         funds: Math.max(0, state.funds - state.clipFactoryCost),
       };
     }
-    case 'BUY_HARVESTER_DRONE':
+    case 'BUY_HARVESTER_DRONE': {
       if (state.funds < state.harvesterDroneCost * action.drone) return state;
+      const disorganizationHD = state.harvesterDrone != state.wireDrone ? state.disorganization : 0;
+      const fundsHD = Math.max(0, state.funds - state.harvesterDroneCost * action.drone);
       return {
         ...state,
+        disorganization: disorganizationHD,
+        funds: fundsHD,
         harvesterDrone: state.harvesterDrone + action.drone,
-        funds: Math.max(0, state.funds - state.harvesterDroneCost * action.drone),
       };
-    case 'BUY_WIRE_DRONE':
+    }
+    case 'BUY_WIRE_DRONE': {
       if (state.funds < state.wireDroneCost * action.drone) return state;
+      const disorganizationWD = state.harvesterDrone != state.wireDrone ? state.disorganization : 0;
+      const fundsWD = Math.max(0, state.funds - state.wireDroneCost * action.drone);
       return {
         ...state,
+        disorganization: disorganizationWD,
+        funds: fundsWD,
         wireDrone: state.wireDrone + action.drone,
-        funds: Math.max(0, state.funds - state.wireDroneCost * action.drone),
       };
+    }
     case 'UPDATE_CLIPPER_BONUS':
       return {
         ...state,

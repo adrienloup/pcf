@@ -2,7 +2,7 @@ import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts'
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 
-export const WireMatterPerSecondComponent = () => {
+export const WireGridPerSecondComponent = () => {
   const factory = useFactory();
 
   return (
@@ -10,7 +10,7 @@ export const WireMatterPerSecondComponent = () => {
       <DialComponent
         value={factory.wirePerSecond}
         notation="compact"
-        label="inches wire per second"
+        label="wire per second"
       />
     </DialsComponent>
   );

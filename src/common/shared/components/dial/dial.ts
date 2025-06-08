@@ -6,6 +6,6 @@ export interface Dial extends Number {
   tile?: Children;
   disabled?: boolean;
   label: string;
-  stringValues?: string;
+  stringValue?: string;
   styleCss?: CSSProperties;
 }

@@ -9,7 +9,7 @@ export const DialComponent = ({
   value,
   valueMax,
   notation,
-  stringValues,
+  stringValue,
   style,
   tile,
   styleCss,
@@ -19,7 +19,7 @@ export const DialComponent = ({
       className={classNames([styles.dial, disabled ? styles.disabled : ''])}
       style={styleCss}
     >
-      {stringValues}
+      {stringValue}
       <NumberComponent
         valueMax={valueMax}
         notation={notation}

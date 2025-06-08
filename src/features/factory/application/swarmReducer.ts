@@ -15,21 +15,20 @@ export const swarmReducer = (state: Factory, action: FactoryDispatch): Factory =
         ...state,
         swarmGifts: Math.min(100, state.swarmGifts + action.swarmGifts),
       };
-    case 'INCREASE_DISORGANIZATION': {
-      // console.log('INCREASE_DISORGANIZATION');
+    case 'INCREASE_DISORGANIZATION_SWARM': {
+      // console.log('INCREASE_DISORGANIZATION_SWARM');
       return {
         ...state,
         disorganization: Math.min(state.disorganization + 1, 100),
       };
     }
-    case 'RESET_DISORGANIZATION': {
-      // console.log('RESET_DISORGANIZATION');
-      if (state.funds < state.synchronizeCost) return state;
-      // if (state.funds >= 5e3 && state.wireDrone / Math.max(state.harvesterDrone, 1) > 1.5) {
+    case 'RESET_DISORGANIZATION_SWARM': {
+      // console.log('RESET_DISORGANIZATION_SWARM');
+      if (state.funds < state.synchronizationCost) return state;
       return {
         ...state,
         disorganization: 0,
-        funds: state.funds - state.synchronizeCost,
+        funds: state.funds - state.synchronizationCost,
       };
     }
     default:

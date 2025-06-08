@@ -10,7 +10,7 @@ export const SwarmStatusComponent = () => {
   return (
     <DialsComponent>
       <DialComponent
-        stringValues={status}
+        stringValue={status}
         notation="compact"
         label="status"
       />
