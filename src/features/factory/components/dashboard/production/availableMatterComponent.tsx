@@ -6,7 +6,7 @@ import { DialsComponent } from '@/src/common/shared/components/dials/dialsCompon
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 
-export const MatterComponent = () => {
+export const AvailableMatterComponent = () => {
   const { t } = useTranslation();
   const factory = useFactory();
   const setAlerts = useAlertsDispatch();
@@ -33,11 +33,6 @@ export const MatterComponent = () => {
             />
           ) : null
         }
-      />
-      <DialComponent
-        value={factory.acquiredMatter}
-        label="acquired matter"
-        decimal
       />
     </DialsComponent>
   );

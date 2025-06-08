@@ -1,11 +1,12 @@
 import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { CardComponent } from '@/src/common/shared/components/card/cardComponent.tsx';
-import { WireMadeComponent } from '@/src/features/factory/components/dashboard/production/wireMadeComponent.tsx';
+import { WireProductionComponent } from '@/src/features/factory/components/dashboard/production/wireProductionComponent.tsx';
 import { HarvesterDroneComponent } from '@/src/features/factory/components/dashboard/production/harvesterDroneComponent.tsx';
 import { MatterPerSecondComponent } from '@/src/features/factory/components/dashboard/production/matterPerSecondComponent.tsx';
-import { MatterComponent } from '@/src/features/factory/components/dashboard/production/matterComponent.tsx';
-import { WireMadePerSecondComponent } from '@/src/features/factory/components/dashboard/production/wireMadePerSecondComponent.tsx';
+import { AvailableMatterComponent } from '@/src/features/factory/components/dashboard/production/availableMatterComponent.tsx';
+import { AcquiredMatterComponent } from '@/src/features/factory/components/dashboard/production/acquiredMatterComponent.tsx';
+import { WireProductionPerSecondComponent } from '@/src/features/factory/components/dashboard/production/wireProductionPerSecondComponent.tsx';
 import { WireDroneComponent } from '@/src/features/factory/components/dashboard/production/wireDroneComponent.tsx';
 import { EmptyComponent } from '@/src/common/shared/components/empty/emptyComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
@@ -24,9 +25,10 @@ export const ProductionComponent = () => {
       {factory.feature.production.enabled ? (
         <>
           <MatterPerSecondComponent />
-          <MatterComponent />
-          <WireMadePerSecondComponent />
-          <WireMadeComponent />
+          <AvailableMatterComponent />
+          <AcquiredMatterComponent />
+          <WireProductionPerSecondComponent />
+          <WireProductionComponent />
           <HarvesterDroneComponent />
           <WireDroneComponent />
         </>

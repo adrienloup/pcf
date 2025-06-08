@@ -13,10 +13,18 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       const wireDronePPS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const harvesterDronePPS =
         state.harvesterDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
-      const wirePPS = Math.max(0, state.wire + wireDronePPS - mechanicPPS.wire);
       const availableMatterPPS = Math.max(0, state.availableMatter - harvesterDronePPS);
+      // const acquiredMatterPPS =
+      //   availableMatterPPS >= harvesterDronePPS ? state.acquiredMatter + harvesterDronePPS : state.acquiredMatter;
       const acquiredMatterPPS =
-        availableMatterPPS >= harvesterDronePPS ? state.acquiredMatter + harvesterDronePPS : state.acquiredMatter;
+        state.acquiredMatter + (availableMatterPPS >= harvesterDronePPS ? harvesterDronePPS : 0);
+      // const wirePPS = Math.max(0, state.wire + wireDronePPS - mechanicPPS.wire);
+      const wireChange = acquiredMatterPPS >= wireDronePPS ? wireDronePPS : 0;
+      const wirePPS = Math.max(0, state.wire + wireChange - mechanicPPS.wire);
+      // const wirePPS =
+      //   acquiredMatterPPS >= wireDronePPS
+      //     ? Math.max(0, state.wire + wireDronePPS - mechanicPPS.wire)
+      //     : Math.max(0, state.wire - mechanicPPS.wire);
       return {
         ...state,
         acquiredMatter: acquiredMatterPPS,
@@ -29,6 +37,7 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
         unsoldInventory: state.unsoldInventory + clipPPS,
         wire: wirePPS,
         wirePerSecond: wireDronePPS,
+        matterPerSecond: harvesterDronePPS,
       };
     }
     case 'UNIT_PRODUCTION': {
