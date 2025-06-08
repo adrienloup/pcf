@@ -15,7 +15,6 @@ export const ProcessorComponent = () => {
       <DialComponent
         value={factory.processor}
         valueMax={100}
-        notation="compact"
         label={t('factory.processors')}
       />
       <ClickerComponent

@@ -4,7 +4,8 @@ export interface Clicker extends Button<HTMLButtonElement> {
   value?: number;
   prefix?: string;
   suffix?: string;
-  currency?: boolean;
+  decimal?: boolean;
+  unit?: 'weight' | 'currency' | 'percent';
   onClick: () => void;
 }
 

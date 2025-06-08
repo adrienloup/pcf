@@ -4,7 +4,7 @@ import { DialComponent } from '@/src/common/shared/components/dial/dialComponent
 import { ClickerComponent } from '@/src/common/shared/components/clicker/clickerComponent.tsx';
 import styles from '@/src/common/shared/components/card/Card.module.scss';
 
-export const ProductionPerSecondComponent = () => {
+export const ClipPerSecondComponent = () => {
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
 
@@ -12,7 +12,6 @@ export const ProductionPerSecondComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.clipPerSecond}
-        notation="compact"
         label="clip per second"
       />
       <ClickerComponent

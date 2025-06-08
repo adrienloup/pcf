@@ -4,14 +4,23 @@ import { DialComponent } from '@/src/common/shared/components/dial/dialComponent
 
 export const SwarmStatusComponent = () => {
   const factory = useFactory();
-  const status: 'active' | 'diligent' | 'lonely' =
-    factory.swarmStrategy >= 80 ? 'diligent' : factory.swarmStrategy >= 10 ? 'active' : 'lonely';
+  const status: 'bored' | 'busy' | 'lonely' | 'pending' | 'travel' | 'working' =
+    factory.entertainment < 1
+      ? 'bored'
+      : factory.swarmStrategy >= 100
+        ? 'lonely'
+        : factory.swarmStrategy >= 80
+          ? 'pending'
+          : factory.swarmStrategy >= 50
+            ? 'travel'
+            : factory.swarmStrategy >= 20
+              ? 'working'
+              : 'busy';
 
   return (
     <DialsComponent>
       <DialComponent
         stringValue={status}
-        notation="compact"
         label="status"
       />
     </DialsComponent>

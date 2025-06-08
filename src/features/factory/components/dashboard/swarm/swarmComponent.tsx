@@ -2,9 +2,11 @@ import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts'
 import { CardComponent } from '@/src/common/shared/components/card/cardComponent.tsx';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { SwarmDeliveryComponent } from '@/src/features/factory/components/dashboard/swarm/swarmDeliveryComponent.tsx';
-import { SwarmComputingComponent } from '@/src/features/factory/components/dashboard/swarm/swarmComputingComponent.tsx';
+import { SwarmDroneComponent } from '@/src/features/factory/components/dashboard/swarm/swarmDroneComponent.tsx';
 import { SwarmSynchronizeComponent } from '@/src/features/factory/components/dashboard/swarm/swarmSynchronizeComponent.tsx';
+import { SwarmStatusComponent } from '@/src/features/factory/components/dashboard/swarm/swarmStatusComponent.tsx';
 import { SwarmStrategyComponent } from '@/src/features/factory/components/dashboard/swarm/swarmStrategyComponent.tsx';
+import { SwarmEntertainmentComponent } from '@/src/features/factory/components/dashboard/swarm/swarmEntertainmentComponent.tsx';
 import { EmptyComponent } from '@/src/common/shared/components/empty/emptyComponent.tsx';
 import styles from '@/src/common/shared/components/card/card.module.scss';
 
@@ -22,8 +24,10 @@ export const SwarmComponent = () => {
       {factory.feature.swarm.enabled ? (
         <>
           <SwarmDeliveryComponent />
-          <SwarmComputingComponent />
+          <SwarmDroneComponent />
           <SwarmSynchronizeComponent />
+          <SwarmEntertainmentComponent />
+          <SwarmStatusComponent />
           <SwarmStrategyComponent />
         </>
       ) : (

@@ -1,6 +1,6 @@
 import { CardComponent } from '@/src/common/shared/components/card/cardComponent.tsx';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
-import { ProductionPerSecondComponent } from '@/src/features/factory/components/dashboard/manufacturing/productionPerSecondComponent.tsx';
+import { ClipPerSecondComponent } from '@/src/features/factory/components/dashboard/manufacturing/clipPerSecondComponent.tsx';
 import { WireComponent } from '@/src/features/factory/components/dashboard/manufacturing/wireComponent.tsx';
 import { ClipperComponent } from '@/src/features/factory/components/dashboard/manufacturing/clipperComponent.tsx';
 import { MegaClipperComponent } from '@/src/features/factory/components/dashboard/manufacturing/megaClipperComponent.tsx';
@@ -16,7 +16,7 @@ export const ManufacturingComponent = () => {
       >
         manufacturing
       </TitleComponent>
-      <ProductionPerSecondComponent />
+      <ClipPerSecondComponent />
       <WireComponent />
       <ClipperComponent />
       <MegaClipperComponent />

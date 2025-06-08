@@ -31,25 +31,25 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
       };
     }
     case 'BUY_HARVESTER_DRONE': {
-      if (state.funds < state.harvesterDroneCost * action.drone) return state;
+      if (state.funds < state.harvesterDroneCost * action.harvesterDrone) return state;
       const disorganizationHD = state.harvesterDrone != state.wireDrone ? state.disorganization : 0;
-      const fundsHD = Math.max(0, state.funds - state.harvesterDroneCost * action.drone);
+      const fundsHD = Math.max(0, state.funds - state.harvesterDroneCost * action.harvesterDrone);
       return {
         ...state,
         disorganization: disorganizationHD,
         funds: fundsHD,
-        harvesterDrone: state.harvesterDrone + action.drone,
+        harvesterDrone: state.harvesterDrone + action.harvesterDrone,
       };
     }
     case 'BUY_WIRE_DRONE': {
-      if (state.funds < state.wireDroneCost * action.drone) return state;
+      if (state.funds < state.wireDroneCost * action.wireDrone) return state;
       const disorganizationWD = state.harvesterDrone != state.wireDrone ? state.disorganization : 0;
-      const fundsWD = Math.max(0, state.funds - state.wireDroneCost * action.drone);
+      const fundsWD = Math.max(0, state.funds - state.wireDroneCost * action.wireDrone);
       return {
         ...state,
         disorganization: disorganizationWD,
         funds: fundsWD,
-        wireDrone: state.wireDrone + action.drone,
+        wireDrone: state.wireDrone + action.wireDrone,
       };
     }
     case 'UPDATE_CLIPPER_BONUS':

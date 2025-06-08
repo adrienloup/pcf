@@ -8,9 +8,9 @@ export const DialComponent = ({
   label,
   value,
   valueMax,
-  notation,
   stringValue,
-  style,
+  unit,
+  decimal,
   tile,
   styleCss,
 }: Dial) => {
@@ -21,11 +21,10 @@ export const DialComponent = ({
     >
       {stringValue}
       <NumberComponent
-        valueMax={valueMax}
-        notation={notation}
-        compactDisplay={notation == 'compact' ? 'short' : undefined}
-        style={style}
         value={value}
+        valueMax={valueMax}
+        unit={unit}
+        decimal={decimal}
       />
       {tile}
       {label && <span className={styles.label}>{label}</span>}

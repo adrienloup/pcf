@@ -28,6 +28,7 @@ export const DebugComponent = () => {
   const [harvesterDrone, setHarvesterDrone] = useState('0');
   const [wireDrone, setWireDrone] = useState('0');
   const [swarmGifts, setSwarmGifts] = useState('0');
+  const [availableMatter, setAvailableMatter] = useState('0');
 
   const display = useMemo(() => {
     // const isDebug = location.search == '?debug';
@@ -233,10 +234,23 @@ export const DebugComponent = () => {
   const swarmGiftsSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFactory({
-      type: 'ADD_GIFTS',
+      type: 'UPDATE_SWARM_GIFTS',
       swarmGifts: Number(swarmGifts),
     });
     setSwarmGifts('0');
+  };
+
+  const availableMatterChange = (e: ChangeEvent<HTMLInputElement>) => setAvailableMatter(e.target.value);
+  const availableMatterSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFactory({
+      type: 'INITIALIZE',
+      state: {
+        ...factory,
+        availableMatter: parseInt(availableMatter),
+      },
+    });
+    setAvailableMatter('0');
   };
 
   const updateWire = (quantity: number) => setFactory({ type: 'UPDATE_WIRE_QUANTITY', quantity });
@@ -392,6 +406,14 @@ export const DebugComponent = () => {
         <input
           value={swarmGifts}
           onChange={swarmGiftsChange}
+        />
+        <button type="submit">Add</button>
+      </form>
+      <form onSubmit={availableMatterSubmit}>
+        <label>availableMatter</label>
+        <input
+          value={availableMatter}
+          onChange={availableMatterChange}
         />
         <button type="submit">Add</button>
       </form>

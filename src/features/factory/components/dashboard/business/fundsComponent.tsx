@@ -11,9 +11,9 @@ export const FundsComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.funds}
-        style="currency"
-        notation="compact"
         label={t('factory.fundsAvailable')}
+        unit="currency"
+        decimal
       />
     </DialsComponent>
   );

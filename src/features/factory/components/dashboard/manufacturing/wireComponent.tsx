@@ -33,19 +33,18 @@ export const WireComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.wireCost}
-        style="currency"
-        notation="compact"
         label="wire cost"
+        unit="currency"
         tile={
           <ThumbnailComponent
             value={factory.wireQuantity}
             label="+"
           />
         }
+        decimal
       />
       <DialComponent
         value={factory.wire}
-        notation="compact"
         label="wire"
       />
       <ClickerComponent

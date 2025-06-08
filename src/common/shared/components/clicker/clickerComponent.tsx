@@ -9,10 +9,11 @@ export const ClickerComponent = ({
   children,
   className,
   disabled,
-  currency,
+  unit,
   prefix,
   suffix,
   value,
+  decimal,
   onClick,
   ...props
 }: Clicker) => {
@@ -56,7 +57,7 @@ export const ClickerComponent = ({
       onClick={handleClick}
       {...props}
     >
-      {children}
+      <span className={styles.inner}>{children}</span>
       {values.map((v) => (
         <span
           key={v.id}
@@ -66,8 +67,8 @@ export const ClickerComponent = ({
           {prefix}
           <NumberComponent
             value={value}
-            style={currency ? 'currency' : undefined}
-            notation="compact"
+            unit={unit}
+            decimal={decimal}
           />
           {suffix ? ` ${suffix}` : null}
         </span>

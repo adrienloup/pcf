@@ -1,25 +1,88 @@
 import { useSettings } from '@/src/app/layout/settings/useSettings.ts';
 import type { Number } from '@/src/common/shared/components/number/number.ts';
 
-export const NumberComponent = ({ className, value, style, notation, compactDisplay, valueMax }: Number) => {
+const UNITS: string[] = [
+  '',
+  'K',
+  'M',
+  'B',
+  'T',
+  'Qa',
+  'Qi',
+  'Sx',
+  'Sp',
+  'Oc',
+  'No',
+  'Dec',
+  'Und',
+  'Duo',
+  'Tre',
+  'Quat',
+  'Quin',
+  'Sex',
+  'Sept',
+  'Octo',
+  'Noni',
+  'Vig',
+];
+
+const CURRENCY_SYMBOL: Record<'en' | 'fr', string> = {
+  en: '$',
+  fr: '€',
+};
+
+const WEIGHT_UNIT: Record<'en' | 'fr', string> = {
+  en: 'lb',
+  fr: 'kg',
+};
+
+function formatShort(value: number) {
+  if (value < 1000) return { scaled: value, unit: '' };
+
+  let tier = Math.floor(Math.log10(value) / 3);
+  if (tier >= UNITS.length) {
+    tier = UNITS.length - 1;
+  }
+  const scale = Math.pow(10, tier * 3);
+  return { scaled: value / scale, unit: UNITS[tier] };
+}
+
+export const NumberComponent = ({ className, value, valueMax, decimal = false, unit }: Number) => {
   const { settings } = useSettings();
+  const locale = settings.language === 'fr' ? 'fr-FR' : 'en-US';
+  const digits: 2 | 0 = decimal ? 2 : 0;
 
-  const options = {
-    style: style,
-    currency: settings.language == 'en' ? 'USD' : 'EUR',
-    notation: notation,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-    compactDisplay: compactDisplay,
-  };
+  let _value = '';
+  let _valueMax = '';
 
-  const format = (value: number) =>
-    new Intl.NumberFormat(settings.language == 'en' ? 'en-US' : 'fr-FR', options).format(value);
+  if (unit === 'percent') {
+    _value = new Intl.NumberFormat(locale, {
+      style: 'percent',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    }).format(value!);
+  } else if (unit === 'currency') {
+    const { scaled, unit } = formatShort(value!);
+    const symbol = CURRENCY_SYMBOL[settings.language];
+    _value =
+      settings.language === 'en'
+        ? `${symbol}${scaled.toFixed(digits)}${unit}`
+        : `${scaled.toFixed(digits)} ${unit} ${symbol}`;
+  } else if (unit === 'weight') {
+    const { scaled, unit } = formatShort(value!);
+    const weightUnit = WEIGHT_UNIT[settings.language];
+    _value = `${scaled.toFixed(digits)} ${unit} ${weightUnit}`;
+  } else {
+    const { scaled, unit } = formatShort(value!);
+    const { scaled: scaledMax, unit: unitMax } = formatShort(valueMax!);
+    _value = `${scaled.toFixed(digits)}${unit}`;
+    _valueMax = `${scaledMax.toFixed(digits)}${unitMax}`;
+  }
 
   return (
     <span className={className}>
-      {value && format(value!)}
-      {valueMax && '/' + format(valueMax)}
+      {value && _value}
+      {valueMax && `/${_valueMax}`}
     </span>
   );
 };

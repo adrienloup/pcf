@@ -22,13 +22,11 @@ export const MegaClipperComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.megaClipperCost}
-        style="currency"
-        notation="compact"
         label={t('factory.megaClipperCost')}
+        unit="currency"
       />
       <DialComponent
         value={factory.megaClipper}
-        notation="compact"
         label={t('factory.megaClippers')}
         tile={
           factory.megaClipperBonus > 0 ? (

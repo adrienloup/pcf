@@ -1,6 +1,6 @@
-import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
+import type { Feature } from '@/src/features/factory/domain/feature.ts';
 
-export const FEATURE_STATE: FeatureState = {
+export const FEATURE_STATE: Feature = {
   algorithmicTrading: {
     category: 'investing',
     costs: [{ unit: 'operation', value: 1e4 }],

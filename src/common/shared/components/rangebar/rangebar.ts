@@ -6,5 +6,6 @@ export interface Rangebar {
   max?: number;
   step?: number;
   value: number;
+  disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }

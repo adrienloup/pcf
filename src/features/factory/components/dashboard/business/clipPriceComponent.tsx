@@ -16,8 +16,8 @@ export const ClipPriceComponent = () => {
       {/*{factory.paperclipPriceRef.toFixed(2)}*/}
       <DialComponent
         value={factory.clipPrice}
-        style="currency"
         label={t('factory.clipPrice')}
+        unit="currency"
         tile={
           factory.marketingBonus > 0 ? (
             <ThumbnailComponent
@@ -27,6 +27,7 @@ export const ClipPriceComponent = () => {
             />
           ) : null
         }
+        decimal
       />
       <div className={styles.buttons}>
         <ClickerComponent
@@ -35,8 +36,9 @@ export const ClipPriceComponent = () => {
           value={0.01 * Math.max(1, factory.marketingBonus)}
           prefix="-"
           disabled={factory.clipPriceRef === 0.1}
-          onClick={() => setFactory({ type: 'DECREASE_CLIP_PRICE' })}
-          currency
+          onClick={() => setFactory({ type: 'DECREASE_CLIP_SELLING_PRICE' })}
+          unit="currency"
+          decimal
         >
           -
         </ClickerComponent>
@@ -46,8 +48,9 @@ export const ClipPriceComponent = () => {
           value={0.01 * Math.max(1, factory.marketingBonus)}
           prefix="+"
           disabled={factory.clipPriceRef === 1}
-          onClick={() => setFactory({ type: 'INCREASE_CLIP_PRICE' })}
-          currency
+          onClick={() => setFactory({ type: 'INCREASE_CLIP_SELLING_PRICE' })}
+          unit="currency"
+          decimal
         >
           +
         </ClickerComponent>

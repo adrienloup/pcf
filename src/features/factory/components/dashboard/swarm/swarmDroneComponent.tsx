@@ -1,24 +1,21 @@
-import { useTranslation } from 'react-i18next';
 import { useFactory } from '@/src/features/factory/infrastructure/useFactory.ts';
 import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
 import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 import { ThumbnailComponent } from '@/src/common/shared/components/thumbnail/thumbnailComponent.tsx';
 
-export const UnsoldInventoryComponent = () => {
-  const { t } = useTranslation();
+export const SwarmDroneComponent = () => {
   const factory = useFactory();
 
   return (
     <DialsComponent>
       <DialComponent
-        value={factory.unsoldInventory}
-        label={t('factory.unsoldInventory')}
+        value={factory.harvesterDrone + factory.wireDrone}
+        label="drones"
         tile={
-          factory.unsoldInventoryBonus > 0 ? (
+          factory.entertainment < 1 ? (
             <ThumbnailComponent
-              value={factory.unsoldInventoryBonus}
-              label="x"
-              status="success"
+              label="bored drones"
+              status="warning"
             />
           ) : null
         }

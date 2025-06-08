@@ -14,18 +14,25 @@ export const SwarmStrategyComponent = () => {
   const work = 1 - factory.swarmStrategy / VALUE_MAX;
 
   return (
-    <DialsComponent>
+    <DialsComponent
+      styleCss={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      }}
+    >
       <DialComponent
         value={work}
-        style="percent"
         label="Work"
-        // tile={<ExponentComponent value={droneWorking} />}
+        unit="percent"
       />
       <DialComponent
         value={think}
-        style="percent"
         label="Think"
-        // tile={<ExponentComponent value={thinkingDrone} />}
+        unit="percent"
+        styleCss={{
+          textAlign: 'right',
+          justifyContent: 'flex-end',
+        }}
       />
       <RangebarComponent
         min={0}

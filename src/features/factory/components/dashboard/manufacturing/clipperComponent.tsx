@@ -22,19 +22,18 @@ export const ClipperComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.clipperCost}
-        style="currency"
-        notation="compact"
         label={t('factory.clipperCost')}
+        unit="currency"
       />
       <DialComponent
         value={factory.clipper}
-        notation="compact"
         label={t('factory.clippers')}
         tile={
           factory.clipperBonus > 0 ? (
             <ThumbnailComponent
               value={factory.clipperBonus}
               label="x"
+              status="success"
             />
           ) : null
         }

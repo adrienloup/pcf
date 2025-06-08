@@ -18,7 +18,7 @@ export const businessReducer = (state: Factory, action: FactoryDispatch): Factor
         ...state,
         unsoldInventoryBonus: action.bonus,
       };
-    case 'INCREASE_CLIP_PRICE': {
+    case 'INCREASE_CLIP_SELLING_PRICE': {
       const increasePP = Math.min(state.clipPriceRef + 0.01, 1);
       return {
         ...state,
@@ -27,7 +27,7 @@ export const businessReducer = (state: Factory, action: FactoryDispatch): Factor
         publicDemand: 0.1 / increasePP,
       };
     }
-    case 'DECREASE_CLIP_PRICE': {
+    case 'DECREASE_CLIP_SELLING_PRICE': {
       const decreasePP = Math.max(state.clipPriceRef - 0.01, 0.1);
       return {
         ...state,

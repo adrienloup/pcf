@@ -15,7 +15,6 @@ $mobile-landscape: 768px;
 .title {
   overflow: hidden;
   max-width: calc(100vw - (var(--spacing-s) * 2));
-  width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-transform: uppercase;
@@ -30,6 +29,6 @@ $mobile-landscape: 768px;
   padding: var(--spacing-xs);
   background-color: var(--theme-color-2);
   text-transform: uppercase;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   color: var(--theme-color-1);
 }

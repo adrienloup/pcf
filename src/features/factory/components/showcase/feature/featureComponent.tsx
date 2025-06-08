@@ -4,15 +4,21 @@ import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
 import { ButtonComponent } from '@/src/common/shared/components/button/buttonComponent.tsx';
 import { NumberComponent } from '@/src/common/shared/components/number/numberComponent.tsx';
-import type { Feature } from '@/src/features/factory/domain/feature.ts';
+import type { FeatureState } from '@/src/features/factory/domain/feature.ts';
 import styles from '@/src/features/factory/components/showcase/feature/feature.module.scss';
 
-export const FeatureComponent = ({ featureName, featureValue }: { featureName: string; featureValue: Feature }) => {
+export const FeatureComponent = ({
+  featureName,
+  featureValue,
+}: {
+  featureName: string;
+  featureValue: FeatureState;
+}) => {
   const { t } = useTranslation();
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
 
-  const featureOnClick = (featureName: string, featureValue: Feature) => {
+  const featureOnClick = (featureName: string, featureValue: FeatureState) => {
     setFactory({ type: 'BUY_FEATURE', feature: featureName });
     if (!Array.isArray(featureValue.effects) && typeof featureValue.effects === 'object') {
       setFactory(featureValue.effects);

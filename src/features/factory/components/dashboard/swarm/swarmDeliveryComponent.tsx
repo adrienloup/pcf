@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
-import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
-import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
-import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
-import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
-import { fibonacci } from '@/src/common/shared/utils/fibonacci.ts';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
 import { useGame } from '@/src/features/factory/infrastructure/useGame.ts';
+import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
+import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastructure/useFactory.ts';
+import { fibonacci } from '@/src/common/shared/utils/fibonacci.ts';
+import { DialsComponent } from '@/src/common/shared/components/dials/dialsComponent.tsx';
+import { DialComponent } from '@/src/common/shared/components/dial/dialComponent.tsx';
 
 function setDeliveryInterval(min: number, max: number, scale: number, value: number): number {
   const duration = Math.max(min, max - (Math.log10(value + 1) / scale) * (max - min));
@@ -18,23 +18,23 @@ export const SwarmDeliveryComponent = () => {
   const factory = useFactory();
   const setFactory = useFactoryDispatch();
 
-  const drone = factory.harvesterDrone + factory.wireDrone;
-  const swarmGiftsMax = fibonacci(drone, 0, 1).filter((d) => drone >= d).length;
-  const swarmGifts = Math.ceil(((factory.swarmStrategy / 1e2) * swarmGiftsMax) / 3);
-  const swarmGiftsInterval = setDeliveryInterval(1e3, 24e3, 8, drone);
+  const entertainment = factory.entertainment;
+  const swarmDrone = factory.harvesterDrone + factory.wireDrone;
+  const swarmGiftsMax = fibonacci(swarmDrone, 0, 1).filter((drone) => swarmDrone >= drone).length;
+  const swarmGifts = entertainment ? Math.ceil(((factory.swarmStrategy / 1e2) * swarmGiftsMax) / 3) : 0;
+  const swarmGiftsInterval = entertainment ? setDeliveryInterval(1e3, 24e3, 8, swarmDrone) : 0;
 
-  const updateAddGifts = useCallback(() => {
-    setFactory({ type: 'ADD_GIFTS', swarmGifts });
+  const addGifts = useCallback(() => {
+    setFactory({ type: 'UPDATE_SWARM_GIFTS', swarmGifts });
   }, [swarmGifts]);
 
-  useInterval(updateAddGifts, swarmGiftsInterval, isPlay && !!user);
+  useInterval(addGifts, swarmGiftsInterval, isPlay && !!user && !!entertainment);
 
   return (
     <DialsComponent>
       <DialComponent
         value={swarmGifts}
-        notation="compact"
-        label={`gift in ${(swarmGiftsInterval / 1000).toFixed()} seconds`}
+        label={`swarm gift in ${(swarmGiftsInterval / 1000).toFixed()} seconds`}
       />
     </DialsComponent>
   );

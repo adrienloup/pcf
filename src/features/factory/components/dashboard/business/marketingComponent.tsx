@@ -16,8 +16,8 @@ export const MarketingComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.marketingCost}
-        style="currency"
         label={t('factory.marketingCost')}
+        unit="currency"
         disabled={factory.marketing >= 10}
       />
       <DialComponent

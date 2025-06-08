@@ -15,7 +15,6 @@ export const MemoryComponent = () => {
       <DialComponent
         value={factory.memory}
         valueMax={100}
-        notation="compact"
         label={t('factory.memory')}
       />
       <ClickerComponent

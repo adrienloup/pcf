@@ -50,7 +50,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
         funds: Math.max(0, state.funds - action.cost),
       };
     case 'UPDATE_WIRE_COST':
-      console.log('UPDATE_WIRE_COST');
+      // console.log('UPDATE_WIRE_COST');
       return {
         ...state,
         wireCost: action.cost,
@@ -64,7 +64,7 @@ export const resourcesReducer = (state: Factory, action: FactoryDispatch): Facto
       return {
         ...state,
         marketingBonus: action.bonus,
-        clipPrice: state.clipPriceRef * action.bonus,
+        clipPrice: state.clipPriceRef * Math.max(1, action.bonus),
       };
     default:
       return state;

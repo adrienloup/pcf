@@ -1,7 +1,5 @@
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  background-color: transparent;
   border: none;
   line-height: 1;
   text-decoration: none;
@@ -22,6 +20,5 @@
   &:disabled {
     pointer-events: none;
     cursor: default;
-    opacity: 0.5;
   }
 }

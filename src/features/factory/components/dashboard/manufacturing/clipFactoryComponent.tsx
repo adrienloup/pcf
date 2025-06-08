@@ -22,13 +22,11 @@ export const ClipFactoryComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.clipFactoryCost}
-        style="currency"
-        notation="compact"
         label={t('factory.clipFactoryCost')}
+        unit="currency"
       />
       <DialComponent
         value={factory.clipFactory}
-        notation="compact"
         label={t('factory.clipFactories')}
         tile={
           <>

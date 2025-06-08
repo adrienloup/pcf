@@ -11,8 +11,8 @@ export const PublicDemandComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.publicDemand}
-        style="percent"
         label={t('factory.publicDemand')}
+        unit="percent"
       />
     </DialsComponent>
   );

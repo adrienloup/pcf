@@ -83,18 +83,13 @@ $tablet-landscape: 1280px;
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 3.5rem;
   height: 2rem;
-  background-color: var(--theme-color-2);
   font-size: var(--font-size-l);
   color: var(--theme-color-1);
 
   &.auto {
     width: auto;
-    padding: 0 var(--spacing-xs);
     font-size: var(--font-size-s);
   }
 }

@@ -13,9 +13,8 @@ export const FundsPerSecondComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.fundsPerSecond}
-        style="currency"
-        notation="compact"
         label={t('factory.fundsPerSecond')}
+        unit="currency"
       />
     </DialsComponent>
   );

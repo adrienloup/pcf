@@ -13,7 +13,6 @@ export const OperationComponent = () => {
         value={factory.operation}
         valueMax={factory.operationMax}
         label={t('factory.operation')}
-        notation="compact"
       />
     </DialsComponent>
   );

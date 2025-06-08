@@ -1,7 +1,7 @@
 import type { UnitValue } from '@/src/common/shared/types/unitValue.ts';
 import type { FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
 
-export type Feature = {
+export type FeatureState = {
   category?: string;
   costs?: UnitValue[];
   actived: boolean;
@@ -11,4 +11,4 @@ export type Feature = {
   requirements?: UnitValue[] | string;
 };
 
-export type FeatureState = Record<string, Feature>;
+export type Feature = Record<string, FeatureState>;

@@ -11,7 +11,6 @@ export const CreativityComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.creativity}
-        notation="compact"
         label={t('factory.creativity')}
       />
     </DialsComponent>

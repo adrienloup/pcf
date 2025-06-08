@@ -8,9 +8,9 @@ export const swarmReducer = (state: Factory, action: FactoryDispatch): Factory =
         ...state,
         swarmStrategy: action.strategy,
       };
-    case 'ADD_GIFTS':
+    case 'UPDATE_SWARM_GIFTS':
+      console.log('UPDATE_SWARM_GIFTS');
       if (state.swarmGifts > 100 && state.harvesterDrone + state.wireDrone < 1) return state;
-      // console.log('ADD_GIFTS');
       return {
         ...state,
         swarmGifts: Math.min(100, state.swarmGifts + action.swarmGifts),
@@ -22,13 +22,33 @@ export const swarmReducer = (state: Factory, action: FactoryDispatch): Factory =
         disorganization: Math.min(state.disorganization + 1, 100),
       };
     }
-    case 'RESET_DISORGANIZATION_SWARM': {
-      // console.log('RESET_DISORGANIZATION_SWARM');
+    case 'SYNCHRONIZE_SWARM': {
+      // console.log('SYNCHRONIZE_SWARM');
       if (state.funds < state.synchronizationCost) return state;
+      const fundsSS = Math.max(0, state.funds - state.synchronizationCost);
       return {
         ...state,
         disorganization: 0,
-        funds: state.funds - state.synchronizationCost,
+        funds: fundsSS,
+      };
+    }
+    case 'ENTERTAIN_SWARM': {
+      // console.log('ENTERTAIN_SWARM');
+      if (state.creativity < state.entertainmentCost) return state;
+      const entertainmentCostBES = state.entertainmentCost + 1e4;
+      const creativityBES = Math.max(0, state.creativity - entertainmentCostBES);
+      return {
+        ...state,
+        creativity: creativityBES,
+        entertainment: 1,
+        entertainmentCost: entertainmentCostBES,
+      };
+    }
+    case 'BORED_SWARM': {
+      // console.log('BORED_SWARM');
+      return {
+        ...state,
+        entertainment: 0,
       };
     }
     default:

@@ -18,13 +18,11 @@ export const HarvesterDroneComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.harvesterDroneCost}
-        style="currency"
-        notation="compact"
         label={t('factory.harvesterDroneCost')}
+        unit="currency"
       />
       <DialComponent
         value={factory.harvesterDrone}
-        notation="compact"
         label={t('factory.harvesterDrone')}
       />
       <div className={styles.buttons}>
@@ -34,7 +32,7 @@ export const HarvesterDroneComponent = () => {
           prefix="+"
           suffix={t('factory.drone')}
           disabled={factory.funds < factory.harvesterDroneCost * 10}
-          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', drone: 10 })}
+          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', harvesterDrone: 10 })}
         >
           +10
         </ClickerComponent>
@@ -44,7 +42,7 @@ export const HarvesterDroneComponent = () => {
           prefix="+"
           suffix={t('factory.drone')}
           disabled={factory.funds < factory.harvesterDroneCost * 100}
-          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', drone: 100 })}
+          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', harvesterDrone: 100 })}
         >
           +100
         </ClickerComponent>
@@ -54,13 +52,10 @@ export const HarvesterDroneComponent = () => {
           prefix="+"
           suffix={t('factory.drone')}
           disabled={factory.funds < factory.harvesterDroneCost * 1e3}
-          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', drone: 1e3 })}
+          onClick={() => setFactory({ type: 'BUY_HARVESTER_DRONE', harvesterDrone: 1e3 })}
         >
           +
-          <NumberComponent
-            value={1e3}
-            notation="compact"
-          />
+          <NumberComponent value={1e3} />
         </ClickerComponent>
       </div>
     </DialsComponent>

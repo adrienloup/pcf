@@ -20,13 +20,13 @@ export const SwarmSynchronizeComponent = () => {
   const setFactory = useFactoryDispatch();
   const setAlerts = useAlertsDispatch();
 
-  const synchronization = factory.wireDrone / Math.max(factory.harvesterDrone, 1);
+  const synchronization = factory.wireDrone / Math.max(factory.harvesterDrone, 1) < 1.5;
 
   const increaseDisorganization = useCallback(() => {
     setFactory({ type: 'INCREASE_DISORGANIZATION_SWARM' });
   }, []);
 
-  useInterval(increaseDisorganization, 2e3, isPlay && !!user && synchronization > 1.5);
+  useInterval(increaseDisorganization, 2e3, isPlay && !!user && !synchronization);
 
   useEffect(() => {
     if (factory.disorganization >= 100) {
@@ -41,11 +41,10 @@ export const SwarmSynchronizeComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.synchronizationCost}
-        style="currency"
-        notation="compact"
         label={t('factory.synchronizationCost')}
+        unit="currency"
         tile={
-          synchronization > 1.5 ? (
+          !synchronization ? (
             <ThumbnailComponent
               label={t('factory.disorganization')}
               status="warning"
@@ -53,18 +52,13 @@ export const SwarmSynchronizeComponent = () => {
           ) : null
         }
       />
-      <DialComponent
-        value={synchronization}
-        notation="compact"
-        label={t('factory.synchronization')}
-      />
       <ClickerComponent
         className={classNames([styles.button, styles.auto])}
         value={factory.synchronizationCost}
         prefix="-"
         disabled={factory.funds < factory.synchronizationCost || factory.disorganization < 100}
-        onClick={() => setFactory({ type: 'RESET_DISORGANIZATION_SWARM' })}
-        currency
+        onClick={() => setFactory({ type: 'SYNCHRONIZE_SWARM' })}
+        unit="currency"
       >
         {t('factory.synchronize')}
       </ClickerComponent>

@@ -13,9 +13,8 @@ export const CashComponent = () => {
     <DialsComponent>
       <DialComponent
         value={factory.cash}
-        style="currency"
-        notation="compact"
         label="Cash"
+        unit="currency"
       />
       <div className={styles.buttons}>
         <ClickerComponent

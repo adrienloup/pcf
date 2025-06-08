@@ -5,6 +5,12 @@
   appearance: none;
   background: transparent;
   cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+  }
 }
 
 .rangebar:focus {
