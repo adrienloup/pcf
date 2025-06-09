@@ -7,7 +7,7 @@ $mobile-landscape: 768px;
   height: 0;
   background-color: var(--theme-color-2);
   transition-property: height;
-  transition-duration: 300ms;
+  transition-duration: 200ms;
   transition-timing-function: var(--ease-expo);
   //will-change: height;
 
@@ -31,16 +31,14 @@ $mobile-landscape: 768px;
   justify-content: center;
   overflow: hidden;
   height: 0;
-  transform: translateY(1rem);
   visibility: hidden;
-  transition-property: height, transform;
-  transition-duration: 100ms;
+  transition-property: height;
+  transition-duration: 200ms;
   transition-timing-function: var(--ease-expo);
   //will-change: height;
 
   .open & {
     height: 22rem;
-    transform: translateY(0);
     visibility: visible;
     transition-duration: 400ms;
 

@@ -35,7 +35,7 @@ export const SwarmEntertainmentComponent = () => {
       />
       <ClickerComponent
         className={classNames([styles.button, styles.auto])}
-        value={factory.synchronizationCost}
+        value={factory.entertainmentCost}
         prefix="-"
         disabled={factory.creativity < factory.entertainmentCost || !!entertainment}
         onClick={() => setFactory({ type: 'ENTERTAIN_SWARM' })}

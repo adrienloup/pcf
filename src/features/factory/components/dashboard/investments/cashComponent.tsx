@@ -15,6 +15,7 @@ export const CashComponent = () => {
         value={factory.cash}
         label="Cash"
         unit="currency"
+        decimal
       />
       <div className={styles.buttons}>
         <ClickerComponent
@@ -33,7 +34,7 @@ export const CashComponent = () => {
           aria-label="Increase cash"
           value={100}
           prefix="+"
-          suffix="cash"
+          unit="currency"
           disabled={factory.funds < 100}
           onClick={() => setFactory({ type: 'INCREASE_CASH' })}
         >
@@ -43,7 +44,7 @@ export const CashComponent = () => {
           className={classNames([styles.button, styles.auto])}
           value={factory.cashRef}
           prefix="+"
-          suffix="cash"
+          unit="currency"
           disabled={factory.cash <= 0}
           onClick={() => setFactory({ type: 'WITHDRAW_CASH' })}
         >

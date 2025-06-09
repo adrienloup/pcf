@@ -33,7 +33,7 @@ export function ExchangeProvider({ children }: { children: Children }) {
         }
         return updated;
       });
-    }, 3e3);
+    }, 5e3);
     setStoredState(tokens);
     return () => clearInterval(interval);
   }, [isPlay, tokens]);

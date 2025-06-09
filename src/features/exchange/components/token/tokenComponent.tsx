@@ -10,11 +10,15 @@ export const TokenComponent = ({ name, price, volume, change }: Token) => {
         <NumberComponent
           value={price}
           unit="currency"
+          decimal
         />
       </div>
       <div className={classNames([styles.variation, change >= 0 ? styles.positive : styles.negative])}>
         {change > 0 ? '+' : '-'}
-        <NumberComponent value={Math.abs(change)} />
+        <NumberComponent
+          value={Math.abs(change)}
+          decimal
+        />
       </div>
       <div className={styles.volume}>
         <NumberComponent value={volume} />

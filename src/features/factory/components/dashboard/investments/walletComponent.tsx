@@ -24,6 +24,7 @@ export const WalletComponent = () => {
           <DialComponent
             value={token.quantity}
             label={`${symbol}`}
+            decimal
           />
           <div className={styles.buttons}>
             <ClickerComponent

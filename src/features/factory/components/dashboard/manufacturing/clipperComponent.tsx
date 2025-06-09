@@ -24,6 +24,7 @@ export const ClipperComponent = () => {
         value={factory.clipperCost}
         label={t('factory.clipperCost')}
         unit="currency"
+        decimal
       />
       <DialComponent
         value={factory.clipper}

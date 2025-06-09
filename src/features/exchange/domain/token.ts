@@ -1,5 +1,5 @@
-export type TokenSymbol = 'BTC' | 'ETH';
-export type TokenName = 'Bitcoin' | 'Ethereum';
+export type TokenSymbol = 'BTC' | 'ETH' | 'BNB';
+export type TokenName = 'Bitcoin' | 'Ethereum' | 'Binance';
 
 export interface Token {
   name: TokenName;
